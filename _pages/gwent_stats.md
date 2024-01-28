@@ -20,8 +20,7 @@ collected! (*last update: 20/03/2022*)
 
 <vegachart schema-url="{{ site.baseurl }}/assets/pages/gwent/pro_player_chart.json" style="width: 100%"></vegachart>
 
-At the end of each season the website can be scraped to figure out how many Pro Ranked players there were (described in
-[this post]({% post_url 2021/2021-01-24-GwentProPlayersAnalysis %}). Note that longer seasons typically have more
+At the end of each season the website can be scraped to figure out how many Pro Ranked 
 players reaching Pro ladder than shorter seasons.
 
 ## How many players are there on regular ladder ?
@@ -51,12 +50,6 @@ Pro Rank on an average day. This gives an indication how many people are playing
 ## Read more...
 
 If you want more information or check how these graphs were generated, relevant posts are linked below.
-
-  * [Gwent Popularity](https://teambanditgang.com/gwent-popularity/)
-  * [Gwent: How Many Pro Players Are Out There ?]({% post_url 2021/2021-01-24-GwentProPlayersAnalysis %})
-  * An Agent Based Model to look at Gwent Pro Ladder. [Part 1]({% post_url 2020/2020-11-11-Gwent-Pro-Rank-ABM %}) and [part 2]({% post_url 2020/2020-11-11-Gwent-Pro-Rank-ABM_2 %})
-  * [Climbing Pro Ladder: Grind vs Skill](https://teambanditgang.com/climbing-pro-ladder-grind-vs-skill/)
-  * [Gwent: Pro Ladder Analysis and National Rankings]({% post_url 2020/2020-09-01-GwentProRankAnalysis %})
 
 There is also a ton of information in other places:
 

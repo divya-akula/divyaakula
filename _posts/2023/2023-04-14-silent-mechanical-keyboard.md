@@ -121,5 +121,4 @@ typing experience.
 **Update**: Changed the layout a little, using my thumb for backspace wasn't working and the RGB controls are now 
 better. The [updated json file](/assets/posts/2023-04-14-silent-mechanical-keyboard/idobao_id75.layout3.json) is available for download.
 
-[own homemade mechanical keyboard]: {% post_url 2020/2020-05-01-Mechanical-Keyboard %}
 [keybr.com]: https://www.keybr.com/

@@ -112,7 +112,6 @@ The rapid advancements in this field never cease to astonish me. Whereas with SD
 impossible to perfect, SDXL renders them correctly (hands are still the biggest issue). The base model's capacity for 
 realism has escalated and the resolution has significantly improved. For individuals like me who need a creative outlet occasionally and are more skilled with computer engineering than paintbrushes, this toolkit is pivotal in creating cool looking images.
 
-[previous post]: {% post_url 2022/2022-12-31-Stable-Diffusion-Workflow %}
 [ComfyUI]: https://github.com/comfyanonymous/ComfyUI
 [Automatic1111]: https://github.com/AUTOMATIC1111/stable-diffusion-webui
 [Stability AI]: https://huggingface.co/stabilityai

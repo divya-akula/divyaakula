@@ -146,4 +146,4 @@ best solution for your specific circumstances.
 [Home Assistant]: https://www.home-assistant.io/
 [MQTT]: https://www.home-assistant.io/integrations/mqtt/
 [ZigBee2MQTT]: https://www.zigbee2mqtt.io/guide/usage/integrations/home_assistant.html
-[pair it with HA]: {% post_url 2021/2021-04-28-MQTT-Ikea-Tradfri %}
+
