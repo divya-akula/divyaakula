@@ -143,7 +143,6 @@ unexpected movements, they may not be up to the same standards as professionally
 As such, it's always wise to assess your security needs and consider consulting with a security expert to determine the 
 best solution for your specific circumstances.
 
-[getting Home Assistant up and running with MQTT and ZigBee]: {% post_url 2020/2020-09-10-MQTT %}
 [Home Assistant]: https://www.home-assistant.io/
 [MQTT]: https://www.home-assistant.io/integrations/mqtt/
 [ZigBee2MQTT]: https://www.zigbee2mqtt.io/guide/usage/integrations/home_assistant.html
