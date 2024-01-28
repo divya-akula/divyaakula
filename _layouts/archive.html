@@ -1,0 +1,32 @@
+---
+layout: default
+sitemap: false
+---
+<div class="post-header-container {% if site.jekyll-archives.cover %}has-cover{% endif %}" {% if site.jekyll-archives.cover %}style="background-image: url({{ site.jekyll-archives.cover | prepend: site.baseurl }});"{% endif %}>
+	<div class="scrim {% if site.jekyll-archives.cover %}has-cover{% endif %} narrow">
+		<header class="post-header">
+			{% if page.type == 'year' %}
+				<h1 class="title">Posts from {{ page.date| date: "%Y" }}</h1>
+			{% else %}
+				<h1 class="title">Posts in {{ page.title | capitalize }}</h1>
+			{% endif %}
+			{% if page.byline %}
+			<p class="info"><em>{{ page.byline }}</em></p>
+			{% endif %}
+		</header>
+	</div>
+</div>
+
+<div class="wrapper" data-pagefind-ignore>
+<div class="page">
+  <article class="post-content">
+    <ul class="posts-list">
+      {% for post in page.posts %}
+      <li><strong><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></strong><span class="post-date"> - {{ post.date | date: "%B %-d, %Y" }}</span></li>
+      {% endfor %}
+    </ul>
+  </article>
+
+</div>
+</div>
+<br>

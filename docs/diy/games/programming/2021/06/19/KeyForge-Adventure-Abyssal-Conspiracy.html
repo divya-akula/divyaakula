@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Printing Abyssal Conspiracy</title>
+  <meta name="description" content="Both KeyForge Adventures have been out for a while and as I’ve managed to defeat the Keyraken with all my decks it is time to have a look at Abyssal Conspira...">
+  
+  <meta name="author" content="Divya Akula">
+  <meta name="copyright" content="&copy; Divya Akula 2024">
+  
+
+  <!-- External libraries -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Both KeyForge Adventures have been out for a while and as I’ve managed to defeat the Keyraken with all my decks it is time to have a look at Abyssal Conspira..." />
+  <meta property="og:url" content="http://localhost:4000/diy/games/programming/2021/06/19/KeyForge-Adventure-Abyssal-Conspiracy.html">
+  <meta property="og:site_name" content="Divya Akula" />
+  <meta property="og:title" content="Printing Abyssal Conspiracy" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/abyssal_conspiracy_header.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Printing Abyssal Conspiracy">
+  <meta name="twitter:description" content="Both KeyForge Adventures have been out for a while and as I’ve managed to defeat the Keyraken with all my decks it is time to have a look at Abyssal Conspira...">
+  <meta name="twitter:image" content="http://localhost:4000/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/abyssal_conspiracy_header.jpg">
+  <meta name="twitter:url" content="http://localhost:4000/diy/games/programming/2021/06/19/KeyForge-Adventure-Abyssal-Conspiracy.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+  <link rel="canonical" href="http://localhost:4000/diy/games/programming/2021/06/19/KeyForge-Adventure-Abyssal-Conspiracy.html">
+	<link rel="alternate" type="application/rss+xml" title="Divya Akula" href="http://localhost:4000/feed.xml" />
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- PageFind -->
+	<script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+
+
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+
+	<script type='text/javascript'>
+	//<![CDATA[
+	function loadCSS(e, t, n) { "use strict"; var i = window.document.createElement("link"); var o = t || window.document.getElementsByTagName("script")[0]; i.rel = "stylesheet"; i.href = e; i.media = "only x"; o.parentNode.insertBefore(i, o); setTimeout(function () { i.media = n || "all" }) }loadCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+	//]]>
+	</Script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+	<div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/icons/divya-akula-logo-gold.png" alt="Divya Akula" width="58" height="58" />
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+				<li class="nav-link"><a href="/about/">About me</a>
+	
+				<li class="nav-link"><a href="/gallery/">Gallery</a>
+	
+				<li class="nav-link"><a href="/posts/">Posts</a>
+	
+				<li class="nav-link"><a href="#" class="nav-link-contact">Contact</a></li>
+<li class="nav-link"><a href="#" class="nav-link-search"><i class="fa fa-search" style="width:16px;height:16px"></i></a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <img data-pagefind-meta="image[src]" src="/assets/images/thumbnails/abyssal_conspiracy.jpg" style="display:none" />
+<div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/abyssal_conspiracy_header.jpg);">
+  <div class="scrim has-cover ">
+    <header class="post-header">
+      <h1 class="title">Printing Abyssal Conspiracy</h1>
+			
+      <p class="info"><em>the second KeyForge Adventure</em></p>
+			
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">Posted June 19, 2021 by Sebastian Proost</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/diy">Diy</a>, 
+    
+  
+    
+    <a href="/category/games">Games</a>, 
+    
+  
+    
+    <a href="/category/programming">Programming</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>Both KeyForge Adventures have been out for a while and as I’ve managed to defeat the Keyraken with all my decks it is
+time to have a look at Abyssal Conspiracy. Preparing cards for printing is done using the same to steps as described
+in <a href="/programming/games/diy/2021/04/29/Printing-The-Keyraken.html">this post</a>. While adding the bleed is exactly the same, extracting
+the main cards didn’t work. The reason was that the library <a href="https://github.com/pankajr141/pdf2jpg">pdf2jpg</a> didn’t support the newer image compression, 
+JPEG2000, used in that PDF. So this issue has to be fixed first!</p>
+
+<p><a href="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/abyssal_conspiracy_header.jpg" class="lightgallery-link" data-sub-html="KeyForge Adventure: Abyssal Conspiracy printed with 3D printed tableau token">
+<img src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/abyssal_conspiracy_header.jpg" alt="KeyForge Adventure: Abyssal Conspiracy printed with 3D printed tableau token" height="3456" width="5184" data-src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/abyssal_conspiracy_header.jpg" loading="lazy" />
+</a></p>
+
+<p>The files you need to print this adventure can be found <a href="https://www.fantasyflightgames.com/en/products/keyforge/">here</a>
+in the <em>Support</em> section under <em>KeyForge Adventures Print-and-Play Materials</em>. All card files need to be processed,
+the Seal Tableau we’ll turn into a 3D printable token.</p>
+
+<ul>
+  <li><a href="https://images-cdn.fantasyflightgames.com/filer_public/f7/24/f72436db-759f-4094-a1ac-5ef905013b8a/kf_adv_conspiracy_card_pool-compressed.pdf">The Card Pool</a></li>
+  <li><a href="https://images-cdn.fantasyflightgames.com/filer_public/ae/52/ae52772b-730e-4ba0-a3be-2191f085514f/kf_adv_conspiracy_locations_compressed.pdf">Location Cards</a></li>
+  <li><a href="https://images-cdn.fantasyflightgames.com/filer_public/61/90/6190d735-eac0-46a8-9b75-551665808693/kf_adv_conspiracy_seals.pdf">Seal Cards</a></li>
+  <li>
+    <p><a href="https://images-cdn.fantasyflightgames.com/filer_public/7a/79/7a791a64-7c6a-4a0b-87fb-51cb85d0fbe7/kf_adv_conspiracy_tide.pdf">The Tide Card</a></p>
+  </li>
+  <li>
+    <p><a href="https://images-cdn.fantasyflightgames.com/filer_public/13/f6/13f62bc0-7321-4a0a-8ae8-6ddfd16e48fb/kf_adv_conspiracy_card_backs_compressed.pdf">Card Backs</a> 
+or use those from Reddit user <a href="https://www.reddit.com/user/Dead-Sync">Dead-Sync</a> <a href="https://www.reddit.com/r/KeyforgeGame/comments/ncy2r6/abyssal_conspiracy_individual_card_pngs_custom/">here</a>
+which already include a bleed and are ready to print</p>
+  </li>
+  <li>
+    <p><a href="https://images-cdn.fantasyflightgames.com/filer_public/7d/62/7d625289-55bb-4db7-82a2-aeb92d8377d2/kf_adv_card_connector.pdf">The Seal Tableau</a></p>
+  </li>
+  <li>
+    <p>Tokens to track player positions. You can use anything, but there is a great option on Thingiverse <a href="https://www.thingiverse.com/thing:4885866">here</a></p>
+  </li>
+  <li>A copy of <a href="https://images-cdn.fantasyflightgames.com/filer_public/aa/80/aa806171-5f17-4f78-b4a1-fee470deaf11/kf_adv_rulebook_id_compressed.pdf">the rules</a></li>
+</ul>
+
+<p>Only the file with the card pool uses
+this new format, other files can be processed exactly as described in my <a href="/programming/games/diy/2021/04/29/Printing-The-Keyraken.html">previous post</a>.</p>
+
+<h2 id="extracting-the-cards-images">Extracting the cards images</h2>
+
+<p>As <a href="https://github.com/pankajr141/pdf2jpg">pdf2jpg</a> didn’t work, another package has to be used and <a href="https://pypi.org/project/pdf2image/">pdf2image</a> is up to the task! However, it does require
+you to have <a href="https://github.com/oschwartz10612/poppler-windows/releases/">poppler</a> installed somewhere on your system. So make sure to pip install pdf2image and put a copy of
+poppler somewhere on your system.</p>
+
+<p>Paths to the input file and output are hard-coded, since this is a one-off script I think I’ll get away with it. It is 
+also the easiest way to share working code through a blog, just don’t do this in serious projects. The <code class="language-plaintext highlighter-rouge">output_path</code>
+is created if needed. Using this library we need to load and export page by page. The loop over <code class="language-plaintext highlighter-rouge">range(1, 44)</code>
+takes care of this, but again, hard coded range here, so it will only work for this specific PDF.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">pdf2image</span> <span class="kn">import</span> <span class="n">convert_from_path</span>
+<span class="kn">import</span> <span class="n">pathlib</span>
+
+<span class="n">input_path</span> <span class="o">=</span> <span class="sh">"</span><span class="s">./data/kf_adv_conspiracy_card_pool-compressed.pdf</span><span class="sh">"</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="sh">"</span><span class="s">./output/kf_adv_conspiracy_card_pool-compressed.blog/</span><span class="sh">"</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pathlib</span><span class="p">.</span><span class="nc">Path</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+<span class="n">p</span><span class="p">.</span><span class="nf">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Converting </span><span class="si">{</span><span class="n">input_path</span><span class="si">}</span><span class="s">....</span><span class="sh">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">pn</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">44</span><span class="p">):</span>
+    <span class="n">pages</span> <span class="o">=</span> <span class="nf">convert_from_path</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">single_file</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">first_page</span><span class="o">=</span><span class="n">pn</span><span class="p">,</span> <span class="n">poppler_path</span><span class="o">=</span><span class="sh">"</span><span class="s">D:</span><span class="se">\\</span><span class="s">poppler-21.03.0</span><span class="se">\\</span><span class="s">Library</span><span class="se">\\</span><span class="s">bin</span><span class="sh">"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">converting page </span><span class="si">{</span><span class="n">pn</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">pages</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">save</span><span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="nf">joinpath</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">card_</span><span class="si">{</span><span class="n">pn</span><span class="si">:</span><span class="mi">02</span><span class="si">}</span><span class="s">.jpg</span><span class="sh">"</span><span class="p">)),</span> <span class="n">quality</span><span class="o">=</span><span class="mi">95</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Done !</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>pdf2image is a little under-documented, and I couldn’t find a good way to process the file as a whole. So here we load
+a single page, defining which page using <code class="language-plaintext highlighter-rouge">first_page=pn</code>, and write it to disk as a .jpg file.</p>
+
+<p>Once all 43 cards have been exported, the bleed area can be added using scripts from the 
+<a href="/programming/games/diy/2021/04/29/Printing-The-Keyraken.html">previous post</a> and done !</p>
+
+<p><a href="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/game_setup.jpg" class="lightgallery-link" data-sub-html="Abyssal conspiracy printed and layed out to play">
+<img src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/game_setup.jpg" alt="Abyssal conspiracy printed and layed out to play" height="800" width="1200" data-src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/game_setup.jpg" loading="lazy" />
+</a></p>
+
+<h2 id="creating-a-3d-printable-seal-tableau-token">Creating a 3D printable Seal Tableau token</h2>
+
+<p>With all code in place to get images printable through a service, there is only the Seal Tableau to do. A solid option
+would be to print the PDF on <a href="/diy/2021/06/14/Stickers.html">sticker paper apply a few layers of clear coat</a>, put 
+the sticker on a piece of cardboard, and cut the shape out.</p>
+
+<p>However, I wanted to create a 3D printed one. The process used is essentially the same as to create a <a href="https://en.wikipedia.org/wiki/Lithophane">lithophane</a> with
+a 3D printer, but in reverse. While normally dark parts are thicker, creating the image when light
+shines through the back, here the lightest parts need to be printed thickest.</p>
+
+<p><a href="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/3dprocks_lithophane.png" class="lightgallery-link" data-sub-html="Creating a lithophane is very easy using this online tool">
+<img src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/3dprocks_lithophane.png" alt="Creating a lithophane is very easy using this online tool" height="908" width="1196" data-src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/3dprocks_lithophane.png" loading="lazy" />
+</a></p>
+
+<p>Converting the image to STL can be done online e.g. using <a href="https://3dp.rocks/lithophane/">https://3dp.rocks/lithophane/</a>.
+Depending on the service you use you might need to invert the image (on 3dp.rocks this is not required). 
+However, this will create a rectangular item, which needs to be cut into a pentagram. This can easily be done using
+<a href="https://www.meshmixer.com/">MeshMixer</a>, or (with a steeper learning curve) <a href="https://www.blender.org/">Blender</a>.</p>
+
+<p><a href="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/meshmixer_token.png" class="lightgallery-link" data-sub-html="Lithophane STL cut into pentagram, final tableau token is ready to print">
+<img src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/meshmixer_token.png" alt="Lithophane STL cut into pentagram, final tableau token is ready to print" height="1080" width="1430" data-src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/meshmixer_token.png" loading="lazy" />
+</a></p>
+
+<p>After printing the model, I sanded it, primed it and painted it with Vallejo metallic paints to make it look like an
+old copper coin. The result is rather nice, do note I scaled the token down to a size that fits a deck box. You can 
+adjust the model size settings in <a href="https://3dp.rocks/lithophane/">https://3dp.rocks/lithophane/</a> to fit your needs.</p>
+
+<p><a href="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/tableau_token.jpg" class="lightgallery-link" data-sub-html="3D printed Tableau Seal finished">
+<img src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/tableau_token.jpg" alt="3D printed Tableau Seal finished" height="3456" width="5184" data-src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/tableau_token.jpg" loading="lazy" />
+</a></p>
+
+<p>As we are 3D printing we might as well print a set of Delver tokens, available <a href="https://www.thingiverse.com/thing:4885866">here</a>
+to keep track of players’ positions. I printed 3 and painted them in the same style as my Seal Tableau token.</p>
+
+<p><a href="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/delver_tokens.jpg" class="lightgallery-link" data-sub-html="3D printed Delver tokens to keep track of players' positions">
+<img src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/delver_tokens.jpg" alt="3D printed Delver tokens to keep track of players' positions" height="800" width="1200" data-src="/assets/posts/2021-06-19-KeyForge-Adventure-Abyssal-Conspiracy/delver_tokens.jpg" loading="lazy" />
+</a></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I’m all set to try the next KeyForge Adventure! Looking forward to playing this one!</p>
+
+
+</article>
+
+
+
+<section class="tags">
+	<strong><i class="fa fa-tags"></i> Tags:</strong> <a href="/tag/printing">printing</a>,&nbsp;<a href="/tag/3d-printing">3d-printing</a>,&nbsp;<a href="/tag/python">python</a>,&nbsp;<a href="/tag/keyforge">keyforge</a>
+</section>
+
+
+
+<section class="rss">
+	
+	<p class="rss-subscribe text">Liked this post ? <strong><a href="https://buymeacoffee.com/divyaakula">You can buy me a coffee <i class="fa fa-coffee"></i></a></strong></p>
+	
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=Printing+Abyssal+Conspiracy&url=http%3A%2F%2Flocalhost%3A4000%2Fdiy%2Fgames%2Fprogramming%2F2021%2F06%2F19%2FKeyForge-Adventure-Abyssal-Conspiracy.html&via=_divyaakula"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=Printing+Abyssal+Conspiracy&u=http%3A%2F%2Flocalhost%3A4000%2Fdiy%2Fgames%2Fprogramming%2F2021%2F06%2F19%2FKeyForge-Adventure-Abyssal-Conspiracy.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdiy%2Fgames%2Fprogramming%2F2021%2F06%2F19%2FKeyForge-Adventure-Abyssal-Conspiracy.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+</section>
+
+	<section class="post-navigation" data-pagefind-ignore>
+		<span class="prev-post">
+			
+				<a href="/diy/2021/06/14/Stickers.html">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="page-number">Making Stickers</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/general/2021/06/28/Buy-me-a-Coffee.html">
+					<span class="page-number">Like this blog? You can buy me a coffee now!</span>
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+</div>
+</div>
+
+    </div>
+
+		<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-1-title">
+					Contact
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-1-content">
+				<p>Have any comments or suggestions, your are welcome to reach out !</p>
+				<ul class="modal__list">
+						<li>
+	<i class="fa fa-envelope-o"></i>
+	<a href="mailto:akula.divya@gmail.com">
+		<span class="username">akula.divya@gmail.com</span>
+	</a>
+</li>
+
+
+	
+	<li>
+		<i class="fa fa-twitter"></i>
+		<a href="https://twitter.com/_divyaakula" title="Follow me on Twitter">
+			<span class="username">_divyaakula</span>
+		</a>
+	</li>
+	
+
+	
+	<li>
+		<i class="fa fa-github"></i>
+		<a href="https://github.com/divya-akula" title="Fork me on GitHub">
+			<span class="username">divya-akula</span>
+		</a>
+	</li>
+	
+
+	
+
+	
+
+
+				</ul>
+				
+				<br />
+				<p>Do you like this blog and wish to contribute? You could <a href="https://buymeacoffee.com/divyaakula">Buy me a Coffee <i class="fa fa-coffee"></i></a>!</p>
+				
+			</main>
+			<footer class="modal__footer">
+				<button class="modal__btn modal__btn-primary" data-micromodal-close="" aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+		<div class="modal micromodal-slide" id="modal-2" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-2-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-2-title">
+					Search
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-2-content">
+				<div id="search"></div>
+			</main>
+			<footer class="modal__footer">
+					<button class="modal__btn modal__btn-primary" data-micromodal-close="" aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Divya Akula</h3>
+
+		<div>
+			<div class="site-navigation">
+
+				<p><strong>Site Map</strong></p>
+				<ul class="pages">
+					
+				<li class="nav-link"><a href="/about/">About me</a>
+	
+				<li class="nav-link"><a href="/gallery/">Gallery</a>
+	
+				<li class="nav-link"><a href="/posts/">Posts</a>
+	
+				<li class="nav-link"><a href="#" class="nav-link-contact">Contact</a></li>
+
+				</ul>
+				<br />
+				<p><strong>Legal</strong></p>
+				<p><a href="/policy/">Privacy policy</a></p>
+				<p>Powered by Jekyll & <a href="https://twitter.com/ProostSebastian">Sebastian Proost</a>></p>>
+			</div>
+
+			<div class="site-contact">
+				<p><strong>Contact</strong></p>
+				<ul class="social-media-list">
+					<li>
+	<i class="fa fa-envelope-o"></i>
+	<a href="mailto:akula.divya@gmail.com">
+		<span class="username">akula.divya@gmail.com</span>
+	</a>
+</li>
+
+
+	
+	<li>
+		<i class="fa fa-twitter"></i>
+		<a href="https://twitter.com/_divyaakula" title="Follow me on Twitter">
+			<span class="username">_divyaakula</span>
+		</a>
+	</li>
+	
+
+	
+	<li>
+		<i class="fa fa-github"></i>
+		<a href="https://github.com/divya-akula" title="Fork me on GitHub">
+			<span class="username">divya-akula</span>
+		</a>
+	</li>
+	
+
+	
+
+	
+
+
+				</ul>
+			</div>
+
+			<div class="site-signature">
+				
+				<p><strong>Contribute</strong></p>
+				<p><i class="fa fa-coffee"></i> <a href="https://buymeacoffee.com/divyaakula">Buy me a Coffee </a></p>
+				
+				<p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+				
+			</div>
+		</div>
+
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    enableMenu: false
+  },
+  tex: {
+    packages: ['base', 'ams']
+  },
+  loader: {
+    load: ['ui/menu', '[tex]/ams']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.min.js">
+</script>
+<script>
+	AOS.init({
+   once: true,
+   offset: -20,
+   duration: 600
+	});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+		$(".post-content").lightGallery({
+			 thumbnail:false,
+			 selector: '.lightgallery-link'
+		});
+});
+</script>
+
+<!-- Contact Modal -->
+<script type="text/javascript">
+$(document).ready(function() {
+	MicroModal.init();
+
+	$('.nav-link-contact').click(function(ev) {
+	  ev.preventDefault();
+	  MicroModal.show('modal-1', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+	});
+
+	$('.nav-link-search').click(function(ev) {
+	  ev.preventDefault();
+
+	  MicroModal.show('modal-2', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+
+	  document.querySelector('.pagefind-ui__search-input').focus();
+	});
+
+});
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

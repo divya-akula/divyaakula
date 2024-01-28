@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Faster Mixture Models in PyMC3</title>
+  <meta name="description" content="In a previous post about clustering the palmer penguins using PyMC3, the mixture model was implemented in the model itself.  Though this is great for underst...">
+  
+  <meta name="author" content="Divya Akula">
+  <meta name="copyright" content="&copy; Divya Akula 2024">
+  
+
+  <!-- External libraries -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="In a previous post about clustering the palmer penguins using PyMC3, the mixture model was implemented in the model itself.  Though this is great for underst..." />
+  <meta property="og:url" content="http://localhost:4000/programming/biology/2021/11/11/Clustering-penguins_2.html">
+  <meta property="og:site_name" content="Divya Akula" />
+  <meta property="og:title" content="Faster Mixture Models in PyMC3" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/posts/2021-11-11-Clustering-penguins_2/penguin_header.jpg" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Faster Mixture Models in PyMC3">
+  <meta name="twitter:description" content="In a previous post about clustering the palmer penguins using PyMC3, the mixture model was implemented in the model itself.  Though this is great for underst...">
+  <meta name="twitter:image" content="http://localhost:4000/assets/posts/2021-11-11-Clustering-penguins_2/penguin_header.jpg">
+  <meta name="twitter:url" content="http://localhost:4000/programming/biology/2021/11/11/Clustering-penguins_2.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+  <link rel="canonical" href="http://localhost:4000/programming/biology/2021/11/11/Clustering-penguins_2.html">
+	<link rel="alternate" type="application/rss+xml" title="Divya Akula" href="http://localhost:4000/feed.xml" />
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- PageFind -->
+	<script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+
+
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+
+	<script type='text/javascript'>
+	//<![CDATA[
+	function loadCSS(e, t, n) { "use strict"; var i = window.document.createElement("link"); var o = t || window.document.getElementsByTagName("script")[0]; i.rel = "stylesheet"; i.href = e; i.media = "only x"; o.parentNode.insertBefore(i, o); setTimeout(function () { i.media = n || "all" }) }loadCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+	//]]>
+	</Script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+	<div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/icons/divya-akula-logo-gold.png" alt="Divya Akula" width="58" height="58" />
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+				<li class="nav-link"><a href="/about/">About me</a>
+	
+				<li class="nav-link"><a href="/gallery/">Gallery</a>
+	
+				<li class="nav-link"><a href="/posts/">Posts</a>
+	
+				<li class="nav-link"><a href="#" class="nav-link-contact">Contact</a></li>
+<li class="nav-link"><a href="#" class="nav-link-search"><i class="fa fa-search" style="width:16px;height:16px"></i></a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <img data-pagefind-meta="image[src]" src="/assets/images/thumbnails/classifying_penguins_2_header.jpg" style="display:none" />
+<div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/posts/2021-11-11-Clustering-penguins_2/penguin_header.jpg);">
+  <div class="scrim has-cover ">
+    <header class="post-header">
+      <h1 class="title">Faster Mixture Models in PyMC3</h1>
+			
+      <p class="info"><em>ft. more penguins</em></p>
+			
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">Posted November 11, 2021 by Sebastian Proost</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/programming">Programming</a>, 
+    
+  
+    
+    <a href="/category/biology">Biology</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>In a <a href="/programming/biology/2021/08/01/Clustering-penguins.html">previous post</a> about clustering the <a href="https://allisonhorst.github.io/palmerpenguins/">palmer penguins</a> using <a href="https://docs.pymc.io/">PyMC3</a>, the mixture model was implemented in the model itself. 
+Though this is great for understanding what is going on, it isn’t very efficient when sampling the model. Furthermore, 
+observations (here penguins) were assigned to groups (here the species of penguin) using only one of the samples taken 
+from the model, since we sample the model thousands of times it is a shame not to take all that data into account.</p>
+
+<p>When acquiring more observations, you typically don’t want to re-run the entire sampling step (here it takes minutes
+but this could be hours or days for more complex mixtures or larger datasets). Ideally you can fit the model on some 
+initial data and then predict the group using new, previously unseen, data. With the code in the previous post this 
+was not possible, in the code below we’ll explore how this can be done using PyMC3.</p>
+
+<p>So while we had a great model already, a few trick can still be used to further improve upon it. 
+<a href="https://github.com/4dcu-be/ClassifyingPenguins">This GitHub repository</a> contains all the code, which is based on the code discussed on the PyMC3 forums 
+<a href="https://discourse.pymc.io/t/properly-sampling-mixture-models/986/7">here</a> and 
+<a href="https://discourse.pymc.io/t/get-probability-of-parameter-given-new-data/2511/2">here</a>. Both threads are interesting
+and worth checking out !</p>
+
+<h2 id="the-new-model">The new model</h2>
+
+<p>The data is all identical to the <a href="/programming/biology/2021/08/01/Clustering-penguins.html">previous post</a>, as is the code to prepare it (applying a <code class="language-plaintext highlighter-rouge">StandardScaler</code>). Here
+the explicit categories for each observation are replaced by <code class="language-plaintext highlighter-rouge">pm.Mixture</code> which handles this far more efficiently.
+Using Theano’s <code class="language-plaintext highlighter-rouge">stack</code> function different distributions are combined into a larger tensor.</p>
+
+<p>Also note that the sampling is done on a single core, this is because there is a bug in the sampling of Mixtures on 
+Windows.</p>
+
+<div class="language-python large-code highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">scaled_penguin_df</span><span class="p">.</span><span class="nf">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">species</span><span class="sh">"</span><span class="p">]).</span><span class="n">values</span>
+<span class="n">n_observations</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">shape</span>
+<span class="k">with</span> <span class="n">pm</span><span class="p">.</span><span class="nc">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">Model</span><span class="p">:</span>
+    <span class="c1"># Create a covariance matrix for each potential cluster which relates all features of our data
+</span>    <span class="n">lower</span> <span class="o">=</span> <span class="n">tt</span><span class="p">.</span><span class="nf">stack</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">pm</span><span class="p">.</span><span class="nc">LKJCholeskyCov</span><span class="p">(</span>
+                <span class="sh">"</span><span class="s">sigma_{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">k</span><span class="p">),</span>
+                <span class="n">n</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span>
+                <span class="n">eta</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+                <span class="n">sd_dist</span><span class="o">=</span><span class="n">pm</span><span class="p">.</span><span class="n">HalfNormal</span><span class="p">.</span><span class="nf">dist</span><span class="p">(</span><span class="n">sd</span><span class="o">=</span><span class="mf">1.0</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">chol</span> <span class="o">=</span> <span class="n">tt</span><span class="p">.</span><span class="nf">stack</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">pm</span><span class="p">.</span><span class="nf">expand_packed_triangular</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="n">lower</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># The center of each cluster
+</span>    <span class="n">mus</span> <span class="o">=</span> <span class="n">tt</span><span class="p">.</span><span class="nf">stack</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">pm</span><span class="p">.</span><span class="nc">Normal</span><span class="p">(</span><span class="sh">"</span><span class="s">mu_{}</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">n_features</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create the multivariate normal distribution for each cluster
+</span>    <span class="n">MultivariateNormals</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">pm</span><span class="p">.</span><span class="n">MvNormal</span><span class="p">.</span><span class="nf">dist</span><span class="p">(</span><span class="n">mus</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">chol</span><span class="o">=</span><span class="n">chol</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="n">n_features</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="c1"># Create the weights for each cluster which measures how much impact they have
+</span>    <span class="n">w</span> <span class="o">=</span> <span class="n">pm</span><span class="p">.</span><span class="nc">Dirichlet</span><span class="p">(</span><span class="sh">"</span><span class="s">w</span><span class="sh">"</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="nf">ones</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_clusters</span><span class="p">)</span>
+
+    <span class="n">obs</span> <span class="o">=</span> <span class="n">pm</span><span class="p">.</span><span class="nc">Mixture</span><span class="p">(</span><span class="sh">"</span><span class="s">obs</span><span class="sh">"</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">comp_dists</span><span class="o">=</span><span class="n">MultivariateNormals</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">pm</span><span class="p">.</span><span class="nf">sample</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="n">cores</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tune</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">chains</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sampling here is considerably faster than before, that already is a clear advantage (especially if you need to run
+the inference multiple times with different cluster sizes to determine how many there are). Though,
+there are still a few things to implement, as this model doesn’t provide a category/group to each observation.</p>
+
+<h2 id="assigning-groups-to-observations">Assigning groups to observations</h2>
+
+<p>From this model it is far less obvious how to get cluster assignments for all observations. The previous model 
+explicitly assigned a category to each observation, which is not the case here. We’ll have to check with each of 
+the <code class="language-plaintext highlighter-rouge">MvNormals</code> in the Mixture which fits best with each observation. The code below does this for all sampled data
+and returns the mean probability for each observation and each cluster.</p>
+
+<p>Note that here we tackle multiple issues in one go as also new data can be passed in that was not used for 
+sampling. After scaling new data (look at <code class="language-plaintext highlighter-rouge">.fit()</code> and <code class="language-plaintext highlighter-rouge">.transform()</code> from <code class="language-plaintext highlighter-rouge">StandardScaler</code>) it can simply
+be passed in here and done!</p>
+
+<div class="language-python large-code highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">prob_weights</span><span class="p">(</span><span class="n">model_mixed</span><span class="p">,</span> <span class="n">trace_mixed</span><span class="p">,</span> <span class="n">ynew</span><span class="p">):</span>
+    <span class="n">complogp</span> <span class="o">=</span> <span class="n">obs</span><span class="p">.</span><span class="n">distribution</span><span class="p">.</span><span class="nf">_comp_logp</span><span class="p">(</span><span class="n">theano</span><span class="p">.</span><span class="nf">shared</span><span class="p">(</span><span class="n">ynew</span><span class="p">))</span>
+    <span class="n">f_complogp</span> <span class="o">=</span> <span class="n">model_mixed</span><span class="p">.</span><span class="n">model</span><span class="p">.</span><span class="nf">fastfn</span><span class="p">(</span><span class="n">complogp</span><span class="p">)</span>
+    <span class="n">weight_ynew</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ichain</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># just use the first chain, as groups can differ between chains you can't mix them
+</span>
+    <span class="k">for</span> <span class="n">point_idx</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">trace_mixed</span><span class="p">)):</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">trace_mixed</span><span class="p">.</span><span class="n">_straces</span><span class="p">[</span><span class="n">ichain</span><span class="p">].</span><span class="nf">point</span><span class="p">(</span><span class="n">point_idx</span><span class="p">)</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">point</span><span class="p">.</span><span class="nf">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">k</span><span class="p">.</span><span class="nf">startswith</span><span class="p">(</span><span class="sh">"</span><span class="s">mu_</span><span class="sh">"</span><span class="p">)</span> <span class="ow">or</span> <span class="sh">"</span><span class="s">cholesky</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">k</span> <span class="ow">or</span> <span class="sh">"</span><span class="s">w_stick</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">k</span>
+        <span class="p">}</span>  <span class="c1"># We need to remove a number of un-necessary keys.
+</span>        <span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">exp</span><span class="p">(</span><span class="nf">f_complogp</span><span class="p">(</span><span class="n">point</span><span class="p">))</span>
+        <span class="n">prob</span> <span class="o">/=</span> <span class="n">prob</span><span class="p">.</span><span class="nf">sum</span><span class="p">()</span>
+        <span class="n">weight_ynew</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+
+    <span class="n">weight_ynew</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">asarray</span><span class="p">(</span><span class="n">weight_ynew</span><span class="p">).</span><span class="nf">squeeze</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">weight_ynew</span><span class="p">.</span><span class="nf">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">with</span> <span class="n">Model</span><span class="p">:</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="nf">prob_weights</span><span class="p">(</span><span class="n">Model</span><span class="p">,</span> <span class="n">trace</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This will give us an <em>n_observations</em> by <em>n_clusters</em> large matrix, with for each observation the probabilities it belongs
+to each cluster. With a few lines below we can get the best cluster for each observation.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">weights_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span>
+    <span class="n">weights</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="sh">"</span><span class="s">Group </span><span class="si">{</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="sh">"</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">weights</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="p">)</span>
+<span class="n">weights_df</span><span class="p">[</span><span class="sh">"</span><span class="s">Predicted Group</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights_df</span><span class="p">.</span><span class="nf">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">.</span><span class="nf">idxmax</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">weights_df</span>
+</code></pre></div></div>
+
+<table class="large-table">
+  <thead>
+    <tr>
+      <th style="text-align: right"> </th>
+      <th style="text-align: right">Group 1</th>
+      <th style="text-align: right">Group 2</th>
+      <th style="text-align: right">Group 3</th>
+      <th style="text-align: right">Predicted Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">8.382822e-07</td>
+      <td style="text-align: right">3.585496e-27</td>
+      <td style="text-align: right">2.134100e-03</td>
+      <td style="text-align: right">Group 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: right">2.719038e-05</td>
+      <td style="text-align: right">8.994132e-19</td>
+      <td style="text-align: right">3.469642e-03</td>
+      <td style="text-align: right">Group 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: right">9.999582e-05</td>
+      <td style="text-align: right">1.876578e-19</td>
+      <td style="text-align: right">1.003150e-03</td>
+      <td style="text-align: right">Group 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: right">3.711145e-07</td>
+      <td style="text-align: right">2.739789e-26</td>
+      <td style="text-align: right">1.710354e-03</td>
+      <td style="text-align: right">Group 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">7.053319e-08</td>
+      <td style="text-align: right">1.083051e-32</td>
+      <td style="text-align: right">5.662282e-04</td>
+      <td style="text-align: right">Group 3</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">…</td>
+      <td style="text-align: right">…</td>
+      <td style="text-align: right">…</td>
+      <td style="text-align: right">…</td>
+      <td style="text-align: right">…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">337</td>
+      <td style="text-align: right">1.704825e-13</td>
+      <td style="text-align: right">3.702778e-03</td>
+      <td style="text-align: right">6.052112e-15</td>
+      <td style="text-align: right">Group 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">338</td>
+      <td style="text-align: right">4.878579e-12</td>
+      <td style="text-align: right">1.184303e-02</td>
+      <td style="text-align: right">1.632105e-13</td>
+      <td style="text-align: right">Group 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">339</td>
+      <td style="text-align: right">1.321670e-14</td>
+      <td style="text-align: right">5.686282e-03</td>
+      <td style="text-align: right">5.483161e-16</td>
+      <td style="text-align: right">Group 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">340</td>
+      <td style="text-align: right">6.149976e-12</td>
+      <td style="text-align: right">4.603352e-03</td>
+      <td style="text-align: right">9.009127e-13</td>
+      <td style="text-align: right">Group 2</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">341</td>
+      <td style="text-align: right">4.806522e-11</td>
+      <td style="text-align: right">7.667016e-04</td>
+      <td style="text-align: right">1.549001e-12</td>
+      <td style="text-align: right">Group 2</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="final-results">Final results</h2>
+
+<p>The clustering is on par, or even slightly better than before. By taking all samples from one chain into account we
+get a much more robust result. Only four observations are assigned in the wrong group here, which given how minor the 
+differences are between some species (at least from these measurements, visually it is rather easy telling them apart) 
+in this dataset is a rather nice result.</p>
+
+<vegachart schema-url="/assets/posts/2021-11-11-Clustering-penguins_2/clustering_results.json" style="width: 100%"></vegachart>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>While the model itself isn’t much more complicated than in the <a href="/programming/biology/2021/08/01/Clustering-penguins.html">previous post</a>, not explicitly including categories
+(or groups or species) which can be extracted, makes the downstream analysis more involved. Though the advantages of
+this approach are clear; the model <strong>samples much faster</strong> in under two minutes (vs. 15+ minutes for the previous one), 
+<strong>new observations can be assigned to a group</strong> without re-running the sampling and the final <strong>results are more robust</strong>
+as more data from the sampling is included.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li><strong><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a>: Palmer Archipelago (Antarctica) penguin data.</strong> Allison Marie Horst and Alison Presmanes Hill and Kristen 
+B Gorman (2020).</li>
+</ul>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>Header photo by <a href="https://unsplash.com/@corneliusventures">Cornelius Ventures</a> on <a href="https://unsplash.com/s/photos/penguin">Unsplash</a></p>
+
+
+</article>
+
+
+
+<section class="tags">
+	<strong><i class="fa fa-tags"></i> Tags:</strong> <a href="/tag/python">python</a>,&nbsp;<a href="/tag/pymc3">pymc3</a>,&nbsp;<a href="/tag/data-analysis">data-analysis</a>,&nbsp;<a href="/tag/data-science">data-science</a>,&nbsp;<a href="/tag/machine-learning">machine-learning</a>,&nbsp;<a href="/tag/altair">altair</a>,&nbsp;<a href="/tag/biology">biology</a>
+</section>
+
+
+
+<section class="rss">
+	
+	<p class="rss-subscribe text">Liked this post ? <strong><a href="https://buymeacoffee.com/divyaakula">You can buy me a coffee <i class="fa fa-coffee"></i></a></strong></p>
+	
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=Faster+Mixture+Models+in+PyMC3&url=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2Fbiology%2F2021%2F11%2F11%2FClustering-penguins_2.html&via=_divyaakula"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=Faster+Mixture+Models+in+PyMC3&u=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2Fbiology%2F2021%2F11%2F11%2FClustering-penguins_2.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fprogramming%2Fbiology%2F2021%2F11%2F11%2FClustering-penguins_2.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+</section>
+
+	<section class="post-navigation" data-pagefind-ignore>
+		<span class="prev-post">
+			
+				<a href="/programming/2021/10/15/GitHub-Actions.html">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="page-number">Lights, Camera, GitHub, Actions: My Favorite GitHub Actions</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/diy/2021/12/16/MIDIpad_update.html">
+					<span class="page-number">Better Raspberry Pi Pico MIDI controller</span>
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+</div>
+</div>
+
+    </div>
+
+		<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-1-title">
+					Contact
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-1-content">
+				<p>Have any comments or suggestions, your are welcome to reach out !</p>
+				<ul class="modal__list">
+						<li>
+	<i class="fa fa-envelope-o"></i>
+	<a href="mailto:akula.divya@gmail.com">
+		<span class="username">akula.divya@gmail.com</span>
+	</a>
+</li>
+
+
+	
+	<li>
+		<i class="fa fa-twitter"></i>
+		<a href="https://twitter.com/_divyaakula" title="Follow me on Twitter">
+			<span class="username">_divyaakula</span>
+		</a>
+	</li>
+	
+
+	
+	<li>
+		<i class="fa fa-github"></i>
+		<a href="https://github.com/divya-akula" title="Fork me on GitHub">
+			<span class="username">divya-akula</span>
+		</a>
+	</li>
+	
+
+	
+
+	
+
+
+				</ul>
+				
+				<br />
+				<p>Do you like this blog and wish to contribute? You could <a href="https://buymeacoffee.com/divyaakula">Buy me a Coffee <i class="fa fa-coffee"></i></a>!</p>
+				
+			</main>
+			<footer class="modal__footer">
+				<button class="modal__btn modal__btn-primary" data-micromodal-close="" aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+		<div class="modal micromodal-slide" id="modal-2" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-2-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-2-title">
+					Search
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-2-content">
+				<div id="search"></div>
+			</main>
+			<footer class="modal__footer">
+					<button class="modal__btn modal__btn-primary" data-micromodal-close="" aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Divya Akula</h3>
+
+		<div>
+			<div class="site-navigation">
+
+				<p><strong>Site Map</strong></p>
+				<ul class="pages">
+					
+				<li class="nav-link"><a href="/about/">About me</a>
+	
+				<li class="nav-link"><a href="/gallery/">Gallery</a>
+	
+				<li class="nav-link"><a href="/posts/">Posts</a>
+	
+				<li class="nav-link"><a href="#" class="nav-link-contact">Contact</a></li>
+
+				</ul>
+				<br />
+				<p><strong>Legal</strong></p>
+				<p><a href="/policy/">Privacy policy</a></p>
+				<p>Powered by Jekyll & <a href="https://twitter.com/ProostSebastian">Sebastian Proost</a>></p>>
+			</div>
+
+			<div class="site-contact">
+				<p><strong>Contact</strong></p>
+				<ul class="social-media-list">
+					<li>
+	<i class="fa fa-envelope-o"></i>
+	<a href="mailto:akula.divya@gmail.com">
+		<span class="username">akula.divya@gmail.com</span>
+	</a>
+</li>
+
+
+	
+	<li>
+		<i class="fa fa-twitter"></i>
+		<a href="https://twitter.com/_divyaakula" title="Follow me on Twitter">
+			<span class="username">_divyaakula</span>
+		</a>
+	</li>
+	
+
+	
+	<li>
+		<i class="fa fa-github"></i>
+		<a href="https://github.com/divya-akula" title="Fork me on GitHub">
+			<span class="username">divya-akula</span>
+		</a>
+	</li>
+	
+
+	
+
+	
+
+
+				</ul>
+			</div>
+
+			<div class="site-signature">
+				
+				<p><strong>Contribute</strong></p>
+				<p><i class="fa fa-coffee"></i> <a href="https://buymeacoffee.com/divyaakula">Buy me a Coffee </a></p>
+				
+				<p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+				
+			</div>
+		</div>
+
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+<script src="/js/lightgallery.min.js"></script>
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    enableMenu: false
+  },
+  tex: {
+    packages: ['base', 'ams']
+  },
+  loader: {
+    load: ['ui/menu', '[tex]/ams']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.min.js">
+</script>
+<script>
+	AOS.init({
+   once: true,
+   offset: -20,
+   duration: 600
+	});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+		$(".post-content").lightGallery({
+			 thumbnail:false,
+			 selector: '.lightgallery-link'
+		});
+});
+</script>
+
+<!-- Contact Modal -->
+<script type="text/javascript">
+$(document).ready(function() {
+	MicroModal.init();
+
+	$('.nav-link-contact').click(function(ev) {
+	  ev.preventDefault();
+	  MicroModal.show('modal-1', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+	});
+
+	$('.nav-link-search').click(function(ev) {
+	  ev.preventDefault();
+
+	  MicroModal.show('modal-2', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+
+	  document.querySelector('.pagefind-ui__search-input').focus();
+	});
+
+});
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
+
+
+
+<!-- Custom page specific js files -->
+  
+    <script src='/js/vega.min.js' type="text/javascript"></script>
+  
+    <script src='/js/vega-lite.min.js' type="text/javascript"></script>
+  
+    <script src='/js/vega-embed.min.js' type="text/javascript"></script>
+  
+    <script src='/js/justcharts.js' type="text/javascript"></script>
+  
+
+
+
+
+  </body>
+
+</html>

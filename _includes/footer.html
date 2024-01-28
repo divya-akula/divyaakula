@@ -1,0 +1,143 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">{{ site.title }}</h3>
+
+		<div>
+			<div class="site-navigation">
+
+				<p><strong>Site Map</strong></p>
+				<ul class="pages">
+					{% include nav_links_footer.html %}
+				</ul>
+				<br />
+				<p><strong>Legal</strong></p>
+				<p><a href="{{ "/policy/" | prepend: site.baseurl }}">Privacy policy</a></p>
+				<p>Powered by Jekyll & <a href="https://twitter.com/ProostSebastian">Sebastian Proost</a>></p>>
+			</div>
+
+			<div class="site-contact">
+				<p><strong>Contact</strong></p>
+				<ul class="social-media-list">
+					{% include social_media_links.html %}
+				</ul>
+			</div>
+
+			<div class="site-signature">
+				{% if site.buy_me_a_coffee_username %}
+				<p><strong>Contribute</strong></p>
+				<p><i class="fa fa-coffee"></i> <a href="https://buymeacoffee.com/{{site.buy_me_a_coffee_username}}">Buy me a Coffee </a></p>
+				{% endif %}
+				<p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
+				{% if page.show_updated %}
+			    <p class="text">Last update: {{ site.time | date: "%B %-d, %Y" }}</p>
+			  {% endif %}
+			</div>
+		</div>
+
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+<script src="{{ "/js/lightgallery.min.js" | prepend: site.baseurl }}"></script>
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    enableMenu: false
+  },
+  tex: {
+    packages: ['base', 'ams']
+  },
+  loader: {
+    load: ['ui/menu', '[tex]/ams']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.min.js">
+</script>
+<script>
+	AOS.init({
+   once: true,
+   offset: -20,
+   duration: 600
+	});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+		$(".post-content").lightGallery({
+			 thumbnail:false,
+			 selector: '.lightgallery-link'
+		});
+});
+</script>
+{% if site.email %}
+<!-- Contact Modal -->
+<script type="text/javascript">
+$(document).ready(function() {
+	MicroModal.init();
+
+	$('.nav-link-contact').click(function(ev) {
+	  ev.preventDefault();
+	  MicroModal.show('modal-1', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+	});
+
+	$('.nav-link-search').click(function(ev) {
+	  ev.preventDefault();
+
+	  MicroModal.show('modal-2', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+
+	  document.querySelector('.pagefind-ui__search-input').focus();
+	});
+
+});
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
+{% endif %}
+
+{% if page.custom_js %}
+<!-- Custom page specific js files -->
+  {% for js_file in page.custom_js %}
+    <script src='{{ site.baseurl }}/js/{{ js_file }}.js' type="text/javascript"></script>
+  {% endfor %}
+{% endif %}
+
+
