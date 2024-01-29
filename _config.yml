@@ -33,13 +33,13 @@ description: "A blog about M365 , Powerplatform and more."
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "https://divya-akula.github.io/divyaakula/" # the subpath of your site, e.g. /blog
 url: "https://divyaakula.com" # the base hostname & protocol for your site
-cover: "/./assets/header_image.webp"
-logo: "/./assets/icons/divya-akula-logo-gold.png"
-sticker: "/./assets/DivyaAkulaWebPic (2).png"
-sticker-1_5x: "/./assets/DivyaAkulaWebPic (2).png"
-sticker-2x: "/./assets/DivyaAkulaWebPic (2).png"
+cover: "./assets/header_image.webp"
+logo: "./assets/icons/divya-akula-logo-gold.png"
+sticker: "./assets/DivyaAkulaWebPic (2).png"
+sticker-1_5x: "./assets/DivyaAkulaWebPic (2).png"
+sticker-2x: "./assets/DivyaAkulaWebPic (2).png"
 
 # Build settings
 markdown: kramdown
@@ -62,9 +62,9 @@ jekyll-archives:
     - year
   layout: 'archive'
   permalinks:
-    category: '/./category/:name/'
-    tag: '/./tag/:name/'
-    year: '/./year/:year/'
+    category: '/category/:name/'
+    tag: '/tag/:name/'
+    year: '/year/:year/'
   cover: "./assets/images/headers/gameboyzero.jpg"
 
 thumbnail:
