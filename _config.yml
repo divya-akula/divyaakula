@@ -33,7 +33,7 @@ description: "A blog about M365 , Powerplatform and more."
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
-baseurl: "/divyaakula/" # the subpath of your site, e.g. /blog
+baseurl: "/divyaakula" # the subpath of your site, e.g. /blog
 url: "https://divya-akula.github.io" # the base hostname & protocol for your site
 cover: "/assets/header_image.webp"
 logo: "/assets/icons/divya-akula-logo-gold.png"
