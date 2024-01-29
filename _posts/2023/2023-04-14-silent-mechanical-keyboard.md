@@ -6,11 +6,11 @@ date:   2023-04-14 08:00:00
 author: Sebastian Proost
 categories: diy
 tags:	mechanical-keyboard soldering electronics
-cover:  "/posts/2023-04-14-silent-mechanical-keyboard/completed.jpg"
-thumbnail: "{{site.assets_path}}/images/thumbnails/id75_keyboard2.jpg"
+cover:  "/assets/posts/2023-04-14-silent-mechanical-keyboard/completed.jpg"
+thumbnail: "/assets/images/thumbnails/id75_keyboard2.jpg"
 gallery_items:
-  - image: "{{site.assets_path}}/posts/2023-04-14-silent-mechanical-keyboard/closeup.jpg"
-    gallery_image: "{{site.assets_path}}/images/gallery/silent_mechanical_keyboard.jpg"
+  - image: "/assets/posts/2023-04-14-silent-mechanical-keyboard/closeup.jpg"
+    gallery_image: "/assets/images/gallery/silent_mechanical_keyboard.jpg"
     description: "Closeup of a silent mechanical keyboard based on the id75 board."
 ---
 

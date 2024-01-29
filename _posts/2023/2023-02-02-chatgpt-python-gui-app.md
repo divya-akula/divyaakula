@@ -6,8 +6,8 @@ date:   2023-02-02 10:00:00
 author: Sebastian Proost
 categories: programming
 tags:	python chatgpt ai 
-cover:  "./assets/posts/2023-02-02-chatgpt-python-gui-app/header_chatgpt.jpg"
-thumbnail: "./assets/images/thumbnails/chatgpt_gui_app.jpg"
+cover:  "/assets/posts/2023-02-02-chatgpt-python-gui-app/header_chatgpt.jpg"
+thumbnail: "/assets/images/thumbnails/chatgpt_gui_app.jpg"
 ---
 
 Imagine being able to create a fully functioning Python GUI application with just providing instructions. No need to spend 

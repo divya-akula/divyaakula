@@ -3,7 +3,7 @@ layout: page
 title: "Privacy Policy"
 permalink: /policy/
 main_nav: false
-cover:  "./assets/images/headers/hard_disk.jpg"
+cover:  "/assets/images/headers/hard_disk.jpg"
 include_sticker: true
 ---
 

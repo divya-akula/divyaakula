@@ -4,7 +4,7 @@ title: "Gwent Pro Rank Stats"
 byline: "one stop shop for up-to-date Gwent data"
 permalink: /gwent/
 main_nav: false
-cover:  "./assets/posts/2020-09-01-GwentProRankAnalysis/gwent_pro_rank.jpg"
+cover:  "/assets/posts/2020-09-01-GwentProRankAnalysis/gwent_pro_rank.jpg"
 include_sticker: false
 custom_js:
   - vega.min

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Azure Content Moderation services</title>
+  <meta name="description" content="Content Moderation is about refining and revisiting that data , post , image or video to make it acceptable , socially , psychologically ,legally and in shor...">
+  
+  <meta name="author" content="Divya Akula">
+  <meta name="copyright" content="&copy; Divya Akula 2024">
+  
+
+  <!-- External libraries -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/divyaakula//assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/divyaakula//assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/divyaakula//assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/divyaakula//assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/divyaakula//assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/divyaakula//assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/divyaakula//assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/divyaakula//assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/divyaakula//assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/divyaakula//assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/divyaakula//assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/divyaakula//assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/divyaakula//assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/divyaakula/">
+  <link rel="icon" type="image/png" sizes="16x16" href="/divyaakula/">
+  <link rel="manifest" href="/divyaakula//assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/divyaakula//assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Content Moderation is about refining and revisiting that data , post , image or video to make it acceptable , socially , psychologically ,legally and in shor..." />
+  <meta property="og:url" content="https://divya-akula.github.io//openai/2023/08/19/azure-content-moderation-services.html">
+  <meta property="og:site_name" content="Divya Akula" />
+  <meta property="og:title" content="Azure Content Moderation services" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://divya-akula.github.io//divyaakula//assets/posts/2019-12-01-Sentiment-Analysis/header.png" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Azure Content Moderation services">
+  <meta name="twitter:description" content="Content Moderation is about refining and revisiting that data , post , image or video to make it acceptable , socially , psychologically ,legally and in shor...">
+  <meta name="twitter:image" content="https://divya-akula.github.io//divyaakula//assets/posts/2019-12-01-Sentiment-Analysis/header.png">
+  <meta name="twitter:url" content="https://divya-akula.github.io//openai/2023/08/19/azure-content-moderation-services.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/divyaakula/./pagefind/pagefind-ui.css">
+  <link rel="canonical" href="https://divya-akula.github.io//divyaakula//openai/2023/08/19/azure-content-moderation-services.html">
+	<link rel="alternate" type="application/rss+xml" title="Divya Akula" href="https://divya-akula.github.io//divyaakula//feed.xml" />
+	<link rel="stylesheet" href="/divyaakula/./css/main.css">
+
+	<!-- PageFind -->
+	<script src="/divyaakula/./pagefind/pagefind-ui.js" type="text/javascript"></script>
+
+
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+
+	<script type='text/javascript'>
+	//<![CDATA[
+	function loadCSS(e, t, n) { "use strict"; var i = window.document.createElement("link"); var o = t || window.document.getElementsByTagName("script")[0]; i.rel = "stylesheet"; i.href = e; i.media = "only x"; o.parentNode.insertBefore(i, o); setTimeout(function () { i.media = n || "all" }) }loadCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
+	//]]>
+	</Script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+	<div class="navigation-wrapper">
+    <a href="/divyaakula//" class="logo">
+      
+      <img src="/divyaakula//assets/icons/divya-akula-logo-gold.png" alt="Divya Akula" width="58" height="58" />
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+				<li class="nav-link"><a href="/divyaakula//about/">About me</a>
+	
+				<li class="nav-link"><a href="/divyaakula//gallery/">Gallery</a>
+	
+				<li class="nav-link"><a href="/divyaakula//posts/">Posts</a>
+	
+				<li class="nav-link"><a href="#" class="nav-link-contact">Contact</a></li>
+<li class="nav-link"><a href="#" class="nav-link-search"><i class="fa fa-search" style="width:16px;height:16px"></i></a></li>
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <img data-pagefind-meta="image[src]" src="/divyaakula//assets/images/thumbnails/sentiment_analysis.jpg" style="display:none" />
+<div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/divyaakula//assets/posts/2019-12-01-Sentiment-Analysis/header.png);">
+  <div class="scrim has-cover ">
+    <header class="post-header">
+      <h1 class="title">Azure Content Moderation services</h1>
+			
+      <p class="info"><em>The shape of Lord of the Rings - The Fellowship of the Ring</em></p>
+			
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">Posted August 19, 2023 by Divya Akula</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/divyaakula//category/OpenAI">Openai</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <p>Content Moderation is about refining and revisiting that data , post , image or video to make it acceptable , socially , psychologically ,legally and in short , right content to the right audience.</p>
+
+<p>With the high volumes of data flowing in the manual moderation might be quite near to impossible.</p>
+
+<p>Azure provides a rich set of APIs that help you to moderate and is available for the below categories.</p>
+
+<ol>
+  <li>Text Moderation</li>
+  <li>Image Moderation</li>
+  <li>Video Moderation</li>
+</ol>
+
+<p>Azure provides a rich set of APIs that help you to moderate and is available for the below categories.</p>
+
+<h2 id="text-moderation">Text Moderation</h2>
+
+<p>Azure APIs help in moderating the text , and can deal with all of the below categories.</p>
+
+<ul>
+  <li>Profanity</li>
+  <li>Classification</li>
+  <li>Personal Data Identification</li>
+  <li>Auto correction of text</li>
+  <li>Language detection</li>
+  <li>PII</li>
+</ul>
+
+<p>To start with any moderation , we have to provision the azure resource. called Content Moderation</p>
+
+<p><a href="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/AzueModerationService.png" class="lightgallery-link" data-sub-html="Azure Moderation service">
+<img src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/AzueModerationService.png" alt="Azure Moderation service" height="" width="" data-src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/AzueModerationService.png" loading="lazy" />
+</a></p>
+
+<p>If you need more details on how to provision this resource , the below video can be helpful.</p>
+
+<h3 id="endpoint">EndPoint</h3>
+
+<p>Navigate to the newly provisioned resource and then to Keys  and End Point section save either of the keys and the end point</p>
+
+<p>The endpoint used is</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;EndPointURI&gt;/contentmoderator/moderate/v1.0/ProcessText/Screen?autocorrect=&lt;bool&gt;&amp;PII=&lt;bool&gt;&amp;classify= &lt;bool&gt;
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>​Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Endpoint</td>
+      <td>The url from the previous screenshot marked as 3</td>
+    </tr>
+    <tr>
+      <td>AutoCorrect</td>
+      <td>Rectifies any misspellings in the text</td>
+    </tr>
+    <tr>
+      <td>PII</td>
+      <td>The personal Identifiable information includes Email , PII etc</td>
+    </tr>
+    <tr>
+      <td>Classify</td>
+      <td>categories the text</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/KeysAndEndPoint.png" class="lightgallery-link" data-sub-html="Azure EndPoint ">
+<img src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/KeysAndEndPoint.png" alt="Azure EndPoint " height="" width="" data-src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/KeysAndEndPoint.png" loading="lazy" />
+</a></p>
+
+<h2 id="pii">PII</h2>
+
+<p>The following personal information can be detected on the scanned text</p>
+
+<ol>
+  <li>Email</li>
+  <li>IPA</li>
+  <li>Phone</li>
+  <li>Address</li>
+  <li>SSN</li>
+  <li>Classify</li>
+</ol>
+
+<p>Azure automatically categorises information to 3 different categories</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Details</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Category1</td>
+      <td>Presence of Adult or sexually</td>
+      <td>suggestive content</td>
+    </tr>
+    <tr>
+      <td>Category2</td>
+      <td>Presence of content that is mature</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Category3</td>
+      <td>Presence of Offensive words</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ReviewRecommended</td>
+      <td>AI model suggests to reexamine the text , before publishing</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<p>To demonstrate the example I have created a sample power automate , An Instant cloud flow with the following parameters</p>
+
+<p><a href="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/FlowTrigger.png" class="lightgallery-link" data-sub-html="Azure Flow Inputs ">
+<img src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/FlowTrigger.png" alt="Azure Flow Inputs " height="" width="" data-src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/FlowTrigger.png" loading="lazy" />
+</a></p>
+
+<ol>
+  <li>The body of the text that needs to be scanned</li>
+  <li>If PII classification should happen</li>
+  <li>If the categories are needed</li>
+  <li>Automatically corrects the spellings and returns the output</li>
+</ol>
+
+<p><a href="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/HttpPostCall.png" class="lightgallery-link" data-sub-html="Azure Flow Inputs ">
+<img src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/HttpPostCall.png" alt="Azure Flow Inputs " height="" width="" data-src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/HttpPostCall.png" loading="lazy" />
+</a></p>
+
+<p>All the inputs gathered from the step 1 should be used at the respective parameters.</p>
+
+<p>The Oct-Apim-Subscription-Key refers to the keys captured at this step</p>
+
+<p><a href="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/RunFlow.webp" class="lightgallery-link" data-sub-html="Azure Flow Inputs ">
+<img src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/RunFlow.webp" alt="Azure Flow Inputs " height="" width="" data-src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/RunFlow.webp" loading="lazy" />
+</a></p>
+
+<p>I just noted that spell correct is given as text so given true as input  and below is the screenshot of the output</p>
+
+<p><a href="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/FlowOutput.png" class="lightgallery-link" data-sub-html="Azure Flow Inputs ">
+<img src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/FlowOutput.png" alt="Azure Flow Inputs " height="" width="" data-src="/divyaakula//assets/posts/2023-19-08-azure-content-moderation%20-services/FlowOutput.png" loading="lazy" />
+</a></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"OriginalText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Is this a grabage or crappy , email abcdef@abcd.com, phone: 4255550111, IP: </span><span class="se">\n</span><span class="s2">255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"NormalizedText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"   grabage  crappy , email abcdef@abcd.com, phone: 4255550111, IP: </span><span class="se">\n</span><span class="s2">255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"AutoCorrectedText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Is this a garbage or crappy , email abcdef@abcd.com, phone: 4255550111, IP: </span><span class="se">\n</span><span class="s2">255.255.255.255, 1234 Main Boulevard, Pentapolis WA 96555."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Misrepresentation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"PII"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Detected"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdef@abcd.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"SubType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Regular"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdef@abcd.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"IPA"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IPV4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"255.255.255.255"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">77</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4255550111"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234 Main Boulevard, Panapolis WA 96555"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Index"</span><span class="p">:</span><span class="w"> </span><span class="mi">94</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"SSN"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Classification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ReviewRecommended"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Category1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0014615426771342754</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Category2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.201115220785141</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Category3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9879999756813049</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eng"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Terms"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OK"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Exception"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"TrackingId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"befb04b6-27b2-4bc6-9de9-34168fea88bb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>As noted the output would be in JSON format , which provides an easy access or integration with any systems</p>
+
+<p>This article targets what can be addressed with Text content Moderation by default , if we need to screen the custom keywords , that is as well supported and will see that in further blogs</p>
+
+
+</article>
+
+
+
+<section class="tags">
+	<strong><i class="fa fa-tags"></i> Tags:</strong> <a href="/divyaakula//tag/openai">OpenAI</a>,&nbsp;<a href="/divyaakula//tag/azure">Azure</a>,&nbsp;<a href="/divyaakula//tag/contentsafety">ContentSafety</a>
+</section>
+
+
+
+<section class="rss">
+	
+	<p class="rss-subscribe text">Liked this post ? <strong><a href="https://buymeacoffee.com/divyaakula">You can buy me a coffee <i class="fa fa-coffee"></i></a></strong></p>
+	
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+      <a href="//twitter.com/share?text=Azure+Content+Moderation+services&url=https%3A%2F%2Fdivya-akula.github.io%2F%2Fdivyaakula%2F%2Fopenai%2F2023%2F08%2F19%2Fazure-content-moderation-services.html&via=_divyaakula"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+        <i class="fa fa-twitter-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=Azure+Content+Moderation+services&u=https%3A%2F%2Fdivya-akula.github.io%2F%2Fdivyaakula%2F%2Fopenai%2F2023%2F08%2F19%2Fazure-content-moderation-services.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+      <a href="//www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fdivya-akula.github.io%2F%2Fdivyaakula%2F%2Fopenai%2F2023%2F08%2F19%2Fazure-content-moderation-services.html"
+        onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+        <i class="fa fa-linkedin-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+  
+</section>
+
+	<section class="post-navigation" data-pagefind-ignore>
+		<span class="prev-post">
+			
+				<a href="/divyaakula//diy/2023/04/14/silent-mechanical-keyboard.html">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="page-number">The Sound of Silence: Building a Quiet Mechanical Keyboard</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/divyaakula//aiart/2023/09/03/comfyui-sdxl-workflows.html">
+					<span class="page-number">ComfyUI and SDXL: New Workflows</span>
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+</div>
+</div>
+
+    </div>
+
+		<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-1-title">
+					Contact
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-1-content">
+				<p>Have any comments or suggestions, your are welcome to reach out !</p>
+				<ul class="modal__list">
+						<li>
+	<i class="fa fa-envelope-o"></i>
+	<a href="mailto:akula.divya@gmail.com">
+		<span class="username">akula.divya@gmail.com</span>
+	</a>
+</li>
+
+
+	
+	<li>
+		<i class="fa fa-twitter"></i>
+		<a href="https://twitter.com/_divyaakula" title="Follow me on Twitter">
+			<span class="username">_divyaakula</span>
+		</a>
+	</li>
+	
+
+	
+	<li>
+		<i class="fa fa-github"></i>
+		<a href="https://github.com/divya-akula" title="Fork me on GitHub">
+			<span class="username">divya-akula</span>
+		</a>
+	</li>
+	
+
+	
+
+	
+
+
+				</ul>
+				
+				<br />
+				<p>Do you like this blog and wish to contribute? You could <a href="https://buymeacoffee.com/divyaakula">Buy me a Coffee <i class="fa fa-coffee"></i></a>!</p>
+				
+			</main>
+			<footer class="modal__footer">
+				<button class="modal__btn modal__btn-primary" data-micromodal-close="" aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+		<div class="modal micromodal-slide" id="modal-2" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-2-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-2-title">
+					Search
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-2-content">
+				<div id="search"></div>
+			</main>
+			<footer class="modal__footer">
+					<button class="modal__btn modal__btn-primary" data-micromodal-close="" aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Divya Akula</h3>
+
+		<div>
+			<div class="site-navigation">
+
+				<p><strong>Site Map</strong></p>
+				<ul class="pages">
+					
+				<li class="nav-link"><a href="/divyaakula//about/">About me</a>
+	
+				<li class="nav-link"><a href="/divyaakula//gallery/">Gallery</a>
+	
+				<li class="nav-link"><a href="/divyaakula//posts/">Posts</a>
+	
+				<li class="nav-link"><a href="#" class="nav-link-contact">Contact</a></li>
+
+				</ul>
+				<br />
+				<p><strong>Legal</strong></p>
+				<p><a href="/divyaakula//policy/">Privacy policy</a></p>
+				<p>Powered by Jekyll & <a href="https://twitter.com/ProostSebastian">Sebastian Proost</a>></p>>
+			</div>
+
+			<div class="site-contact">
+				<p><strong>Contact</strong></p>
+				<ul class="social-media-list">
+					<li>
+	<i class="fa fa-envelope-o"></i>
+	<a href="mailto:akula.divya@gmail.com">
+		<span class="username">akula.divya@gmail.com</span>
+	</a>
+</li>
+
+
+	
+	<li>
+		<i class="fa fa-twitter"></i>
+		<a href="https://twitter.com/_divyaakula" title="Follow me on Twitter">
+			<span class="username">_divyaakula</span>
+		</a>
+	</li>
+	
+
+	
+	<li>
+		<i class="fa fa-github"></i>
+		<a href="https://github.com/divya-akula" title="Fork me on GitHub">
+			<span class="username">divya-akula</span>
+		</a>
+	</li>
+	
+
+	
+
+	
+
+
+				</ul>
+			</div>
+
+			<div class="site-signature">
+				
+				<p><strong>Contribute</strong></p>
+				<p><i class="fa fa-coffee"></i> <a href="https://buymeacoffee.com/divyaakula">Buy me a Coffee </a></p>
+				
+				<p class="rss-subscribe text"><strong>Subscribe <a href="/divyaakula//feed.xml">via RSS</a></strong></p>
+				
+			</div>
+		</div>
+
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+<script src="/divyaakula//js/lightgallery.min.js"></script>
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    enableMenu: false
+  },
+  tex: {
+    packages: ['base', 'ams']
+  },
+  loader: {
+    load: ['ui/menu', '[tex]/ams']
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.min.js">
+</script>
+<script>
+	AOS.init({
+   once: true,
+   offset: -20,
+   duration: 600
+	});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+});
+
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+		$(".post-content").lightGallery({
+			 thumbnail:false,
+			 selector: '.lightgallery-link'
+		});
+});
+</script>
+
+<!-- Contact Modal -->
+<script type="text/javascript">
+$(document).ready(function() {
+	MicroModal.init();
+
+	$('.nav-link-contact').click(function(ev) {
+	  ev.preventDefault();
+	  MicroModal.show('modal-1', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+	});
+
+	$('.nav-link-search').click(function(ev) {
+	  ev.preventDefault();
+
+	  MicroModal.show('modal-2', {
+	  		onClose: function() { $('.nav-link-contact').blur(); },
+	  		disableFocus: true
+	  });
+
+	  document.querySelector('.pagefind-ui__search-input').focus();
+	});
+
+});
+</script>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
+
+
+
+
+
+
+  </body>
+
+</html>

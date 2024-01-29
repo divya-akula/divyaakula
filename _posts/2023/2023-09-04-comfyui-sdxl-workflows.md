@@ -6,11 +6,11 @@ date:   2023-09-03 08:00:00
 author: Sebastian Proost
 categories: aiart
 tags:	aiart python stable-diffusion art
-cover:  "./assets/posts/2023-09-04-comfyui-sdxl-workflows/sdxl_header.jpg"
-thumbnail: "./assets/images/thumbnails/sdxl_header.jpg"
+cover:  "/assets/posts/2023-09-04-comfyui-sdxl-workflows/sdxl_header.jpg"
+thumbnail: "/assets/images/thumbnails/sdxl_header.jpg"
 gallery_items:
-  - image: "./assets/posts/2023-09-04-comfyui-sdxl-workflows/sdxl_header.jpg"
-    gallery_image: "./assets/images/gallery/sdxl_vermeer_gallery.jpg"
+  - image: "/assets/posts/2023-09-04-comfyui-sdxl-workflows/sdxl_header.jpg"
+    gallery_image: "/assets/images/gallery/sdxl_vermeer_gallery.jpg"
     description: "Girl with the Pearl Earring by Johannes Vermeer and a reimagined cinematic cyberpunk version using SDXL"
 ---
 

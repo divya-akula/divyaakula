@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /tag/
+Disallow: /year/
+Disallow: /category/
+
+Sitemap: https://divya-akula.github.io//sitemap.xml
