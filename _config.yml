@@ -35,11 +35,11 @@ description: "A blog about M365 , Powerplatform and more."
 # root of your server.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://divyaakula.com" # the base hostname & protocol for your site
-cover: "./assets/header_image.webp"
-logo: "./assets/icons/divya-akula-logo-gold.png"
-sticker: "./assets/DivyaAkulaWebPic (2).png"
-sticker-1_5x: "./assets/DivyaAkulaWebPic (2).png"
-sticker-2x: "./assets/DivyaAkulaWebPic (2).png"
+cover: "/./assets/header_image.webp"
+logo: "/./assets/icons/divya-akula-logo-gold.png"
+sticker: "/./assets/DivyaAkulaWebPic (2).png"
+sticker-1_5x: "/./assets/DivyaAkulaWebPic (2).png"
+sticker-2x: "/./assets/DivyaAkulaWebPic (2).png"
 
 # Build settings
 markdown: kramdown
