@@ -19,7 +19,9 @@ _drafts
 _drafts/*
 
 _site/
+docs/
 
 pagefind.exe
 
 .jekyll-metadata
+_config.yml
