@@ -3,7 +3,7 @@ layout: page
 title: "Developing ClipApp with ChatGPT"
 permalink: /chatgpt_clipapp/
 main_nav: false
-cover:  "/assets/posts/2023-02-02-chatgpt-python-gui-app/header_chatgpt.jpg"
+cover:  "./assets/posts/2023-02-02-chatgpt-python-gui-app/header_chatgpt.jpg"
 sitemap: false
 ---
 

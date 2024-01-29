@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /tag/
-Disallow: /year/
-Disallow: /category/
-
-Sitemap: https://divyaakula.com/sitemap.xml

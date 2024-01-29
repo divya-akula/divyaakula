@@ -6,8 +6,8 @@ date:   2023-12-03 08:00:00
 author: Sebastian Proost
 categories: diy
 tags:	python raspberry-pi soldering electronics
-cover:  "/assets/posts/2023-12-03-pi-pico-usb-c/pico_close.jpg"
-thumbnail: "/assets/images/thumbnails/pico_usbc_header.jpg"
+cover:  "./assets/posts/2023-12-03-pi-pico-usb-c/pico_close.jpg"
+thumbnail: "./assets/images/thumbnails/pico_usbc_header.jpg"
 ---
 
 With USB type C ports now commonplace, keeping micro-USB cables around for some devices can be a bit of a nuisance.The 

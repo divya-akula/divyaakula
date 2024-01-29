@@ -6,8 +6,8 @@ date:   2023-03-12 08:00:00
 author: Sebastian Proost
 categories: diy
 tags:	home-assistant MQTT Zigbee yaml security
-cover:  "/assets/posts/2023-03-12-smart-motion-sensor/header.jpg"
-thumbnail: "/assets/images/thumbnails/motion_sensor.jpg"
+cover:  "./assets/posts/2023-03-12-smart-motion-sensor/header.jpg"
+thumbnail: "./assets/images/thumbnails/motion_sensor.jpg"
 ---
 
 If you're looking for a straightforward yet powerful method to safeguard your home or office, a smart motion sensor 

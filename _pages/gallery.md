@@ -3,7 +3,7 @@ layout: page
 title: "Gallery"
 permalink: /gallery/
 main_nav: true
-cover:  "/assets/images/headers/gameboyzero.jpg"
+cover:  "./assets/images/headers/gameboyzero.jpg"
 cover_options: narrow
 sitemap: true
 ---

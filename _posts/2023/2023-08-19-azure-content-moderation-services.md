@@ -6,8 +6,8 @@ date:   2023-08-19 08:00:00
 author: Divya Akula
 categories: OpenAI
 tags:	OpenAI Azure ContentSafety
-cover:  "/assets/posts/2019-12-01-Sentiment-Analysis/header.png"
-thumbnail: "/assets/images/thumbnails/sentiment_analysis.jpg"
+cover:  "./assets/posts/2019-12-01-Sentiment-Analysis/header.png"
+thumbnail: "./assets/images/thumbnails/sentiment_analysis.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 ---
 Content Moderation is about refining and revisiting that data , post , image or video to make it acceptable , socially , psychologically ,legally and in short , right content to the right audience.

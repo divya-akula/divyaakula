@@ -3,7 +3,7 @@ layout: page
 title: About me
 permalink: /about/
 main_nav: true
-cover:  "/assets/images/headers/hard_disk.jpg"
+cover:  "./assets/images/headers/hard_disk.jpg"
 cover_options: narrow
 sitemap: true
 ---
