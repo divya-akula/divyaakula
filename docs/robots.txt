@@ -3,4 +3,4 @@ Disallow: /tag/
 Disallow: /year/
 Disallow: /category/
 
-Sitemap: https://divya-akula.github.io//sitemap.xml
+Sitemap: http://localhost:4000/sitemap.xml
