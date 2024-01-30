@@ -43,7 +43,7 @@ androidicon_192: "/assets/icons/android-icon-192x192.png"
 favicon_32: "/assets/icons/favicon-32x32.png"
 favicon_96: "/assets/icons/favicon-96x96.png"
 favicon_16: "/assets/icons/sfavicon-16x16.png"
-assets_path:"/assets"
+assets_path: "/assets"
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
 # root of your server.
@@ -54,20 +54,7 @@ logo: "/assets/icons/assets/divya-akula-logo-gold.png"
 sticker: "/assets/divya-akula-web-pic.png"
 sticker-1_5x: "/assets/divya-akula-web-pic.png"
 sticker-2x: "/assets/divya-akula-web-pic.png"
-appleicon_57: "/assets/icons/apple-icon-57x57.png"
-appleicon_60: "/assets/icons/apple-icon-60x60.png"
-appleicon_72: "/assets/icons/apple-icon-72x72.png"
-appleicon_76: "/assets/icons/apple-icon-76x76.png"
-appleicon_114: "/assets/icons/apple-icon-114x114.png"
-appleicon_120: "/assets/icons/apple-icon-120x120.png"
-appleicon_144: "/assets/icons/apple-icon-144x144.png"
-appleicon_152: "/assets/icons/apple-icon-152x152.png"
-appleicon_180: "/assets/icons/apple-icon-180x180.png"
-androidicon_192: "/assets/icons/android-icon-192x192.png"
-favicon_32: "/assets/icons/favicon-32x32.png"
-favicon_96: "/assets/icons/favicon-96x96.png"
-favicon_16: "/assets/icons/sfavicon-16x16.png"
-assets_path: "/assets"
+
 
 
 # Build settings
@@ -135,7 +122,7 @@ social:
     desc: Follow me on Twitter
     share: true
 
-   - name: GitHub
+  - name: GitHub
     icon: github
     username: divya-akula
     url: https://github.com/divya-akula
