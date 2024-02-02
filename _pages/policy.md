@@ -11,6 +11,6 @@ include_sticker: true
 
 Last updated: February 27, 2022
 
-4DCu.be does not collect any data on users. Furthermore, no third party libraries that create cookies, without asking 
+we does not collect any data on users. Furthermore, no third party libraries that create cookies, without asking 
 a user's consent in accordance with the current GDPR legislation, are included.
 
