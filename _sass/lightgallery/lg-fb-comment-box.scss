@@ -38,7 +38,7 @@
     .lg-img-wrap, .lg-video-cont {
         background: url("#{$lg-path-images}/loading.gif") no-repeat scroll transparent;
         background-position: center center;
-        background-position: calc((100% - 400px) / 2) center;
+        background-position: ((100% - 400px) / 2) center;
     }
 
     .lg-sub-html {
