@@ -39,7 +39,7 @@ Azure provides a rich set of APIs that help you to moderate and is available for
 
 To start with any moderation , we have to provision the azure resource. called Content Moderation
 
-![Azure Moderation service](/assets/posts/2023-19-08-azure-content-moderation%20-services/AzueModerationService.png)
+![Azure Moderation service]({{'/assets/posts/2023-19-08-azure-content-moderation%20-services/AzueModerationService.png' | prepend: site.baseurl}})
 
 
 If you need more details on how to provision this resource , the below video can be helpful.
@@ -62,7 +62,7 @@ Navigate to the newly provisioned resource and then to Keys  and End Point secti
 | Classify| categories the text |
 | | |
 
-![Azure EndPoint ](/assets/posts/2023-19-08-azure-content-moderation%20-services/KeysAndEndPoint.png)
+![Azure EndPoint ]({{'/assets/posts/2023-19-08-azure-content-moderation%20-services/KeysAndEndPoint.png' | prepend: site.baseurl}})
 
 
 ## PII
@@ -89,25 +89,25 @@ Azure automatically categorises information to 3 different categories
 
    To demonstrate the example I have created a sample power automate , An Instant cloud flow with the following parameters
 
-![Azure Flow Inputs ](/assets/posts/2023-19-08-azure-content-moderation%20-services/FlowTrigger.png)
+![Azure Flow Inputs ]({{'/assets/posts/2023-19-08-azure-content-moderation%20-services/FlowTrigger.png' | prepend: site.baseurl}})
 
 1. The body of the text that needs to be scanned
 2. If PII classification should happen
 3. If the categories are needed
 4. Automatically corrects the spellings and returns the output
 
-![Azure Flow Inputs ](/assets/posts/2023-19-08-azure-content-moderation%20-services/HttpPostCall.png)
+![Azure Flow Inputs ]({{'/assets/posts/2023-19-08-azure-content-moderation%20-services/HttpPostCall.png' | prepend: site.baseurl}})
 
 All the inputs gathered from the step 1 should be used at the respective parameters.
 
 
 The Oct-Apim-Subscription-Key refers to the keys captured at this step 
 
-![Azure Flow Inputs ](/assets/posts/2023-19-08-azure-content-moderation%20-services/RunFlow.webp)
+![Azure Flow Inputs ]({{'/assets/posts/2023-19-08-azure-content-moderation%20-services/RunFlow.webp' | prepend: site.baseurl}})
 
 I just noted that spell correct is given as text so given true as input  and below is the screenshot of the output
 
-![Azure Flow Inputs ](/assets/posts/2023-19-08-azure-content-moderation%20-services/FlowOutput.png)
+![Azure Flow Inputs ]({{'/assets/posts/2023-19-08-azure-content-moderation%20-services/FlowOutput.png' | prepend: site.baseurl}})
 
 ``` json
 {
