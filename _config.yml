@@ -2,7 +2,7 @@
 # See http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html for making `jekyll archives` work.
 plugins:
   - jekyll-archives
-  - jekyll-paginate-v2
+  - jekyll-paginate
   - mini_magick
 
 include: ['_pages']
@@ -62,11 +62,8 @@ highlightjs_theme: "mono-blue"
 
 # Pagination Settings
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
-pagination:
-  enabled: true
-  per_page: 7
-  permalink: "/page/:num/"
-  sort_reverse: true
+paginate: 5
+paginate_path: "/blog/page:num/"
 
 # Archive settings (see https://github.com/jekyll/jekyll-archives/)
 jekyll-archives:

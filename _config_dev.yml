@@ -2,7 +2,7 @@
 # See http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html for making `jekyll archives` work.
 plugins:
   - jekyll-archives
-  - jekyll-paginate-v2
+  - jekyll-paginate
   - mini_magick
 
 include: ['_pages']
@@ -50,7 +50,7 @@ assets_path: "/assets"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000" # the base hostname & protocol for your site
 cover: "/assets/header_image.webp"
-logo: "/assets/icons/assets/divya-akula-logo-gold.png"
+logo: "/assets/icons/divya-akula-logo-gold.png"
 sticker: "/assets/divya-akula-web-pic.png"
 sticker-1_5x: "/assets/divya-akula-web-pic.png"
 sticker-2x: "/assets/divya-akula-web-pic.png"
@@ -64,12 +64,8 @@ highlightjs_theme: "mono-blue"
 
 # Pagination Settings
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
-pagination:
-  enabled: true
-  per_page: 7
-  permalink: "/page/:num/"
-  sort_reverse: true
-
+paginate: 5
+paginate_path: "/blog/page:num/"
 # Archive settings (see https://github.com/jekyll/jekyll-archives/)
 jekyll-archives:
   enabled:
