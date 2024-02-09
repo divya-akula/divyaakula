@@ -18,4 +18,4 @@ sitemap: true
 </div>
 
 <br />
-![Box with things](/assets/box_medium.png){:.small}
+![Box with things]({{ '/assets/box_medium.png'| prepend: site.baseurl }}){:.small}
