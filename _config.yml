@@ -24,10 +24,10 @@ future: true
 
 # Site settings
 title: Divya Akula
-subtitle: "a blog about MSSyntex,PowerPlatform,CoPilot and OpenAI, ..."
+subtitle: "a blog about MSSyntex,PowerPlatform,CoPilot,OpenAI and more ..."
 email: akula.divya@gmail.com
 name: Divya Akula
-description: "A blog about M365 , Powerplatform and more."
+description: "a blog about MSSyntex,PowerPlatform,CoPilot,OpenAI and more"
 
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
