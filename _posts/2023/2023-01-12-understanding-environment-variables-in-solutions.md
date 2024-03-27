@@ -7,7 +7,7 @@ author: Divya Akula
 categories: Power Platform
 tags:	Solutions PowerPlatform flows
 cover:  "/assets/posts/2023-01-12-understanding-environment-variables-in-solutions/MovingSolutions.png"
-thumbnail: "/assets/images/thumbnails/MovingSolutions.jpg "
+thumbnail: "/assets/images/thumbnails/MovingSolutions.png"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 ---
 The environment variables help to unplug the configuration from the power automation & power apps and help us to port the solution across different tenants or environments with minimal/no changes to the solutions

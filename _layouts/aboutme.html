@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>{{ site.title }}</h1>
+  </header>
+
+  <main>
+
+    <section class="showcase">
+      <div class="text-content">
+        <h2>{{ page.title }}</h2>
+        {{ page.content }}
+      </div>
+      <img src="{{ page.image }}" alt="{{ page.image_alt }}">
+    </section>
+
+    <section class="carousel">
+      <div id="carousel-container">
+        <img src="{{ site.baseurl }}/assets/images/image1.jpg" alt="Image 1">
+        <img src="{{ site.baseurl }}/assets/images/image2.jpg" alt="Image 2">
+        <img src="{{ site.baseurl }}/assets/images/image3.jpg" alt="Image 3">
+      </div>
+    </section>
+
+    <section class="description">
+      {{ page.description }}
+    </section>
+
+  </main>
+
+  <footer>
+    Copyright &copy; {{ site.year }} {{ site.title }}
+  </footer>
+
+  <script src="{{ site.baseurl }}/assets/js/carousel.js"></script>
+
+</body>
+</html>
