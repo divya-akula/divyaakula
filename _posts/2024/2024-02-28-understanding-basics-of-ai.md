@@ -13,7 +13,7 @@ github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 
 # Basic Terms to Understand the Noise around AI
 
-In this pace where AI is driving the changes , lets understand what are the terms involved in AI. This can be important to all the architects who are designing the solution and stakeholders responsible for investing in correct products. 
+In this pace where AI is driving the changes , lets understand what are the terms involved in AI. This can be important to all the architects who are designing the solution and stakeholders responsible for investing in correct products.
 
 ## What is  Large Language model
 
@@ -51,7 +51,7 @@ Training is the process of presenting the sample data the model has to operate o
 
 Below are few of the models available with OpenAI which can be leveraged
 
-| **Model Name**    |**Description**                                                                                        |       
+| **Model Name**    |**Description**                                                                                        |
 |----------------------------------------------------------------------------------------------------------------------------------------|
 | **GPT-4**                     | An improvement over GPT-3.5, optimized for chat and traditional completions tasks.                    |
 | **GPT-4 Turbo with Vision**   | Accepts image inputs and available as the `vision-preview` model of `gpt-4`.                            |
@@ -72,3 +72,5 @@ Below is a glimpse of on how any AI model works
 5. Every model emits a number which can be percentage or between 0 and 1 , the higher the better. It can be called Accuracy.
 6. Understand your accuracy , if your business demands higher accurate solutions , start from step 2 , until the desired accuracy is met
 7. Now apply your model/publish the model for realworld scenarios
+
+Thats all for this blog today, will keep this updated , as and when I get introduced to new terms , see you soon :rocket:
