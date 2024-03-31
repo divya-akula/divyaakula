@@ -18,6 +18,13 @@ html, body {
 	padding: 0;
 	width: 100%;
 }
+.post-content h1{
+	color:#561e5f;
+}
+
+.post-content h2,h3,h4{
+	color:#561e5f;
+}
 
 ol.default {
   @extend %default-ol;
