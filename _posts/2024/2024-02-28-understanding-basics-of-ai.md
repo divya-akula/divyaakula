@@ -41,13 +41,12 @@ CoPilot is an toolset created by Microsoft on Azure OpenAI for specific products
 
 Models refer to a program , that has to be trained for specific outcomes .
 
-Below are some of the popular models
 
 ### What is Training?
 
 Training is the process of presenting the sample data the model has to operate on.
 
-### what kind of models are available with OpenAI?
+### What kind of models are available with OpenAI?
 
 Below are few of the models available with OpenAI which can be leveraged
 
@@ -65,7 +64,7 @@ Below is a glimpse of on how any AI model works
 
 ![Model ]({{'/assets/posts/2024-02-28-understanding-basics-of-ai/AIModel.png' | prepend: site.baseurl}})
 
-1. It all starts with a model creation :star:
+1. It all starts with a model creation 
 2. Present the data on which your AI needs to be trained on
 3. Create rules/code or whatever applicable for the training
 4. Test your model
@@ -73,4 +72,4 @@ Below is a glimpse of on how any AI model works
 6. Understand your accuracy , if your business demands higher accurate solutions , start from step 2 , until the desired accuracy is met
 7. Now apply your model/publish the model for realworld scenarios
 
-Thats all for this blog today, will keep this updated , as and when I get introduced to new terms , see you soon :rocket:
+Thats all for this blog today, will keep this updated , as and when I get introduced to new terms , see you soon 
