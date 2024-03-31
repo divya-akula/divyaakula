@@ -4,7 +4,7 @@ title:  "Understanding Environment Variables in solutions"
 byline: "Defending solutions with variables"
 date:   2023-08-19 08:00:00
 author: Divya Akula
-categories: Power Platform
+categories: PowerPlatform
 tags:	Solutions PowerPlatform flows
 cover:  "/assets/posts/2023-01-12-understanding-environment-variables-in-solutions/MovingSolutions.png"
 thumbnail: "/assets/images/thumbnails/MovingSolutions.png"
