@@ -22,12 +22,18 @@ html, body {
 	color:#561e5f;
 }
 
-.post-content h2,h3,h4{
+.post-content 
+{
+	h2,h3,h4{
 	color:#561e5f;
 }
-.footer-heading h2,h3,h4
+}
+.footer-heading 
 {
+	h2,h3,h4
+	{
 	color:whitesmoke;
+}
 }
 ol.default {
   @extend %default-ol;
