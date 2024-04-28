@@ -7,7 +7,7 @@ author: Divya Akula
 categories: SharePointPremium
 tags:	Solutions PowerPlatform flows
 cover:  "/assets/posts/2024-05-01-enabling-sharepoint-syntex-with-pay-as-you-go/HumanBeingConfused.jpeg"
-thumbnail: "/assets/images/thumbnails/sentiment_analysis.jpg"
+thumbnail: "/assets/images/thumbnails/SyntexHumanConfused.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 ---
 
