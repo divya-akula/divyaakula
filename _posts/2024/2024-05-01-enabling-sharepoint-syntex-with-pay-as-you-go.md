@@ -10,8 +10,7 @@ cover:  "/assets/posts/2024-05-01-syntex-pay-as-you-go/HumanBeingConfused.jpeg"
 thumbnail: "/assets/images/thumbnails/SyntexHumanConfused.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 ---
-
-Microsoft Syntex , aka SharePoint Premiun is ever increasing its capabilities initially it just started as a data extraction tool but now it expands its horizon towards inbuilt capabilities like esignatures and translations , which makes it an easy go tool for any business which is document centric. With its increasing demanding there are few questions w.r.to Licensing which I would try to address this on the blog
+Confused Without Per-User Licenses? Microsoft Syntex , aka SharePoint Premiun is ever increasing its capabilities initially it just started as a data extraction tool but now it expands its horizon towards inbuilt capabilities like esignatures and translations , which makes it an easy go tool for any business which is document centric. With its increasing demanding there are few questions w.r.to Licensing which I would try to address this on the blog
 
 ## Shifting Gears
 
