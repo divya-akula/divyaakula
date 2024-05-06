@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Enable Pay-as-You-Go Licensing for Syntex aka SharePoint Premium."
-byline: "Defending solutions with variables"
+byline: "Transition seamlessly"
 date:   2024-05-01 08:00:00
 author: Divya Akula
 categories: SharePointPremium
