@@ -41,8 +41,30 @@ Only users meeting the following criteria can enable pay-as-you-go licensing for
 7. In the right pane , navigate to **Azure Subcription**
 8. Select a valid subscription
      ![Billingsetup]({{'/assets/posts/2024-05-01-syntex-pay-as-you-go/BillingSetup.png' | prepend: site.baseurl}})
+    
+9. Now you’re fully equipped to leverage SharePoint Premium Capabilities. 🚀
 
 ### Note
 
 1. Microsoft Syntex is an addon and doesnt come with your existing licenses
 2. For Government Community Cloud (GCC) organizations, pay-as-you-go licensing is not yet available; they can continue using per-user licenses until pay-as-you-go becomes an option.
+
+## Pricing as of the blog published
+
+| Service                                     | What's billed? (USD)                   |
+|---------------------------------------------|---------------------------------------|
+| Prebuilt document processing                | $0.01/transaction                      |
+| Structured and freeform document processing | $0.05/transaction                      |
+| Unstructured document processing            | $0.05/transaction                      |
+| Content assembly                            | $0.15/transaction                      |
+| Image tagging                               | $0.001/transaction                     |
+| Taxonomy tagging                            | $0.05/transaction                      |
+| SharePoint eSignature                       | $2.00/transaction                      |
+| Document translation                        | $15.00/1M characters                   |
+| Optical character recognition               | $0.001/transaction                     |
+| Microsoft 365 Archive (Preview)             | $0.05/GB/month (shows as $0.00167/GB/day) |
+| Microsoft 365 Backup (Preview)              | $0.15/GB/month (shows as $0.005/GB/day)  |
+
+## Conclusion
+ 
+“The Pay-As-You-Go model provides opportunities for organizations of all sizes to harness the transformative capabilities of SharePoint Syntex. With its cost-effectiveness and flexibility, Syntex becomes an accessible solution for optimizing document processing, extracting valuable insights, and improving overall document management. In an upcoming series of blogs, I will delve into the benefits of Document Processing.” 😊
