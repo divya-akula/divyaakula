@@ -14,7 +14,7 @@ In a Microsoft 365 (M365) environment, managing user data effectively is crucial
 
 ## Installation
 
-when I tried to install th graph module using PowerShell , it said that it a graph Module already exists , so I tried to connect it using
+When I attempted to install the Graph module using PowerShell, I received a message stating that a Graph Module already exists. So, I tried to connect to it using the following command:
 
 ```powershell
 Connect-MGGraph
