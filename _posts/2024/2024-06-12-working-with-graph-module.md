@@ -20,10 +20,10 @@ When I attempted to install the Graph module using PowerShell, I received a mess
 Connect-MGGraph
 ```
 
-![Model ]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphAccessDenied.png' | prepend: site.baseurl}})
+![Model]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphAccessDenied.png' | prepend: site.baseurl}})
 After various such unsuccessful attempts
 
-![Model ]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphPwshAccessDenied.png' | prepend: site.baseurl}})
+![Model]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphPwshAccessDenied.png' | prepend: site.baseurl}})
 
 I tried to reinstall the MSGraph module that too with admin
 
