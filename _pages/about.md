@@ -8,7 +8,7 @@ cover_options: narrow
 sitemap: true
 ---
 
-I'm Divya Akula,Microsoft Advanced Content Management Advocate,this blog is about some projects I'm working on in my spare time. Mostly to hone my programming skills, have some fun or try new technology. There will be some posts about openAI, machine learning, Microsoft technologies etc.
+I'm Divya Akula, a Microsoft MVP & Microsoft Advanced Content Management Advocate,this blog is about some projects I'm working on in my spare time. Mostly to hone my programming skills, have some     fun or try new technology. There will be some posts about openAI, machine learning, Microsoft technologies etc.
 
 ## Like this blog ?
 
