@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Enable with Graph Module PowerShell on MAC."
-byline: "Transition seamlessly"
+title:  "Exporting M365 User Data with PowerShell on macOS"
+byline: "A Guide to Using Microsoft Graph"
 date:   2024-06-12 08:00:00
 author: Divya Akula
 categories: MicrosoftGraph
-tags:	MSGraph PowerShell MSGraphOnMAC SudoMSGraph
+tags:	MSGraph PowerShell MSGraphOnMAC SudoMSGraph M365MSGraph
 cover:  "/assets/posts/2024-06-12-working-with-graph-module/fotor-ai.jpg"
 thumbnail: "/assets/images/thumbnails/fotor-ai.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
