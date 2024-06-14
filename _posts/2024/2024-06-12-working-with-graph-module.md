@@ -20,10 +20,10 @@ When I attempted to install the Graph module using PowerShell, I received a mess
 Connect-MGGraph
 ```
 
-![Model]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphAccessDenied.png' | prepend: site.baseurl}})
+![Model]({{'/assets/posts/2024-06-12-working-with-graph-module/GraphAccessDenied.png' | prepend: site.baseurl}})
 After various such unsuccessful attempts
 
-![Model]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphPwshAccessDenied.png' | prepend: site.baseurl}})
+![Model]({{'/assets/posts/2024-06-12-working-with-graph-module/GraphPwshAccessDenied.png' | prepend: site.baseurl}})
 
 I tried to reinstall the MSGraph module that too with admin
 
@@ -33,7 +33,7 @@ Sudo pwsh Install-Module Microsoft.Graph -scope Allusers -Force
 
 Once the download and installation is succesful , the MGGraph successfully connected
 
-![Model ]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/GraphSuccessfullyConnected.png' | prepend: site.baseurl}})
+![Model ]({{'/assets/posts/2024-06-12-working-with-graph-module/GraphSuccessfullyConnected.png' | prepend: site.baseurl}})
 
 ## Getting user information with Graph
 
@@ -41,7 +41,7 @@ Once the download and installation is succesful , the MGGraph successfully conne
 ```powershell
 Connect-MGGraph -scopes "User.Read.All"
 ```
-![Model ]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/image.png' | prepend: site.baseurl}})
+![Model ]({{'/assets/posts/2024-06-12-working-with-graph-module/image.png' | prepend: site.baseurl}})
 This requests the scope User.Read.All to the application  with id 14d82eec-204b-4c2f-b78-296a70dab67e , if the permission has already granted you should skip the next step
 
 ### App Registration
@@ -53,7 +53,7 @@ Navigate to the app registrations via Identity portal using [https://entra.micro
 3. Remove all the filters 
 4. Search for the appId from the above list
 
-   ![Model ]({{'/assets/posts/2024-06-12-Working-With-Graph-Module/MGCLT.png' | prepend: site.baseurl}})
+   ![Model ]({{'/assets/posts/2024-06-12-working-with-graph-module/MGCLT.png' | prepend: site.baseurl}})
 5. Grant Admin approval if its not already given
 
 ### Script Execution
