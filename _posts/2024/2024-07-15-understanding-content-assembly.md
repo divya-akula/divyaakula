@@ -7,7 +7,7 @@ author: Divya Akula
 categories: SharePointPremium
 tags:	SPPremium ContentAssembly Insights Documents 
 cover:  "/assets/posts/2024-07-15-understanding-content-assembly/CAHeader.jpeg"
-thumbnail: "/assets/images/thumbnails/fotor-ai.jpg"
+thumbnail: "/assets/images/thumbnails/CAHeader.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 ---
 
@@ -95,4 +95,8 @@ Continuously monitor the performance of your document automation processes. Use 
 
 ## Conclusion
 
-Syntex Content Assembly is a game-changer for organizations looking to streamline their document creation processes. By leveraging AI and automation, it enhances efficiency, accuracy, and compliance, all while reducing costs. Whether you’re in legal, finance, HR, or sales, Syntex can help you produce high-quality documents quickly and consistently. Embrace the power of Syntex Content Assembly and transform your document workflows today.
+Syntex Content Assembly is a game-changer for organizations looking to streamline their document creation processes. By leveraging AI and automation, it enhances efficiency, accuracy, and compliance, all while reducing costs. Whether you’re in legal, finance, HR, or sales, Syntex can help you produce high-quality documents quickly and consistently. Embrace the power of Syntex Content Assembly and transform your document workflows today. 
+
+#### Note
+
+This is a simple introduction to Content Assembly , in further blogs I will show you how to harness the true potential of Content Assembly with a Powerful combination of Power Automate with a usecase
