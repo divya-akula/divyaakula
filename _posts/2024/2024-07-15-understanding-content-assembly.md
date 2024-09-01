@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Exploring Syntex Content Assembly: Streamlining Document Automation"
-byline: "A Guide to Using Microsoft Graph"
+byline: "Beginning notes on CA journey"
 date:   2024-07-15 08:00:00
 author: Divya Akula
 categories: SharePointPremium
