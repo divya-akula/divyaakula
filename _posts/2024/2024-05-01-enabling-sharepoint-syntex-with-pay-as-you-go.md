@@ -29,11 +29,9 @@ Only users meeting the following criteria can enable pay-as-you-go licensing for
 ## Steps to Enable
 
 1. Navigate to the Global Admin center
-   
     ![global admin center ]({{'/assets/posts/2024-05-01-syntex-pay-as-you-go/AdminCenter.png' | prepend: site.baseurl}})
 2. Click on Setup
 3. In the **Files and Content** Section, search for *Syntex*
-
    ![Files and Content ]({{'/assets/posts/2024-05-01-syntex-pay-as-you-go/AdminCenterSetup.png' | prepend: site.baseurl}})
 4. Click on the use **Use Content AI with Microsoft Syntex**
 5. For the users who have Syntex License expired will have Manage Syntex greyd out
