@@ -20,8 +20,8 @@ To ensure compatibility, update your PnP PowerShell module. Open the terminal on
 ``` powershell
 Connect-PnPOnline -Url https://trycatchexp.sharepoint.com/sites/HRPortal/ -Interactive 
 ```
- 
- ## Update Pnp PowerShell module
+
+## Update PnPPowerShell module
 
 Open the terminal (in mac) or cmd prompt as administrator
 
@@ -60,6 +60,11 @@ Navigate to the app registrations via the Entra portal using [https://entra.micr
 
 ![Admin Grant]({{'/assets/posts/2024-09-11-connecting-pnp-powershell-interactive/AdminGrant.png' | prepend: site.baseurl}})
 
+## Output in Place
+
+The output of the command returns the client id , you can save it or can find it in entra portal always
+![Admin Grant]({{'/assets/posts/2024-09-11-connecting-pnp-powershell-interactive/Output.png' | prepend: site.baseurl}})
+
 ## Connecting to PowerShell
 
 Now still using the interactive command connect to your SharePoint site
@@ -68,4 +73,9 @@ Now still using the interactive command connect to your SharePoint site
 Connect-PnPOnline https://trycatchexp.sharepoint.com/sites/HRPortal/ -ClientId  73195866-cf8b-4d3a-bb0d-a12c5d2459b3 -Interactive
 ```
 
-This command will prompt you to log in, adding an additional layer of authentication to ensure security
+This command will prompt you to log in, adding an additional layer of authentication to ensure security . 
+
+## References
+
+1. [PnP GitHub](https://pnp.github.io/powershell/articles/registerapplication?wt.mc_id=MVP_366830)
+2. [App Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app?tabs=certificate&wt.mc_id=MVP_366830)
