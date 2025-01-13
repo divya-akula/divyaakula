@@ -16,7 +16,7 @@ github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 Document generation is a crucial part of every organization. In the previous blog, we discussed how to create a document by changing only metadata using content assembly. This blog guides you through on how to achieve this in bulk using the Power platform capabilities
 
 <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-  <a href="2024/06/12/content-assembly-usecase.html" target="_blank" style="background-color: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Understanding Microsoft Content Assembly</a>
+  <a href="{{'/sharepointpremium/2024/07/15/understanding-content-assembly.html' | prepend: site.baseurl}}" target="_blank" style="background-color: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Understanding Microsoft Content Assembly</a>
 </div>
 
 ## Use Case
@@ -80,5 +80,3 @@ This blog concludes our series on automating document generation using Microsoft
 1. Use Microsoft Syntex Content Assembly to simplify document automation.
 2. Combine Syntex with Power Automate for bulk document generation.
 3. Ensure templates and data are organized for seamless automation.
-
-

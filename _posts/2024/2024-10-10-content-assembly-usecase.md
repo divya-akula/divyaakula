@@ -16,7 +16,7 @@ github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 Document generation is a crucial part of every organization. In the previous blog, we discussed the importance of document generation and how it can streamline various processes. This method can act as a good alternative to your Document Information Panel or the Word Document Properties pane. This blog post will guide you through the process of using Microsoft Syntex to automate the creation of these documents. We'll cover everything from setting up templates to tagging and generating the final documents, demonstrating how easy and efficient this process can be.
 
 <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
-  <a href="2024/06/12/content-assembly-usecase.html" target="_blank" style="background-color: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Understanding Microsoft Content Assembly</a>
+  <a href="{{'/sharepointpremium/2024/07/15/understanding-content-assembly.html' | prepend: site.baseurl}}" target="_blank" style="background-color: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Understanding Microsoft Content Assembly</a>
 </div>
 
 ## Use Case
