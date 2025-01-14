@@ -63,9 +63,9 @@ Microsoft Syntex provides specialized SharePoint actions to perform tasks like g
    ![Complete flow]({{'/assets/posts/2024-11-11-automating-document-creation-with-content-assembly/CompleteFlow.png' | prepend: site.baseurl}})
 
 ## Output
-Navigate to the SharePoint library to view the generated files, each named after the corresponding employee.
-![Complete flow]({{'/assets/posts/2024-11-11-automating-document-creation-with-content-assembly/FlowOutput.png' | prepend: site.baseurl}})
 
+Navigate to the SharePoint library to view the generated files, each named after the corresponding employee.
+![Complete flow]({{'/assets/posts/2024-11-11-automating-document-creation-with-content-assembly/Flowoutput.png' | prepend: site.baseurl}})
 
 ## Document for Andrew Wood
 
@@ -74,6 +74,7 @@ Here is an example of a document generated for Andrew Wood:
 ![Complete flow]({{'/assets/posts/2024-11-11-automating-document-creation-with-content-assembly/AndrewWood.png' | prepend: site.baseurl}})
 
 ## Conclusion
+
 This blog concludes our series on automating document generation using Microsoft Syntex and Power Automate. By leveraging these tools, organizations can streamline document creation, saving time and ensuring consistency across all generated content.
 
 ## Key Takeaways
