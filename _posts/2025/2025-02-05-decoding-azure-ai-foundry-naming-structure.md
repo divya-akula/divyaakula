@@ -57,7 +57,7 @@ A repository of pre-built and customizable AI models.
 
 ### 6. Model Training
 
-The process of developing an AI model using data and machine learning techniques.
+The process of developing an AI model using data and machine learning techniques. Am not sure if its applicable in this scenario.
  
 ### 7.Model Deployment
 
@@ -177,7 +177,7 @@ PharmaCo’s **Azure AI Foundry environment** is divided into **three major hubs
 - ✅ **Project H – Remote Monitoring:** AI-enabled **wearable devices** track patient vitals and detect early warning signs of health issues.  
 - ✅ **Project I – Predictive Analytics:** AI anticipates **potential health risks** by analyzing patient history and real-time vitals.  
 
-### **📌 How Multiple Hubs and Projects he;ped in this usecase**  
+### **📌 How Multiple Hubs and Projects helped in this usecase**  
 
 1️⃣ *Operational Efficiency* – *Hubs* help PharmaCo *group related projects*, avoiding fragmentation.  
 2️⃣ *Security & Compliance* – Patient and research data is handled *securely* across different *regions* based on local laws.  
