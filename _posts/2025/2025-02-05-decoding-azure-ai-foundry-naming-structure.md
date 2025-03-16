@@ -58,7 +58,7 @@ A repository of pre-built and customizable AI models.
 ### 6. Model Training
 
 The process of developing an AI model using data and machine learning techniques. Am not sure if its applicable in this scenario.
- 
+
 ### 7.Model Deployment
 
  The process of making the trained model available for real-world use.
@@ -67,7 +67,7 @@ The process of developing an AI model using data and machine learning techniques
 - **Task-Specific Models**: Models tailored for specific applications  
 - **Industry Models**: Specialized models for different industries  
 
-### 8. Agents 
+### 8. Agents
 
 In Azure AI Foundry, agents act like intelligent assistants, each with a specific job to keep AI-powered operations running smoothly. They help automate tasks, manage AI models, and ensure everything works efficiently—almost like a well-organized team where each member plays a crucial role.
 
@@ -123,10 +123,10 @@ Stored completions in Azure AI Foundry are saved AI-generated responses that can
 To ensure ease of understanding, let’s take the example of a global pharmaceutical giant, PharmaCo, which leverages AI for drug discovery, clinical trials, and patient care. With such a complex and high-stakes operation, organizing its Azure AI Foundry resources effectively isn’t just a best practice—it’s essential. To maintain efficiency, ensure compliance, and scale seamlessly, PharmaCo structures its AI environment into multiple hubs and projects, creating a well-orchestrated system that supports innovation while keeping everything in check.
 
 ---
+
 ### **📌 PharmaCo’s Azure AI Foundry Structure**  
 
 PharmaCo’s **Azure AI Foundry environment** is divided into **three major hubs**, each catering to a specific function:
-
 
 #### **🔹 Hub 1: Drug Discovery**  
 
