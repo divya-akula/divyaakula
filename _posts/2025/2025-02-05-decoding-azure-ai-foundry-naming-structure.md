@@ -100,7 +100,7 @@ Ensuring AI is developed and used ethically.  I have many sessions explaining th
 ### 12. Metrics  
 
 The dashboard that contains the details of models and its beautiful and very handy in comparison
-![Metrics]({{'/assets/posts/2025-02-05-decoding-azure-ai-foundry-naming-structure/Metrics.png' | prepend: site.baseurl}})
+![Metrics]({{'/assets/posts/2025-02-05-decoding-azure-ai-foundry-naming-structure/Metrics.png' |prepend: site.baseurl}})
 
 ### 13. Security and Compliance  
 
