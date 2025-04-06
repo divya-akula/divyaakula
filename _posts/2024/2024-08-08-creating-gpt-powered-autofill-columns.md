@@ -4,7 +4,7 @@ title:  "SharePoint GPT filled columns"
 byline: "Implemented by Syntex"
 date:   2024-08-08 08:00:00
 author: Divya Akula
-categories: SharePointPremium
+categories: SharePointpremium
 tags:	SPPremium Autofillcoulmns Insights Documents GPTColumns
 cover:  "/assets/posts/2024-08-08-creating-gpt-powered-autofill-columns/Autofillbanner.jpeg"
 thumbnail: "/assets/images/thumbnails/Designer.png"
@@ -36,7 +36,7 @@ To enable autofill columns,
 3. Navigate to Syntex services
  ![Syntex Services]({{'/assets/posts/2024-08-08-creating-gpt-powered-autofill-columns/SyntexService.png' | prepend: site.baseurl}})
 4. Ensure the status is set to on
-![Syntex Services]({{'/assets/posts/2024-08-08-creating-gpt-powered-autofill-columns/AutofillStatus.png' | prepend: site.baseurl}})
+![Syntex Services]({{'/assets/posts/2024-08-08-creating-gpt-powered-autofill-columns/AUtofillStatus.png' | prepend: site.baseurl}})
 
 ### Extracting data from Document
 
