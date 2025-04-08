@@ -10,18 +10,18 @@ cover:  "/assets/posts/2024-06-12-working-with-graph-module/fotor-ai.jpg"
 thumbnail: "/assets/images/thumbnails/fotor-ai.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 ---
-In a Microsoft 365 (M365) environment, managing user data effectively is crucial. This blog post guides IT professionals and administrators on macOS through a streamlined approach to exporting comprehensive M365 user data, encompassing both active and inactive accounts, as a CSV file. The method leverages the Microsoft Graph module within PowerShell!!
+User data is an important aspect to deal with in any organization using Microsoft 365 (M365). In this blog, I will explain step by step to IT experts and administrators from macOS how to export complete M365 user data, that includes both active and inactive accounts, in a streamlined manner – all consolidated in a CSV file. The approach utilizes the Microsoft Graph module in PowerShell!!
 
 ## Installation
 
-When I attempted to install the Graph module using PowerShell, I received a message stating that a Graph Module already exists. So, I tried to connect to it using the following command:
+When I was trying to install the Graph module on PowerShell, I was greeted with the following notification: A Graph Module already exists. Therefore, I tried connecting to it with the command
 
 ```powershell
 Connect-MGGraph
 ```
 
 ![Model]({{'/assets/posts/2024-06-12-working-with-graph-module/GraphAccessDenied.png' | prepend: site.baseurl}})
-After various such unsuccessful attempts
+After a number of these unsuccessful attempts
 
 ![Model]({{'/assets/posts/2024-06-12-working-with-graph-module/GraphPwshAccessDenied.png' | prepend: site.baseurl}})
 

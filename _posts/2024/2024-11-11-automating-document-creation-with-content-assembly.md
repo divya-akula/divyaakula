@@ -20,16 +20,17 @@ Document generation is a crucial part of every organization. In the previous blo
 </div>
 
 ## Use Case
-In our earlier example, we discussed an HR scenario where salary increment letters were generated for employees by creating and using templates. This blog extends that scenario by demonstrating how to generate these documents in bulk with minimal effort.
+
+We looked at an HR scenario where increment letters with salary changes were issued for the employees using templates. This blog extends that story by explaining how to complete the documents in bulk with minimal effort.
 
 
 ## Demonstration
 
-This section walks you through generating documents for multiple users with a single click.
+This section walks you through document generation for a number of users, which can all be completed in one click.
 
 ### Template for the Use Case
 
-To complete the use case scenario, I am using the template below that helps HR to generate salary hikes for the users. Ensure that you upload the template into your Syntex Content Center or any site collection where you wish to save it.
+To formulate the steps for the use case, I am implementing the template underneath which assists HR in creating salary revisions for the employees. Please upload the template in your Syntex Content Center or any site collection where you intend to store it.
 
 <iframe src="https://5kswv1-my.sharepoint.com/:w:/g/personal/divya_5kswv1_onmicrosoft_com/EdXxrbOO_DlDrJ6iSvg-3QEBG6e-h_SakzvseWPZYn2ugg?e=qtHoPP&action=embedview" width="600" height="700" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
@@ -78,6 +79,7 @@ Here is an example of a document generated for Andrew Wood:
 This blog concludes our series on automating document generation using Microsoft Syntex and Power Automate. By leveraging these tools, organizations can streamline document creation, saving time and ensuring consistency across all generated content.
 
 ## Key Takeaways
-1. Use Microsoft Syntex Content Assembly to simplify document automation.
-2. Combine Syntex with Power Automate for bulk document generation.
-3. Ensure templates and data are organized for seamless automation.
+
+1. Automate document creation with Microsoft Syntex Content Assembly.
+2. Use Syntex in combination with Power Automate for bulk document generation.
+3. Make sure that templates and information are structured in a manner that allows easy automation.

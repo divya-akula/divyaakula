@@ -13,7 +13,7 @@ github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 
 # Introduction
 
-As artificial intelligence (AI) becomes a core part of modern businesses, Azure AI Foundry emerges as a powerful platform to simplify AI model development, deployment, and management. However,with the transiiton of Azure OpenAI services to foundry the nomenclature was bit  overwhelming for me. This blog is basically for anyone who are in my zone and this single blog may not cover all and as and when I start exploring new concepts I will ensure the blog is updated.
+AI (Artificial Intelligence) has indeed evolved to be one of the critical components of business today, and Azure AI Foundry is one of those powerful platforms which helps ease the complexity related to AI-powered model creation, orchestration as well as monitoring. However, I personally encountered porting issues with nomenclature found in Azure OpenAI services to the Foundry model. This blog is primarily aimed at people in my situation and while this post isn’t comprehensive, I look forward to expanding the scope of this post as I learn more.
 
 ## Comprehensive Nomenclature for Azure AI Foundry  
 
@@ -23,22 +23,22 @@ Azure AI Foundry is a powerful platform designed to streamline the development, 
 
 Containers for organizing and managing AI development work.  
 
-- **Collaboration**: Facilitate teamwork with shared resources and version control  
-- **Data Management**: Securely store and manage datasets  
-- **Model Deployment**: Seamlessly deploy models to production environments  
-- **Testing**: Tools for evaluating model performance and accuracy  
+- **Collaboration**: Promote working together by granting access to shared assets, as well as version control options.
+- **Data Management**: Enables safe and secure data set storage and management. 
+- **Model Deployment**: Deploy models into production environments without any challenges.
+- **Testing**: Model performance and accuracy evaluation tools. 
 
 ### 2. Hubs  
 
 Top-level resources that manage multiple projects.  
 
-- **Security Configurations**: Managed networks and access controls  
-- **Compute Resources**: Provisioning for development, fine-tuning, and deployment  
+- **Security Configurations**: Networks and access control policies that are managed.  
+- **Compute Resources**: Provisioning regarding development, fine tuning and deployment.
 - **Service Connections**: Integrations with other Azure services like **Azure OpenAI** and **Azure AI Services**  
 
 ### 3. Management Center  
 
-Streamlines governance and management of resources.  
+Governance and management of resources.  
 
 - **Resource Management**: Oversee hubs, projects, and connected resources  
 - **Deployment Management**: Monitor and manage model deployments  

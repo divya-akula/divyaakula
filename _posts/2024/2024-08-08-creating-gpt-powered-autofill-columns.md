@@ -14,7 +14,7 @@ github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
 
 ## Transforming Document Management with GPT-Powered Autofill Columns in SharePoint
 
-SharePoint Premium comes with a lot of features, and one of the standout additions is the Autofill columns powered by GPT. This  feature uses the power of generative AI to classify , extract or
+SharePoint Premium comes with a lot of features, and one of the standout additions is the Autofill columns powered by GPT. This  feature uses the power of generative AI to classify , extract or summarize.
 
 ### What Are GPT-Powered Autofill Columns?
 
