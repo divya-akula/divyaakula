@@ -8,13 +8,27 @@ cover_options: narrow
 sitemap: true
 ---
 
-I'm Divya Akula, a Microsoft MVP & Microsoft Advanced Content Management Advocate,this blog is about some projects I'm working on in my spare time. Mostly to hone my programming skills, have some     fun or try new technology. There will be some posts about openAI, machine learning, Microsoft technologies etc.
+I’m **Divya Akula** — a Microsoft MVP in Responsible AI and Azure AI Services, and a Microsoft Advanced Content Management Advocate.  
 
-## Like this blog ?
+I currently work as a **Senior Technical Consultant – AI & Microsoft Copilot Solutions at Sulava MEA**, where I help organizations adopt AI responsibly and build copilots, pro-code agents, and smart document solutions.  
 
-If you do, great! Feel free to reach out and let me know what you'd like to see more off! If you want to show your
-appreciation you can contribute to my caffeine addiction and [Buy me a Coffee](https://buymeacoffee.com/{{site.buy_me_a_coffee_username}}).
+This blog is where I share the projects I tinker with in my spare time part playground, part learning journal. Sometimes it’s about sharpening my programming skills, sometimes experimenting with **OpenAI, Copilot Studio, and Microsoft cloud technologies**, and often exploring how to design **enterprise-grade, production-ready applications** that scale with reliability and observability in mind.  
 
-## Credits
+---
 
-This site is actualy created by Sebastian Proost in Jekyll and I have forked it , thanks for creating a wonderful template, to know more aobut him find out more about his research head over to [sebastian.proost.science](https://sebastian.proost.science) for details on what I'm doing at work. About where I was travelling to lately you can find posts on another blog [Beyond the Known](https://www.beyond-the-known.eu/) go and check it out.
+## Like this blog?  
+
+That’s awesome! 🎉  
+Feel free to connect with me and let me know what topics you’d like me to dive into next.  
+And if you’d like to fuel my caffeine-powered writing, you can [Buy me a Coffee](https://buymeacoffee.com/{{site.buy_me_a_coffee_username}}). ☕  
+
+---
+
+## Credits  
+
+This site is built on a wonderful Jekyll template created by **Sebastian Proost** , I forked it and made it my own.  
+👉 Learn more about his research at [sebastian.proost.science](https://sebastian.proost.science).  
+
+---
+
+✨ Curious mix of **AI consultant, Microsoft techie, explorer, and lifelong learner** , that’s me in a nutshell.  
