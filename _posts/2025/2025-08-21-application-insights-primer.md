@@ -192,7 +192,6 @@ Switch to **KQL mode**, and you’re ready to start querying.
 
 ![Monitoring]({{'/assets/posts/2025-08-21-application-insights-primer/KQLMode.png' | prepend: site.baseurl}})
 
-
 ### Example 1: Count failed requests in the past hour
 
 ```kql
