@@ -5,7 +5,7 @@ title:  "Azure Monitor Application Insights: The Backbone of App Reliability in 
 byline: "An Application Insights tutorial — from blind spots to full visibility."
 date:   2025-08-21 08:00:00
 author: Divya Akula
-categories: Cloud Monitoring & Observability
+categories: cloud-monitoring
 tags: Azure Monitor, Application Insights, KQL Queries, Azure Alerts, Best Practices
 cover:  "/assets/posts/2025-08-21-application-insights-primer/AzureApplicationInsightsPrimer.jpeg"
 thumbnail: "/assets/images/thumbnails/AzureApplicationInsightsPrimer.jpeg"
