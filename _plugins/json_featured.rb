@@ -13,7 +13,7 @@ module Jekyll
         output.append({
             "title": post.data["title"],
             "categories": post.data["categories"],
-            "thumbnail": Jekyll.configuration({})['url'] + Jekyll.configuration({})['baseurl'] + post.data["thumbnail"]
+            "thumbnail": Jekyll.configuration({})['url'] || '' + Jekyll.configuration({})['baseurl'] || '' + post.data["thumbnail"] || ''
         })
       end
 

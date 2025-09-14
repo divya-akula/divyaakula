@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -e
+# Jekyll cleanup script
+
+cd ~/Downloads/4dcu.be-master
+
+echo "==> Using rbenv Ruby version:"
+rbenv version
+
+echo "==> Removing global Jekyll and Bundler..."
+for ruby_dir in ~/.rbenv/versions/*; do
+  GEM_HOME="$ruby_dir/lib/ruby/gems" || true
+  if [ -d "$ruby_dir" ]; then
+    RBENV_VERSION=$(basename "$ruby_dir")
+    echo "---- Cleaning Ruby $RBENV_VERSION ----"
+    RBENV_VERSION=$RBENV_VERSION gem uninstall -aIx jekyll bundler || true
+  fi
+done
+
+echo "==> Rehashing rbenv..."
+rbenv rehash
+
+RUBY_VERSION=$(cat .ruby-version 2>/dev/null || echo "3.3.0")
+echo "==> Ensuring Ruby $RUBY_VERSION is installed..."
+rbenv install -s $RUBY_VERSION
+rbenv local $RUBY_VERSION
+rbenv rehash
+ruby -v
+
+echo "==> Installing Bundler..."
+gem install bundler
+
+echo "==> Cleaning Bundler cache..."
+bundle clean --force || true
+
+echo "==> Installing project gems..."
+bundle install
+
+echo "==> Checking Jekyll version..."
+bundle exec jekyll -v
+
+echo "✅ Cleanup complete! Use 'bundle exec jekyll serve' to run your site."
