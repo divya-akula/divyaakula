@@ -1,14 +1,14 @@
 ---
 
 layout: post
-title:  "Azure Monitor Application Insights: The Backbone of App Reliability in Azure"
-byline: "An Application Insights tutorial — from blind spots to full visibility."
-date:   2025-08-21 08:00:00
+title:  "Getting Started with Responsible AI"
+byline: "Building trust in AI starts with human responsibility."
+date:   2025-09-19 08:00:00
 author: Divya Akula
-categories: cloud-monitoring
+categories: ResponsibleAI
 tags: ResponsibleAI, HumanAI, KQL Queries, Azure Alerts, Best Practices
-cover:  "/assets/posts/2025-09-19-responsible-ai-getting-started/ResponsibleAIWithHuman.png"
-thumbnail: "/assets/images/thumbnails/ResponsibleAIWithHuman.png"
+cover:  "/assets/posts/2025-09-19-responsible-ai-getting-started/ResponsibleAIWithHuman.jpg"
+thumbnail: "/assets/images/thumbnails/ResponsibleAIWithHuman.jpg"
 github: "<https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis>"
 description: "Learn how to set up Azure Monitor Application Insights with this tutorial — covering setup, pricing, telemetry, KQL queries, alerts, and best practices."
 ---
