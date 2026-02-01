@@ -1,0 +1,103 @@
+/* flow.css — subtle animated flowing gradient overlay
+   - Adds a subtle animated gradient layer using :before on body
+   - Uses CSS variables so JS can nudge values for parallax
+   - Keeps pointer-events:none so it doesn't block interactions
+*/
+:root{
+  --flow-opacity: 0.14;
+  --flow-x: 50%; /* controlled by JS for parallax */
+  --flow-y: 50%;
+}
+
+/* overlay layer */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0; /* top:0 right:0 bottom:0 left:0 */
+  z-index: -1; /* sit behind content but above background */
+  pointer-events: none;
+  background: radial-gradient(1200px 600px at var(--flow-x) var(--flow-y), rgba(255,120,200,0.08), rgba(0,160,255,0.04) 30%, transparent 50%),
+              linear-gradient(120deg, rgba(34,193,195,0.035), rgba(253,187,45,0.03));
+  mix-blend-mode: screen;
+  opacity: var(--flow-opacity);
+  transform: translateZ(0);
+  animation: flowShift 18s linear infinite alternate;
+  -webkit-backdrop-filter: blur(6px) saturate(1.05);
+  backdrop-filter: blur(6px) saturate(1.05);
+}
+
+@keyframes flowShift{
+  0%{
+    filter: hue-rotate(0deg) saturate(1);
+    transform: translateY(0) scale(1);
+  }
+  50%{
+    filter: hue-rotate(15deg) saturate(1.05);
+    transform: translateY(2%) scale(1.02);
+  }
+  100%{
+    filter: hue-rotate(-10deg) saturate(0.98);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* reduce effect on small screens to avoid performance issues */
+@media (max-width: 720px){
+  :root{ --flow-opacity: 0.06; }
+  body::before{ animation-duration: 26s; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* provide a helpful small utility class to slightly lift sections over the flow */
+.section--elevated{
+  position: relative;
+  z-index: 1;
+}
+/* Trust Strip */
+.trust-strip {
+  background: #f6f3f8; /* light lavender-grey; matches your purple accent */
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.trust-strip__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  text-align: center;
+}
+
+.trust-item {
+  padding: 10px 8px;
+}
+
+.trust-item__icon {
+  font-size: 22px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.trust-item__text {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .trust-strip__container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .trust-strip__container {
+    grid-template-columns: 1fr;
+    padding: 22px 14px;
+  }
+  .trust-item__text {
+    font-size: 14px;
+  }
+}
