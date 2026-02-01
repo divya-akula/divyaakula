@@ -5,7 +5,6 @@ show_updated: true
 sitemap: true
 ---
 <div class="home">
-
 <div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
   <div class="scrim {% if site.cover %}has-cover{% endif %}">
     <header class="site-header">
@@ -19,7 +18,7 @@ sitemap: true
     </header>
   </div>
 </div>
-
+		{% include trust_strip.html %}
 <div class="wrapper">
 	<div class="wrapper">
 <!-- This loops through the paginated posts -->

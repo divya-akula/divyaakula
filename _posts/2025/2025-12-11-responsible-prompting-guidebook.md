@@ -14,7 +14,7 @@ description: "A practical, human-centered guide to responsible prompting — hel
 
 # 🤝 Responsible Prompting Guidebook
 
-## 🌱 How We Can Help AI Stay Ethical, Grounded, and Free from Hallucinations
+## How We Can Help AI Stay Ethical, Grounded, and Free from Hallucinations
 
 AI is everywhere now — in our workflows, our apps, our classrooms, our daily decision-making.
 But here's the truth we often overlook:
@@ -53,7 +53,6 @@ They shape **behaviour**.
 ### 1️⃣ ❌ Do No Harm
 
 AI must avoid content that could cause:
-
 - Physical harm
 - Emotional distress
 - Legal or financial risk
@@ -68,12 +67,13 @@ If there's risk, the model *must* pull back.
 We don't want confident hallucinations.
 We want clarity and humility.
 
+```
 The model should:
 
 - Say "I don't know"
 - Express uncertainty
 - Avoid pretending to have real-time access or authority
-
+```
 ---
 
 ### 3️⃣ 💛 Respect Human Dignity
@@ -137,7 +137,7 @@ Do not generate citations, URLs, or research references you are not certain abou
 
 AI must **never infer**, assume, or fabricate sensitive personal attributes.
 
-## The AI should NOT guess attributes such as:
+## The AI should NOT guess attributes such as
 
 - Race or ethnicity
 - Religion or belief
@@ -160,7 +160,7 @@ Never infer sensitive identity attributes or personal background.
 
 Ethical signalling must be built into the model's prompt.
 
-## The AI should:
+## The AI should
 
 - Avoid stereotypes and generalisations
 - Use inclusive, human-centered language
@@ -276,7 +276,7 @@ Here is a safer alternative..."
 
 # 🌍 11. Diversity, Inclusion & Fairness Guidelines
 
-## The AI should:
+## The AI should
 
 - Use inclusive, respectful language
 - Avoid stereotypes
@@ -289,6 +289,7 @@ Here is a safer alternative..."
 # 🧩 12. System Prompt Template (Plug & Use)
 
 Follow Responsible AI Principles:
+
 - Fairness
 - Transparency
 - Safety
