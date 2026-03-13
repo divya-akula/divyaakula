@@ -1,0 +1,29 @@
+<div class="widget widget--upcoming-events">
+  <h3 class="widget__title">
+    <i class="fa fa-calendar" aria-hidden="true"></i> Upcoming Events
+  </h3>
+
+  {% if site.data.events %}
+    <ul class="social-compact-list">
+    {% for event in site.data.events %}
+    <li class="social-compact-item">
+      {% if event.url %}
+      <a href="{{ event.url }}" target="_blank" rel="noopener noreferrer" class="social-compact-item__link">
+      {% else %}
+      <span class="social-compact-item__link">
+      {% endif %}
+        <span class="social-compact-item__icon social-compact-item__icon--event">
+          <i class="fa fa-microphone" aria-hidden="true"></i>
+        </span>
+        <span class="social-compact-item__body">
+          <span class="social-compact-item__meta">{{ event.date | date: "%b %-d, %Y" }} &middot; {{ event.location }}</span>
+          <span class="social-compact-item__text">{{ event.title }}</span>
+        </span>
+      {% if event.url %}</a>{% else %}</span>{% endif %}
+    </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p class="widget__placeholder-message">Upcoming talks &amp; workshops will be announced here.</p>
+  {% endif %}
+</div>

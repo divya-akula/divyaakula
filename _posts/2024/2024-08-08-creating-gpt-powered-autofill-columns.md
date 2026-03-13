@@ -4,7 +4,7 @@ title:  "SharePoint GPT filled columns"
 byline: "Implemented by Syntex"
 date:   2024-08-08 08:00:00
 author: Divya Akula
-categories: SharePointpremium
+categories: SharePointPremium
 tags:	SPPremium Autofillcoulmns Insights Documents GPTColumns
 cover:  "/assets/posts/2024-08-08-creating-gpt-powered-autofill-columns/Autofillbanner.jpeg"
 thumbnail: "/assets/images/thumbnails/Designer.png"

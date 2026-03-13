@@ -1,0 +1,12 @@
+# Display names for categories
+# key: exact category slug used in post front matter
+# label: human-readable display name
+
+CopilotStudio:     "Copilot Studio"
+MicrosoftGraph:    "Microsoft Graph"
+OpenAI:            "OpenAI"
+PnPPowerShell:     "PnP PowerShell"
+PowerPlatform:     "Power Platform"
+ResponsibleAI:     "Responsible AI"
+SharePointPremium: "SharePoint Premium"
+cloud-monitoring:  "Cloud Monitoring"

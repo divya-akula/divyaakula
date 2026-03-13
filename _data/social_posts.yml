@@ -1,0 +1,31 @@
+# Curated social posts to display on the homepage.
+#
+# HOW TO ADD A POST:
+#   1. Go to the tweet / GitHub repo / Instagram post / LinkedIn post
+#   2. Copy the URL from your browser address bar
+#   3. Paste it as the `url:` value below
+#   4. Fill in `content` (what the post says — will be truncated to ~15 words)
+#   5. Add `image` only for Instagram/visual posts (path to image in /assets/)
+#
+# platform options: twitter | github | instagram | linkedin | facebook
+
+- platform: twitter
+  url: https://twitter.com/_divyaakula          # ← replace with link to a specific tweet
+  content: "Excited to share my latest blog post on Azure AI & Responsible AI — building trustworthy AI systems that actually work in production! 🚀"
+  date: 2026-02-20
+
+- platform: github
+  url: https://github.com/divya-akula           # ← replace with link to a specific repo or commit
+  content: "Published a new Power Platform connector sample — connect your flows to any REST API in minutes."
+  date: 2026-02-15
+
+- platform: instagram
+  url: https://instagram.com/_divyaakula         # ← replace with link to a specific post
+  content: "Speaking at Microsoft Community Days Ahmedabad! Great to meet so many passionate developers. 📸"
+  image: /assets/DivyaAkula_Ahmedabad.jpeg
+  date: 2026-01-30
+
+- platform: linkedin
+  url: https://linkedin.com/in/ms-divya-akula      # ← replace with link to a specific post
+  content: "Thrilled to be recognized as Microsoft MVP for the third consecutive year in Azure AI & M365!"
+  date: 2026-01-10

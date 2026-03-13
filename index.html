@@ -19,62 +19,75 @@ sitemap: true
   </div>
 </div>
 		{% include trust_strip.html %}
+
 <div class="wrapper">
-	<div class="wrapper">
+
+{% assign featured = site.posts | where: "featured", true | first %}
+{% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
+{% if featured %}
+<div class="featured-article">
+  <a href="{{ featured.url | prepend: site.baseurl }}" class="featured-article__link">
+    <div class="featured-article__image">
+      <img src="{{ featured.thumbnail | prepend: site.baseurl }}" alt="{{ featured.title | strip_html }}" loading="lazy" />
+      <span class="featured-article__badge">Featured</span>
+    </div>
+    <div class="featured-article__body">
+      <p class="featured-article__label"><i class="fa fa-star" aria-hidden="true"></i> Featured Insight</p>
+      <h2 class="featured-article__title">{{ featured.title }}</h2>
+      <p class="featured-article__excerpt">{{ featured.content | strip_html | truncatewords: 30 }}</p>
+      <span class="featured-article__cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+    </div>
+  </a>
+</div>
+{% endif %}
+
+<div class="home-layout">
 <!-- This loops through the paginated posts -->
 <ul class="post-list" data-pagefind-ignore>
 	{% for post in paginator.posts %}
-	<li>
-		<div data-aos="fade-in">
-			<h2>
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-			</h2>
-			<section class="post-excerpt" itemprop="description">
-				<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-					<img class="post-excerpt-image" src="{{ post.thumbnail | prepend: site.baseurl }}" alt="thumbnail for {{ post.title | strip_html }}" width="{{ site.thumbnail.width }}" height="{{ site.thumbnail.height }}" loading=lazy/>
-				</a>
-				<p>{{ post.content | strip_html | truncatewords: 50 }}</p>
-				{% assign words = post.content | number_of_words %}
-			</section>
-			<section class="post-meta">
-				<div class="post-date">Reading time: <strong>{% if words < 360 %} 1 minute {% else %} {{ words | divided_by:180 }} minutes {% endif %}</strong></div>
-				<div class="post-categories">Posted {{ post.date | date: "%B %-d, %Y" }}
-				{% if post.categories.size > 0 %}in {% for cat in post.categories %}
-					{% if site.jekyll-archives %}
-					<a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-					{% else %}
-					<a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-					{% endif %}
-				{% endfor %}{% endif %}
+	{% assign words = post.content | number_of_words %}
+	<li class="post-card" data-aos="fade-in">
+		<a class="post-card__link" href="{{ post.url | prepend: site.baseurl }}">
+			<div class="post-card__image">
+				<img src="{{ post.thumbnail | prepend: site.baseurl }}" alt="{{ post.title | strip_html }}" loading="lazy" />
+			</div>
+			<div class="post-card__body">
+				<h2 class="post-card__title">{{ post.title }}</h2>
+				<div class="post-card__meta">
+					<span><i class="fa fa-clock-o" aria-hidden="true"></i> {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} min{% endif %} read</span>
+					<span>{{ post.date | date: "%b %-d, %Y" }}</span>
 				</div>
-			</section>
-		</div>
-	{% if forloop.last == false %}
-	<hr>
-	{% endif %}
+				{% if post.categories.size > 0 %}
+				<div class="post-card__categories">
+					{% for cat in post.categories %}
+					<a href="{{ site.baseurl }}/category/{{ cat }}" class="post-card__cat-tag">{{ site.data.category_labels[cat] | default: cat }}</a>
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
+		</a>
 	</li>
 	{% endfor %}
 </ul>
 
 	<div class="category-wrapper">
-	<h3>Categories</h3>
-	<ul class="category-list">
-		{% for category in site.categories %}
-		{% capture cat %}{{ category | first }}{% endcapture %}
-		<li><a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a> <span class="post-count">({{ category[1].size }})</span></li>
-		{% endfor %}
-	</ul>
-	<br />
-	<h3>Posts from ...</h3>
-	<ul class="category-list">
-		{% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-		{% for year in postsByYear %}
-			<li><a href="{{ site.baseurl }}/year/{{ year.name }}">{{ year.name }}</a> <span class="post-count">({{ year.items.size }})</span></li>
-		{% endfor %}
-	</ul>
+	{% include social_feed.html %}
+	{% include upcoming_events.html %}
+	<div class="widget">
+		<h3 class="widget__title"><i class="fa fa-tag" aria-hidden="true"></i> Topics</h3>
+		<div class="category-chips">
+			{% for category in site.categories %}
+			{% capture cat %}{{ category | first }}{% endcapture %}
+			{% capture label %}{{ site.data.category_labels[cat] | default: cat }}{% endcapture %}
+			<a href="{{ site.baseurl }}/category/{{ cat }}" class="category-chip">
+				{{ label }} <span class="category-chip__count">{{ category[1].size }}</span>
+			</a>
+			{% endfor %}
+		</div>
 	</div>
+	</div>
+</div><!-- /.home-layout -->
 
-  </div>
 	<nav class="pagination" role="navigation">
 		<p>
 			{% if paginator.previous_page %}

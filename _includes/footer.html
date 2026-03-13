@@ -1,44 +1,48 @@
 <footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <span class="footer-name">{{ site.title }}</span>
+      <span class="footer-subtitle">{{ site.subtitle }}</span>
+    </div>
 
-  <div class="wrapper">
+    <nav class="footer-nav">
+      {% for page in site.pages -%}
+        {% if page.title and page.main_nav == true %}
+          <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+        {% endif %}
+      {%- endfor %}
+      {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+      {% for year in postsByYear %}
+        <a href="{{ site.baseurl }}/year/{{ year.name }}">{{ year.name }}</a>
+      {% endfor %}
+    </nav>
 
-    <h3 class="footer-heading">{{ site.title }}</h3>
-
-		<div>
-			<div class="site-navigation">
-
-				<p><strong>Site Map</strong></p>
-				<ul class="pages">
-					{% include nav_links_footer.html %}
-				</ul>
-				<br />
-				<strong>Legal</strong>
-				<a href="{{ "/policy/" | prepend: site.baseurl }}">Privacy policy</a>
-			</div>
-
-			<div class="site-contact">
-				<p><strong>Contact</strong></p>
-				<ul class="social-media-list">
-					{% include social_media_links.html %}
-				</ul>
-			</div>
-
-			<div class="site-signature">
-				{% if site.buy_me_a_coffee_username %}
-				<p><strong>Contribute</strong></p>
-				<p><i class="fa fa-coffee"></i> <a href="https://buymeacoffee.com/{{site.buy_me_a_coffee_username}}">Buy me a Coffee </a></p>
-				{% endif %}
-				<p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
-				{% if page.show_updated %}
-			    <p class="text">Last update: {{ site.time | date: "%B %-d, %Y" }}</p>
-			  {% endif %}
-			</div>
-		</div>
-
-		<div><p>Powered by Jekyll & <a href="https://twitter.com/ProostSebastian">Sebastian Proost</a></p>
-				</div>
+    <div class="footer-social">
+      {% for social in site.social %}
+        {% if social.url %}
+        <a href="{{ social.url }}" class="social-{{ social.icon }}" target="_blank" rel="noopener noreferrer" title="{{ social.name }}">
+          <i class="fa fa-{{ social.icon }}" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+      {% endfor %}
+      {% if site.buy_me_a_coffee_username %}
+      <a href="https://buymeacoffee.com/{{ site.buy_me_a_coffee_username }}" class="social-coffee" target="_blank" rel="noopener noreferrer" title="Buy me a Coffee">
+        <i class="fa fa-coffee" aria-hidden="true"></i>
+      </a>
+      {% endif %}
+      <a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="social-rss" title="RSS Feed">
+        <i class="fa fa-rss" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
 
+  <div class="footer-bottom">
+    <span>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</span>
+    <span class="footer-sep">&middot;</span>
+    <a href="{{ "/policy/" | prepend: site.baseurl }}">Privacy</a>
+    <span class="footer-sep">&middot;</span>
+    <span>Powered by Jekyll</span>
+  </div>
 </footer>
 
 <!-- Scripts -->

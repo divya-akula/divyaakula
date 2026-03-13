@@ -4,7 +4,7 @@ title:  "Automated Chronicles: Documenting with Content Assembly"
 byline: "Empowering documents with Power Automate & Syntex"
 date:   2024-11-11 08:00:00
 author: Divya Akula
-categories: SharepointPremium
+categories: SharePointPremium
 tags:	SPPremium DIP Word Templates ContentAssembly PowerAutomate Automation DocumentProvisionAutomation
 cover:  "/assets/posts/2024-11-11-automating-document-creation-with-content-assembly/PowerAutomateWithContentAssembly.jpeg"
 thumbnail: "/assets/images/thumbnails/PowerAutomateWithContentAssembly.jpg"

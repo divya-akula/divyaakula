@@ -4,7 +4,7 @@ title:  "Creating Documents with Microsoft Syntex"
 byline: "Content Assembly in Action"
 date:   2024-10-10 08:00:00
 author: Divya Akula
-categories: SharepointPremium
+categories: SharePointPremium
 tags:	SPPremium DIP Word Templates ContentAssembly
 cover:  "/assets/posts/2024-10-10-content-assembly-usecase/BannerCAssembly.jpeg"
 thumbnail: "/assets/images/thumbnails/CAassemblyUsecase.jpg"
