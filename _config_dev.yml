@@ -60,10 +60,10 @@ assets_path: "/assets"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000" # the base hostname & protocol for your site
 cover: "/assets/header_image.webp"
-logo: "/assets/icons/divya-akula-logo-gold.png"
-sticker: "/assets/divya-akula-web-pic.png"
-sticker-1_5x: "/assets/divya-akula-web-pic.png"
-sticker-2x: "/assets/divya-akula-web-pic.png"
+logo: "/assets/DivyaAkula_Ahmedabad.jpeg"
+sticker: "/assets//assets/DivyaAkula_Ahmedabad.jpeg"
+sticker-1_5x: "/assets/DivyaAkula_Ahmedabad.jpeg"
+sticker-2x: "/assets/DivyaAkula_Ahmedabad.jpeg"
 
 
 

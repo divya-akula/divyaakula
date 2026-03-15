@@ -37,9 +37,9 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.divyaakula.com" # the base hostname & protocol for your site
 cover: "/assets/header_image.webp"
 logo: "/assets/icons/divya-akula-logo-gold.png"
-sticker: "/assets/DivyaAkulaWebPic (2).png"
-sticker-1_5x: "/assets/DivyaAkulaWebPic (2).png"
-sticker-2x: "/assets/DivyaAkulaWebPic (2).png"
+sticker: "/assets/DivyaAkula_Ahmedabad.jpeg"
+sticker-1_5x: "/assets/DivyaAkula_Ahmedabad.jpeg"
+sticker-2x: "/assets/DivyaAkula_Ahmedabad.jpeg"
 appleicon_57: "/assets/icons/apple-icon-57x57.png"
 appleicon_60: "/assets/icons/apple-icon-60x60.png"
 appleicon_72: "/assets/icons/apple-icon-72x72.png"
