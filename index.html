@@ -1,125 +1,331 @@
 ---
-layout: default 
+layout: default
 title: "Divya Akula - M365 , Powerplatform, ..."
 show_updated: true
 sitemap: true
 ---
 <div class="home">
-<div class="site-header-container {% if site.cover %}has-cover{% endif %}" {% if site.cover %}style="background-image: url({{ site.cover | prepend: site.baseurl }});"{% endif %}>
-  <div class="scrim {% if site.cover %}has-cover{% endif %}">
-    <header class="site-header">
-			<div width="60%" >
-			{% if site.sticker %}<img src="{{prepend: site.baseurl}}/assets/DivyaAkula_Ahmedabad.jpeg" srcset="" alt="sticker" class="" width="60%" height="600px" border-radius="50px"/>{% endif %}
-		</div>
-			<div>
-      <h1 class="title">{{ site.title }}</h1>
-      {% if site.subtitle %}<p class="subtitle">{{ site.subtitle }}</p>{% endif %}
-		</div>
-    </header>
-  </div>
-</div>
-		{% include trust_strip.html %}
 
-<div class="wrapper">
-
-{% assign featured = site.posts | where: "featured", true | first %}
-{% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
-{% if featured %}
-<div class="featured-article">
-  <a href="{{ featured.url | prepend: site.baseurl }}" class="featured-article__link">
-    <div class="featured-article__image">
-      <img src="{{ featured.thumbnail | prepend: site.baseurl }}" alt="{{ featured.title | strip_html }}" loading="lazy" />
-      <span class="featured-article__badge">Featured</span>
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        {{ site.subtitle }}
+      </div>
+      <h1 class="hero-h1">Building AI that<br>earns <em>trust</em></h1>
+      <p class="hero-sub">Senior Technical Consultant at Sulava. Responsible AI Architect. Speaker at 25+ global events. Helping organizations adopt AI that's enterprise-ready and ethically grounded.</p>
+      <div class="hero-actions">
+        <a href="#articles" class="btn btn-gold">
+          Read latest insights
+          <i class="fa fa-arrow-right"></i>
+        </a>
+        <a href="https://github.com/divya-akula/responsible-ai-in-practice" class="btn btn-outline" target="_blank">Free RAI Ebook</a>
+      </div>
     </div>
-    <div class="featured-article__body">
-      <p class="featured-article__label"><i class="fa fa-star" aria-hidden="true"></i> Featured Insight</p>
-      <h2 class="featured-article__title">{{ featured.title }}</h2>
-      <p class="featured-article__excerpt">{{ featured.content | strip_html | truncatewords: 30 }}</p>
-      <span class="featured-article__cta">Read article <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="card-avatar">
+          {% if site.sticker %}
+            <img src="{{ site.sticker | prepend: site.baseurl }}" alt="{{ site.name }}" />
+          {% else %}
+            DA
+          {% endif %}
+        </div>
+        <div class="card-name">{{ site.name }}</div>
+        <div class="card-title">Senior Technical Consultant &middot; Sulava MEA</div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <div class="card-stat-num">15+</div>
+            <div class="card-stat-label">Years</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">25+</div>
+            <div class="card-stat-label">Talks</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">MVP</div>
+            <div class="card-stat-label">Since '14</div>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="card-tag gold">Responsible AI</span>
+          <span class="card-tag">Copilot Studio</span>
+          <span class="card-tag">Azure AI</span>
+          <span class="card-tag">M365</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ARTICLES ═══════════ -->
+<section class="explore-section" id="articles">
+  <div class="explore-header">
+    <h2>Explore by topic</h2>
+    <p>Click a category to filter. Each color is a different world I work in.</p>
+  </div>
+
+  <!-- Category filter pills -->
+  <div class="topic-filters">
+    <button class="topic-pill topic-pill--active" data-filter="all">
+      All <span class="topic-pill__count">{{ site.posts | size }}</span>
+    </button>
+    {% for category in site.categories %}
+    {% capture cat %}{{ category | first }}{% endcapture %}
+    {% capture label %}{{ site.data.category_labels[cat] | default: cat }}{% endcapture %}
+    <button class="topic-pill" data-filter="{{ cat }}">
+      <span class="topic-dot topic-dot--{{ cat }}"></span>
+      {{ label }} <span class="topic-pill__count">{{ category[1].size }}</span>
+    </button>
+    {% endfor %}
+  </div>
+
+  <!-- Featured post -->
+  {% assign featured = site.posts | where: "featured", true | first %}
+  {% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
+  {% if featured %}
+  <a href="{{ featured.url | prepend: site.baseurl }}" class="explore-featured" data-categories="{{ featured.categories | join: ' ' }}">
+    <div class="explore-featured__visual">
+      {% if featured.thumbnail %}
+      <img src="{{ featured.thumbnail | prepend: site.baseurl }}" alt="{{ featured.title | strip_html }}" loading="lazy" />
+      {% else %}
+      <div class="explore-featured__gradient"></div>
+      {% endif %}
+      <div class="explore-featured__icon">
+        <i class="fa fa-bookmark"></i>
+      </div>
+    </div>
+    <div class="explore-featured__body">
+      {% if featured.categories.size > 0 %}
+      {% assign fcat = featured.categories | first %}
+      <span class="explore-tag explore-tag--{{ fcat }}">{{ site.data.category_labels[fcat] | default: fcat }}</span>
+      {% endif %}
+      <h3>{{ featured.title }}</h3>
+      <p>{{ featured.content | strip_html | truncatewords: 30 }}</p>
+      <span class="explore-featured__cta">
+        Read article <i class="fa fa-arrow-right"></i>
+      </span>
     </div>
   </a>
-</div>
-{% endif %}
+  {% endif %}
 
-<div class="home-layout">
-<!-- This loops through the paginated posts -->
-<ul class="post-list" data-pagefind-ignore>
-	{% for post in paginator.posts %}
-	{% assign words = post.content | number_of_words %}
-	<li class="post-card" data-aos="fade-in">
-		<a class="post-card__link" href="{{ post.url | prepend: site.baseurl }}">
-			<div class="post-card__image">
-				<img src="{{ post.thumbnail | prepend: site.baseurl }}" alt="{{ post.title | strip_html }}" loading="lazy" />
-			</div>
-			<div class="post-card__body">
-				<h2 class="post-card__title">{{ post.title }}</h2>
-				<div class="post-card__meta">
-					<span><i class="fa fa-clock-o" aria-hidden="true"></i> {% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} min{% endif %} read</span>
-					<span>{{ post.date | date: "%b %-d, %Y" }}</span>
-				</div>
-				{% if post.categories.size > 0 %}
-				<div class="post-card__categories">
-					{% for cat in post.categories %}
-					<a href="{{ site.baseurl }}/category/{{ cat }}" class="post-card__cat-tag">{{ site.data.category_labels[cat] | default: cat }}</a>
-					{% endfor %}
-				</div>
-				{% endif %}
-			</div>
-		</a>
-	</li>
-	{% endfor %}
-</ul>
+  <!-- Post grid -->
+  <div class="explore-grid" data-pagefind-ignore>
+    {% for post in paginator.posts %}
+    {% if post.url != featured.url %}
+    {% assign words = post.content | number_of_words %}
+    <a href="{{ post.url | prepend: site.baseurl }}" class="explore-card" data-categories="{{ post.categories | join: ' ' }}">
+      <div class="explore-card__visual">
+        {% if post.thumbnail %}
+        <img src="{{ post.thumbnail | prepend: site.baseurl }}" alt="{{ post.title | strip_html }}" loading="lazy" />
+        {% else %}
+        <div class="explore-card__gradient"></div>
+        {% endif %}
+        <div class="explore-card__icon">
+          <i class="fa fa-file-text-o"></i>
+        </div>
+      </div>
+      <div class="explore-card__body">
+        {% if post.categories.size > 0 %}
+        {% assign pcat = post.categories | first %}
+        <span class="explore-tag explore-tag--{{ pcat }}">{{ site.data.category_labels[pcat] | default: pcat }}</span>
+        {% endif %}
+        <h3>{{ post.title }}</h3>
+        <div class="explore-card__meta">
+          <span>{% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} min{% endif %} read</span>
+          <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+        </div>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+  </div>
 
-	<div class="category-wrapper">
-	{% include social_feed.html %}
-	{% include upcoming_events.html %}
-	<div class="widget">
-		<h3 class="widget__title"><i class="fa fa-tag" aria-hidden="true"></i> Topics</h3>
-		<div class="category-chips">
-			{% for category in site.categories %}
-			{% capture cat %}{{ category | first }}{% endcapture %}
-			{% capture label %}{{ site.data.category_labels[cat] | default: cat }}{% endcapture %}
-			<a href="{{ site.baseurl }}/category/{{ cat }}" class="category-chip">
-				{{ label }} <span class="category-chip__count">{{ category[1].size }}</span>
-			</a>
-			{% endfor %}
-		</div>
-	</div>
-	</div>
-</div><!-- /.home-layout -->
+  <!-- Pagination -->
+  <nav class="pagination" role="navigation">
+    <p>
+      {% if paginator.previous_page %}
+        <a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      {% else %}
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+      </span>
+      {% endif %}
+      <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+      <a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+      {% else %}
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+      </span>
+      {% endif %}
+    </p>
+  </nav>
+</section>
 
-	<nav class="pagination" role="navigation">
-		<p>
-			{% if paginator.previous_page %}
-				<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			{% else %}
-			<span class="fa-stack fa-lg">
-				<i class="fa fa-square fa-stack-2x"></i>
-				<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-			</span>
-			{% endif %}
-			<span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-			{% if paginator.next_page %}
-			<a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-				<span class="fa-stack fa-lg">
-					<i class="fa fa-square fa-stack-2x"></i>
-					<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-				</span>
-			</a>
-			{% else %}
-			<span class="fa-stack fa-lg">
-				<i class="fa fa-square fa-stack-2x"></i>
-				<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-			</span>
-			{% endif %}
-		</p>
-	</nav>
+<!-- Topic filter script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var pills = document.querySelectorAll('.topic-pill');
+  var featured = document.querySelector('.explore-featured');
+  var cards = document.querySelectorAll('.explore-card');
 
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      pills.forEach(function(p) { p.classList.remove('topic-pill--active'); });
+      pill.classList.add('topic-pill--active');
+      var filter = pill.getAttribute('data-filter');
 
-</div>
+      if (featured) {
+        var fCats = (featured.getAttribute('data-categories') || '').split(' ');
+        featured.style.display = (filter === 'all' || fCats.indexOf(filter) !== -1) ? '' : 'none';
+      }
+
+      cards.forEach(function(card) {
+        var cats = (card.getAttribute('data-categories') || '').split(' ');
+        card.style.display = (filter === 'all' || cats.indexOf(filter) !== -1) ? '' : 'none';
+      });
+    });
+  });
+});
+</script>
+
+<!-- ═══════════ EXPERTISE ═══════════ -->
+<section class="expertise" id="expertise">
+  <div class="expertise-inner">
+    <div class="section-header">
+      <div class="eyebrow">Capabilities</div>
+      <h2>What I bring to the table</h2>
+    </div>
+    <div class="expertise-grid">
+      <div class="exp-card c1">
+        <div class="exp-icon i1">🛡️</div>
+        <h4>Responsible AI Governance</h4>
+        <p>End-to-end frameworks from intake to incident. Risk assessment, bias testing, and compliance for enterprise AI systems.</p>
+      </div>
+      <div class="exp-card c2">
+        <div class="exp-icon i2">🤖</div>
+        <h4>Copilot Studio &amp; Agentic AI</h4>
+        <p>Multi-agent orchestration, autonomous agents, and Copilot Studio for aviation, compliance, and enterprise workflows.</p>
+      </div>
+      <div class="exp-card c3">
+        <div class="exp-icon i3">☁️</div>
+        <h4>Azure AI Services</h4>
+        <p>Azure AI Foundry, Communication Services, content filtering, and enterprise cognitive service architectures.</p>
+      </div>
+      <div class="exp-card c4">
+        <div class="exp-icon i4">⚡</div>
+        <h4>Microsoft 365 &amp; Power Platform</h4>
+        <p>SharePoint, Power Automate, Power FX, and the full M365 stack — deep ecosystem expertise since the early days.</p>
+      </div>
+      <div class="exp-card c5">
+        <div class="exp-icon i5">📱</div>
+        <h4>WhatsApp &amp; Omnichannel</h4>
+        <p>WhatsApp Business via ACS, Infobip-Azure pipelines, and conversational AI across enterprise channels.</p>
+      </div>
+      <div class="exp-card c6">
+        <div class="exp-icon i6">✈️</div>
+        <h4>Aviation &amp; UAE Compliance</h4>
+        <p>GCAA-regulated compliance agents, aerodrome checklist validation, and regulatory automation for Gulf aviation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SPEAKING ═══════════ -->
+<section class="speaking" id="speaking">
+  <div class="speaking-inner">
+    <div class="section-header">
+      <div class="eyebrow">On Stage</div>
+      <h2>Recent talks &amp; workshops</h2>
+    </div>
+    <div class="talk-list">
+      <div class="talk-item">
+        <div>
+          <h4>Agentic AI in the Enterprise: Designing Beyond Chatbots</h4>
+          <div class="venue">Global Power Platform Bootcamp &middot; Chennai</div>
+        </div>
+        <span class="talk-pill">2026</span>
+        <div class="talk-arrow"><i class="fa fa-arrow-right"></i></div>
+      </div>
+      <div class="talk-item">
+        <div>
+          <h4>From Prompt to Production: Women Engineering AI</h4>
+          <div class="venue">Women In Technology Conference</div>
+        </div>
+        <span class="talk-pill">2026</span>
+        <div class="talk-arrow"><i class="fa fa-arrow-right"></i></div>
+      </div>
+      <div class="talk-item">
+        <div>
+          <h4>Copilot Studio Training Programme</h4>
+          <div class="venue">Task-Based Agents, Autonomous Agents &amp; Integrations &middot; 3 sessions</div>
+        </div>
+        <span class="talk-pill">Mar 2026</span>
+        <div class="talk-arrow"><i class="fa fa-arrow-right"></i></div>
+      </div>
+      <div class="talk-item">
+        <div>
+          <h4>SharePoint at 25</h4>
+          <div class="venue">Community Anniversary Session</div>
+        </div>
+        <span class="talk-pill">2026</span>
+        <div class="talk-arrow"><i class="fa fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ EBOOK CTA ═══════════ -->
+<section class="ebook-cta" id="ebook">
+  <div class="ebook-card">
+    <div>
+      <h3>Responsible AI in Practice:<br>From Intake to Incident</h3>
+      <p>The free, open-source ebook covering 12 chapters of practitioner-grounded responsible AI governance.</p>
+      <div class="ebook-meta">20,000 words &middot; 12 chapters &middot; CC BY-NC-ND 4.0</div>
+      <a href="https://github.com/divya-akula/responsible-ai-in-practice" class="btn btn-gold" target="_blank" style="margin-top:20px">
+        Download on GitHub
+        <i class="fa fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="ebook-cover">
+      <span>Responsible AI<br>in Practice</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section class="contact" id="contact">
+  <h2>Let's build something <em>responsible</em></h2>
+  <p>Speaking, consulting, collaboration — or just a good conversation about AI.</p>
+  <div class="contact-links">
+    <a href="mailto:{{ site.email }}" class="contact-link">
+      <span class="link-ic"><i class="fa fa-envelope"></i></span> {{ site.email }}
+    </a>
+    <a href="https://twitter.com/_divyaakula" class="contact-link" target="_blank">
+      <span class="link-ic"><i class="fa fa-twitter"></i></span> @_divyaakula
+    </a>
+    <a href="https://github.com/divya-akula" class="contact-link" target="_blank">
+      <span class="link-ic"><i class="fa fa-github"></i></span> GitHub
+    </a>
+    <a href="https://buymeacoffee.com/{{ site.buy_me_a_coffee_username }}" class="contact-link" target="_blank">
+      <span class="link-ic"><i class="fa fa-coffee"></i></span> Buy me a coffee
+    </a>
+  </div>
+</section>
+
 </div>

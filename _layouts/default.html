@@ -12,6 +12,30 @@
 		{% include search_modal.html %}
 
     {% include footer.html %}
+
+    <script>
+    (function() {
+      var toggle = document.getElementById('theme-toggle');
+      var html = document.documentElement;
+
+      // Apply saved theme on load (also set in head.html to avoid flash)
+      var saved = localStorage.getItem('theme');
+      if (saved) {
+        html.setAttribute('data-theme', saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        html.setAttribute('data-theme', 'dark');
+      }
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          var current = html.getAttribute('data-theme');
+          var next = current === 'dark' ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      }
+    })();
+    </script>
   </body>
 
 </html>

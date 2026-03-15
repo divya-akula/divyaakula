@@ -92,4 +92,15 @@
 	function loadCSS(e, t, n) { "use strict"; var i = window.document.createElement("link"); var o = t || window.document.getElementsByTagName("script")[0]; i.rel = "stylesheet"; i.href = e; i.media = "only x"; o.parentNode.insertBefore(i, o); setTimeout(function () { i.media = n || "all" }) }loadCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 	//]]>
 	</Script>
+
+	<!-- Prevent flash of wrong theme -->
+	<script>
+	(function() {
+		var t = localStorage.getItem('theme');
+		if (t) { document.documentElement.setAttribute('data-theme', t); }
+		else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+		}
+	})();
+	</script>
 </head>

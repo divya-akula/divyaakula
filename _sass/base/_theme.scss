@@ -1,0 +1,170 @@
+// ═══════════ LIGHT / DARK THEME via CSS Custom Properties ═══════════
+
+:root {
+  // Core surfaces
+  --bg: #{$white};
+  --bg-alt: #{$sand-100};
+  --bg-card: #fff;
+  --bg-elevated: #fff;
+
+  // Text
+  --text: #{$ink};
+  --text-soft: #{$ink-soft};
+  --text-muted: #{$ink-muted};
+  --text-faint: #{$stone};
+
+  // Brand / gold
+  --gold-100: #{$gold-100};
+  --gold-200: #{$gold-200};
+  --gold-300: #{$gold-300};
+  --gold-400: #{$gold-400};
+  --gold-500: #{$gold-500};
+  --gold-600: #{$gold-600};
+
+  // Sand neutrals
+  --sand-100: #{$sand-100};
+  --sand-200: #{$sand-200};
+  --sand-300: #{$sand-300};
+
+  // Borders
+  --border: #{$sand-200};
+  --border-strong: #{$sand-300};
+
+  // Nav
+  --nav-bg: rgba(253, 252, 250, 0.8);
+  --nav-border: rgba(0, 0, 0, 0.05);
+  --nav-dropdown-bg: rgba(253, 252, 250, 0.97);
+  --nav-dropdown-border: rgba(0, 0, 0, 0.06);
+
+  // Cards on dark bg (explore cards, featured, contact)
+  --card-dark-bg: #{$ink};
+
+  // Code
+  --code-bg: #eee;
+
+  // Misc
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+
+  // Ebook CTA
+  --ebook-bg: linear-gradient(135deg, #{$gold-100} 0%, #{$gold-200} 100%);
+  --ebook-border: #{$gold-300};
+
+  // Widget
+  --widget-bg: #fff;
+
+  // Placeholder shimmer
+  --shimmer-from: #ebebeb;
+  --shimmer-to: #d8d8d8;
+
+  // Exp icon backgrounds
+  --exp-i1-bg: #{$gold-100};
+  --exp-i2-bg: #eef0ff;
+  --exp-i3-bg: #eafaf2;
+  --exp-i4-bg: #fef0ed;
+  --exp-i5-bg: #f3eeff;
+  --exp-i6-bg: #ffeef4;
+}
+
+[data-theme="dark"] {
+  // Core surfaces
+  --bg: #131110;
+  --bg-alt: #1a1816;
+  --bg-card: #1e1c19;
+  --bg-elevated: #242220;
+
+  // Text
+  --text: #f0ece6;
+  --text-soft: #c9c3b8;
+  --text-muted: #9c9488;
+  --text-faint: #7a7268;
+
+  // Brand / gold — slightly lighter for contrast on dark
+  --gold-100: #2a2418;
+  --gold-200: #3a3020;
+  --gold-300: #d4a843;
+  --gold-400: #d4a843;
+  --gold-500: #e0b84e;
+  --gold-600: #e8c872;
+
+  // Sand neutrals — dark equivalents
+  --sand-100: #1a1816;
+  --sand-200: #2a2724;
+  --sand-300: #3a3632;
+
+  // Borders
+  --border: #2a2724;
+  --border-strong: #3a3632;
+
+  // Nav
+  --nav-bg: rgba(19, 17, 16, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.06);
+  --nav-dropdown-bg: rgba(19, 17, 16, 0.97);
+  --nav-dropdown-border: rgba(255, 255, 255, 0.06);
+
+  // Cards on dark bg
+  --card-dark-bg: #242220;
+
+  // Code
+  --code-bg: #2a2724;
+
+  // Misc
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.4);
+
+  // Ebook CTA
+  --ebook-bg: linear-gradient(135deg, #2a2418 0%, #3a3020 100%);
+  --ebook-border: #4a3f2e;
+
+  // Widget
+  --widget-bg: #1e1c19;
+
+  // Placeholder shimmer
+  --shimmer-from: #2a2724;
+  --shimmer-to: #3a3632;
+
+  // Exp icon backgrounds
+  --exp-i1-bg: #2a2418;
+  --exp-i2-bg: #1a1c2e;
+  --exp-i3-bg: #152018;
+  --exp-i4-bg: #2a1a16;
+  --exp-i5-bg: #1e1628;
+  --exp-i6-bg: #2a161e;
+}
+
+// ═══════════ Theme Toggle Button ═══════════
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  background: var(--sand-200);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  font-size: 16px;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:hover {
+    background: var(--sand-300);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .icon-sun,
+  .icon-moon {
+    display: none;
+  }
+
+  .icon-sun { display: inline; }
+}
+
+[data-theme="dark"] .theme-toggle {
+  .icon-sun { display: none; }
+  .icon-moon { display: inline; }
+}

@@ -1,19 +1,28 @@
-<header class="navigation" role="banner">
-	<div class="navigation-wrapper">
-    <a href="{{ site.baseurl }}/" class="logo">
-      {% if site.logo %}
-      <img src="{{ site.logo | prepend: site.baseurl }}" alt="{{ site.title }}" width="58" height="58" />
-      {% else %}
-      <span>{{ site.title }}</span>
-      {% endif %}
+<nav class="nav-modern" role="banner">
+  <div class="nav-inner">
+    <a href="{{ site.baseurl }}/" class="nav-logo">
+      <div class="logo-mark">D</div>
+      <span class="logo-text">{{ site.title }}</span>
     </a>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
       <i class="fa fa-bars"></i>
     </a>
-    <nav role="navigation">
-      <ul id="js-navigation-menu" class="navigation-menu show">
-				{% include nav_links.html %}
-      </ul>
-    </nav>
+    <ul id="js-navigation-menu" class="nav-links show">
+      {% for page in site.pages -%}
+        {% if page.title and page.main_nav == true %}
+        <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+        {% endif %}
+      {%- endfor %}
+      {%- if site.email %}
+      <li><a href="#" class="nav-cta nav-link-contact">Get in touch</a></li>
+      {% endif -%}
+      <li><a href="#" class="nav-link-search"><i class="fa fa-search"></i></a></li>
+      <li>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fa fa-moon-o icon-sun"></i>
+          <i class="fa fa-sun-o icon-moon"></i>
+        </button>
+      </li>
+    </ul>
   </div>
-</header>
+</nav>

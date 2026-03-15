@@ -99,6 +99,8 @@ layout: default
     {% endif %}
   {% endfor %}
 </section>
+{% include giscus_comments.html %}
+
 {% if site.inter_post_navigation == true %}
 	<section class="post-navigation" data-pagefind-ignore>
 		<span class="prev-post">

@@ -1,10 +1,13 @@
 body {
   @include font-feature-settings("kern", "liga", "pnum");
   -webkit-font-smoothing: antialiased;
-  color: $base-font-color;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
   font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
+  background: var(--bg);
+  transition: background 0.3s, color 0.3s;
 }
 
 h1,
@@ -43,14 +46,13 @@ p {
 }
 
 a {
-  color: $action-color;
+  color: var(--gold-500);
   text-decoration: none;
-  // transition: color 0.1s linear;
 
   &:active,
   &:focus,
   &:hover {
-    color: darken($action-color, 10%);
+    color: var(--gold-600);
     text-decoration: underline;
   }
 

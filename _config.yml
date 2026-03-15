@@ -16,6 +16,7 @@ exclude:
   - "README.md"
   - "pagefind.exe"
   - "pagefind.yaml"
+  - "docs"
 
 # Build website in docs folder so I can use github to host it
 destination: "./docs"
@@ -93,6 +94,22 @@ sass:
 
 # Buy me a Coffee username
 buy_me_a_coffee_username: "divyaakula"
+
+# Giscus Comments
+giscus:
+  enabled: true
+  repo: "divya-akula/divyaakula"
+  repo_id: "R_kgDOLEm1yA"           # Get from https://giscus.app after enabling Discussions
+  category: "General"
+  category_id: "DIC_kwDOLEm1yM4C4bL9"        # Get from https://giscus.app after enabling Discussions
+  mapping: "pathname"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  input_position: "top"
+  theme: "preferred_color_scheme"
+  lang: "en"
+  loading: "lazy"
+  crossorigin: "anonymous"
 
 # Category descriptions (for archive pages)
 descriptions:
