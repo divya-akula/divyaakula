@@ -16,11 +16,10 @@ This blog is where I share the projects I tinker with in my spare time part play
 
 ---
 
-## Like this blog?  
+## Like this blog?
 
-That’s awesome! 🎉  
-Feel free to connect with me and let me know what topics you’d like me to dive into next.  
-And if you’d like to fuel my caffeine-powered writing, you can [Buy me a Coffee](https://buymeacoffee.com/{{site.buy_me_a_coffee_username}}). ☕  
+That’s awesome! 🎉
+Feel free to connect with me and let me know what topics you’d like me to dive into next.
 
 ---
 
