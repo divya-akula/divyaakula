@@ -2,127 +2,220 @@
 layout: default
 ---
 
-<img data-pagefind-meta="image[src]" src="{{ page.thumbnail | prepend: site.baseurl }}" style="display:none" />
-<div class="post">
+<link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
-<div class="post-header-container {% if page.cover %}has-cover{% endif %}" {% if page.cover %}style="background-image: url({{ page.cover | prepend: site.baseurl }});"{% endif %}>
-  <div class="scrim {% if page.cover %}has-cover{% endif %} {% if page.scrim_options %}{{ page.scrim_options }}{% endif %}">
+<!-- Reading progress bar -->
+<div class="post-progress">
+  <div class="post-progress__fill" id="progressFill"></div>
+</div>
+
+<img data-pagefind-meta="image[src]" src="{{ page.thumbnail | prepend: site.baseurl }}" style="display:none" />
+
+{% if page.cover %}
+<div class="post-header-container has-cover" style="background-image: url({{ page.cover | prepend: site.baseurl }});">
+  <div class="scrim has-cover {% if page.scrim_options %}{{ page.scrim_options }}{% endif %}">
     <header class="post-header">
       <h1 class="title">{{ page.title }}</h1>
-			{% if page.byline %}
+      {% if page.byline %}
       <p class="info"><em>{{ page.byline }}</em></p>
-			{% endif %}
+      {% endif %}
     </header>
   </div>
 </div>
+{% endif %}
+
+<article class="post-article">
+
+  <!-- Meta: category pills + date + reading time -->
+  <div class="post-meta">
+    {% for cat in page.categories %}
+      <span class="post-meta__pill post-meta__pill--{{ cat | slugify }}">
+        {{ cat | replace: "-", " " | capitalize }}
+      </span>
+    {% endfor %}
+    <span class="post-meta__date">
+      {{ page.date | date: "%d %b %Y" }}{% if page.author %} &middot; {{ page.author }}{% endif %}
+    </span>
+    {% assign words = content | number_of_words %}
+    {% assign reading_time = page.reading_time | default: words | divided_by: 230 | plus: 1 %}
+    <span class="post-meta__reading-time">{{ reading_time }} min read</span>
+  </div>
+
+  <!-- Title + subtitle (subtitle only shown when different from byline in cover) -->
+  {% unless page.cover %}
+  <h1 class="post-title">{{ page.title }}</h1>
+  {% endunless %}
+  {% if page.subtitle %}
+    <p class="post-subtitle">{{ page.subtitle }}</p>
+  {% elsif page.byline and page.cover == nil %}
+    <p class="post-subtitle">{{ page.byline }}</p>
+  {% endif %}
+
+  <!-- Auto-generated table of contents -->
+  <div class="post-toc" id="postToc">
+    <div class="post-toc__label">In this post</div>
+    <ol class="post-toc__list" id="tocList">
+      <!-- Populated by JS from h2 headings -->
+    </ol>
+  </div>
+
+  <!-- Post content -->
+  <div id="postContent">
+    {{ content }}
+  </div>
+
+  <!-- Tags -->
+  {% if site.jekyll-archives %}
+  {% if page.tags.size > 0 %}
+  <section class="tags">
+    <strong><i class="fa fa-tags"></i> Tags:</strong> {% for tag in page.tags %}<a href="{{ site.baseurl }}/tag/{{ tag | downcase }}">{{ tag }}</a>{% if forloop.last == false %},&nbsp;{% endif %}{% endfor %}
+  </section>
+  {% endif %}
+  {% endif %}
+
+  <!-- Author card -->
+  <div class="post-author">
+    {% if site.sticker %}
+    <img class="post-author__avatar" src="{{ site.sticker | relative_url }}" alt="{{ site.name | default: 'Author' }}">
+    {% endif %}
+    <div>
+      <div class="post-author__name">{{ site.name | default: "Divya Akula" }}</div>
+      <div class="post-author__bio">{{ site.subtitle | default: "Microsoft MVP | Azure AI & Responsible AI Architect" }}</div>
+    </div>
+  </div>
+
+</article>
 
 <div class="wrapper">
 
-{% unless page.cover %} {% include page_divider.html %} {% endunless %}
+  <section class="rss">
+    <p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
+  </section>
 
-<section class="post-meta">
-  <div class="post-date">Posted {{ page.date | date: "%B %-d, %Y" }} by {{ page.author }}</div>
-  <div class="post-categories">
-  {% if page.categories.size > 0 %}in {% for cat in page.categories %}
-    {% if site.jekyll-archives %}
-    <a href="{{ site.baseurl }}/category/{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-    {% else %}
-    <a href="{{ site.baseurl }}/posts/#{{ cat }}">{{ cat | capitalize }}</a>{% if forloop.last == false %}, {% endif %}
-    {% endif %}
-  {% endfor %}{% endif %}
-  </div>
-</section>
+  <section class="share">
+    <span>Share: </span>
+    {% for social in site.social %}
+      {% capture full_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+      {% if social.name == "Twitter" and social.share == true %}
+        <a href="//twitter.com/share?text={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}&via={{social.username}}"
+          onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+          <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+        </a>
+      {% endif %}
+      {% if social.name == "Facebook" and social.share == true %}
+        <a href="//www.facebook.com/sharer.php?t={{ page.title | cgi_escape }}&u={{ full_url | cgi_escape}}"
+          onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+          <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+        </a>
+      {% endif %}
+      {% if social.name == "LinkedIn" and social.share == true %}
+        <a href="//www.linkedin.com/shareArticle?mini=true&url={{ full_url | cgi_escape}}"
+          onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
+          <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </section>
 
-<article class="post-content">
-  {{ content }}
-</article>
+  {% include giscus_comments.html %}
 
-{% if site.jekyll-archives %}
-{% if page.tags.size > 0 %}
-<section class="tags">
-	<strong><i class="fa fa-tags"></i> Tags:</strong> {% for tag in page.tags %}<a href="{{ site.baseurl }}/tag/{{ tag | downcase }}">{{ tag }}</a>{% if forloop.last == false %},&nbsp;{% endif %}{% endfor %}
-</section>
-{% endif %}
-{% endif %}
-
-<section class="rss">
-  <p class="rss-subscribe text"><strong>Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></strong></p>
-</section>
-
-<section class="share">
-  <span>Share: </span>
-  {% for social in site.social %}
-    {% capture full_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
-    {% if social.name == "Twitter" and social.share == true %}
-      <a href="//twitter.com/share?text={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}&via={{social.username}}"
-        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
-      </a>
-    {% endif %}
-    {% if social.name == "Facebook" and social.share == true %}
-      <a href="//www.facebook.com/sharer.php?t={{ page.title | cgi_escape }}&u={{ full_url | cgi_escape}}"
-        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
-      </a>
-    {% endif %}
-    {% if social.name == "Google+" and social.share == true %}
-      <a href="//plus.google.com/share?title={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}"
-        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
-      </a>
-    {% endif %}
-    {% if social.name == "LinkedIn" and social.share == true %}
-      <a href="//www.linkedin.com/shareArticle?mini=true&url={{ full_url | cgi_escape}}"
-        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
-      </a>
-    {% endif %}
-    {% if social.name == "Pinterest" and social.share == true %}
-      <a href="//www.pinterest.com/pin/create/button/?description={{ page.title | cgi_escape }}&url={{ full_url | cgi_escape}}&media={{ site.url }}{% if page.cover %}{{ page.cover | prepend: site.baseurl  }}{% elsif site.cover %}{{ site.cover | prepend: site.baseurl }}{% else %}{{ site.logo | prepend: site.baseurl }}{% endif %}"
-        onclick="window.open(this.href, '{{ social.icon }}-share', 'width=550,height=255');return false;">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
-      </a>
-    {% endif %}
-    {% if social.name == "Reddit" and social.share == true %}
-      <a href="//www.reddit.com/submit" onclick="window.location = '//www.reddit.com/submit?url=' + encodeURIComponent('{{ full_url }}') + '&title={{page.title}}'; return false">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }}-square fa-lg"></i>
-      </a>
-    {% endif %}
-    {% if social.name == "Hacker News" and social.share == true %}
-      <a href="//news.ycombinator.com/submitlink" onclick="window.location = '//news.ycombinator.com/submitlink?u=' + encodeURIComponent('{{ full_url }}') + '&t={{page.title}}'; return false">
-        <i class="fa fa-{{ social.icon | remove_first: '-square' }} fa-lg"></i>
-      </a>
-    {% endif %}
-  {% endfor %}
-</section>
-{% include giscus_comments.html %}
-
-{% if site.inter_post_navigation == true %}
-	<section class="post-navigation" data-pagefind-ignore>
-		<span class="prev-post">
-			{% if page.previous.url %}
-				<a href="{{page.previous.url | prepend: site.baseurl}}">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-					</span>
-					<span class="page-number">{{page.previous.title}}</span>
-				</a>
-			{% endif %}
-		</span>
-		<span class="next-post">
-			{% if page.next.url %}
-				<a href="{{page.next.url | prepend: site.baseurl}}">
-					<span class="page-number">{{page.next.title}}</span>
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-square fa-stack-2x"></i>
-						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-					</span>
-				</a>
-			{% endif %}
-		</span>
-	</section>
-{% endif %}
+  {% if site.inter_post_navigation == true %}
+  <section class="post-navigation" data-pagefind-ignore>
+    <span class="prev-post">
+      {% if page.previous.url %}
+        <a href="{{page.previous.url | prepend: site.baseurl}}">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+          </span>
+          <span class="page-number">{{page.previous.title}}</span>
+        </a>
+      {% endif %}
+    </span>
+    <span class="next-post">
+      {% if page.next.url %}
+        <a href="{{page.next.url | prepend: site.baseurl}}">
+          <span class="page-number">{{page.next.title}}</span>
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      {% endif %}
+    </span>
+  </section>
+  {% endif %}
 
 </div>
-</div>
+
+<script>
+(function() {
+  // --- Reading progress bar ---
+  var fill = document.getElementById('progressFill');
+  if (fill) {
+    window.addEventListener('scroll', function() {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      fill.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + '%' : '0%';
+    });
+  }
+
+  // --- Auto-generate TOC from h2 headings ---
+  var content = document.getElementById('postContent');
+  var tocList = document.getElementById('tocList');
+  var tocWrap = document.getElementById('postToc');
+  if (content && tocList) {
+    var headings = content.querySelectorAll('h2');
+    if (headings.length < 2) {
+      // Hide TOC if fewer than 2 sections
+      if (tocWrap) tocWrap.style.display = 'none';
+    } else {
+      headings.forEach(function(h, i) {
+        // Ensure heading has an ID for linking
+        if (!h.id) h.id = 'section-' + (i + 1);
+
+        // Add section number above heading
+        var num = document.createElement('span');
+        num.className = 'post-section-num';
+        num.textContent = String(i + 1).padStart(2, '0');
+        h.parentNode.insertBefore(num, h);
+
+        // Add TOC entry
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      // Highlight active TOC item on scroll
+      var tocLinks = tocList.querySelectorAll('a');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(function(l) { l.classList.remove('active'); });
+            var active = tocList.querySelector('a[href="#' + entry.target.id + '"]');
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+
+      headings.forEach(function(h) { observer.observe(h); });
+    }
+  }
+
+  // --- Wide images: only break out images wider than the article column ---
+  var articleWidth = 720;
+  var imgs = content ? content.querySelectorAll('img') : [];
+  imgs.forEach(function(img) {
+    function check() {
+      if (img.naturalWidth > articleWidth) {
+        img.classList.add('post-img--wide');
+      }
+    }
+    if (img.complete) check();
+    else img.addEventListener('load', check);
+  });
+})();
+</script>
