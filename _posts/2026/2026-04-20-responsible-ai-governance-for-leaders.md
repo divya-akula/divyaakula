@@ -4,7 +4,7 @@ title: "Responsible AI Governance for Leaders: You Don’t Need to Understand AI
 byline: "A practical guide for non-technical decision-makers navigating AI responsibly"
 date: 2026-04-17
 author: Divya Akula
-categories: Responsible AI
+categories: ResponsibleAI
 tags: Responsible AI, AI Governance, Microsoft Copilot, AI Leadership, Enterprise AI
 cover: "/assets/posts/2026-04-20-responsible-ai-governance-for-leaders/responsible-ai-governance-cover.jpeg"
 thumbnail: "/assets/images/thumbnails/responsible-ai-governance-cover.jpeg"
