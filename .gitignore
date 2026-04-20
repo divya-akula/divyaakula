@@ -24,3 +24,4 @@ docs/
 pagefind.exe
 
 .jekyll-metadata
+.claude/worktrees/
