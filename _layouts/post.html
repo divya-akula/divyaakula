@@ -174,11 +174,11 @@ layout: default
         // Ensure heading has an ID for linking
         if (!h.id) h.id = 'section-' + (i + 1);
 
-        // Add section number above heading
+        // Add section number inline at start of heading
         var num = document.createElement('span');
         num.className = 'post-section-num';
         num.textContent = String(i + 1).padStart(2, '0');
-        h.parentNode.insertBefore(num, h);
+        h.insertBefore(num, h.firstChild);
 
         // Add TOC entry
         var li = document.createElement('li');
