@@ -254,9 +254,9 @@ The most common licensing pitfall is underestimating credit consumption once you
   <span class="post-callout__label">Ref</span>
   <p class="post-callout__text">
     <strong>Official docs to bookmark:</strong><br>
-    <code>learn.microsoft.com/microsoft-copilot-studio/billing-licensing</code> — authoritative licensing reference<br>
-    <code>learn.microsoft.com/microsoft-copilot-studio/requirements-licensing</code> — getting access and trial sign-up<br>
-    Microsoft Copilot Studio Licensing Guide (February 2026) — full PDF via Microsoft CDN
+    <a href="https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing?wt.mc_id=MVP_366830" target="_blank" rel="noopener noreferrer">authoritative licensing reference</a><br/>
+    <a href="https://learn.microsoft.com/microsoft-copilot-studio/requirements-licensing?wt.mc_id=MVP_366830" target="_blank" rel="noopener noreferrer">getting access and trial sign-up</a> <br/>
+   <a href="https://go.microsoft.com/fwlink/?linkid=2320995"> Microsoft Copilot Studio Licensing Guide (February 2026) — full PDF via Microsoft CDN</a>
   </p>
 </div>
 
