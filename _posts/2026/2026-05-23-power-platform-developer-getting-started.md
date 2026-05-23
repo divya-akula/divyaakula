@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "So You Want to Be a Power Platform Developer? Here's How to Actually Get Started"
-byline: "Free environments, real tools, and the order in which to set them up"
+title: "Getting Started with Copilot Studio: The Setup No One Explains"
+byline: "Power Apps, Dataverse, and a free developer environment — everything you need before you build your first AI agent"
 date: 2026-05-23 08:00:00
 author: Divya Akula
 categories: PowerPlatform
@@ -10,143 +10,162 @@ cover: "/assets/posts/2026-05-23-power-platform-developer-getting-started/power-
 thumbnail: "/assets/images/thumbnails/power-platform-getting-started.jpeg"
 ---
 
-Let me be honest — when someone asks me "how do I get started with Power Platform?", the answer is almost never "go buy a license." There's a whole ecosystem of free, legitimate ways to get a fully functional development environment running in an afternoon. And yet, I keep seeing people either stuck waiting for IT to provision something, or worse, building on their work tenant and breaking things in production.
-
-So here's the setup guide I wish I'd had years ago. Whether you're a developer, an IT pro, or someone who just stumbled into Power Platform — this one's for you.
+Every guide I found when I was starting out assumed you already had a tenant, a license, or an IT team behind you. This one doesn't. Below is the exact setup I wish someone had walked me through — free, step by step, no prerequisites.
 
 ---
 
-## Step 1: Your Playground — The Microsoft 365 Developer Program
+## Step 1: Get Your Free Microsoft 365 Developer Tenant
 
-This is **the single most underrated resource** in the Microsoft ecosystem. The M365 Developer Program gives you a free, renewable E5 developer sandbox — a full Microsoft 365 E5 tenant with 25 user licenses, preloaded with sample data, sitting there just for you to break things.
+Before anything else, you need a tenant — your own Microsoft 365 environment where you're the admin and you control everything.
 
-Go to [developer.microsoft.com/en-us/microsoft-365/dev-program](https://developer.microsoft.com/en-us/microsoft-365/dev-program) and sign up with a **personal Microsoft account** (not your work one — don't cross the streams).
+The **Microsoft 365 Developer Program** gives you a free E5 sandbox tenant with 25 user licenses, preloaded with sample data. E5 is the highest M365 tier — you get Teams, SharePoint, Exchange, and everything that comes with it, all included.
 
-**What you get:**
-- 25 × Microsoft 365 E5 licenses (Teams, SharePoint, Exchange, the works)
-- Instant admin access to your own tenant
-- Sample data packs with realistic users, emails, and Teams conversations
-- Auto-renews every 90 days as long as you're actively using it
+**How to set it up:**
 
-> ⚠️ The tenant is tied to development activity. If you're not actually building and using it, Microsoft may not renew it. So don't let it sit idle.
+1. Go to [developer.microsoft.com/en-us/microsoft-365/dev-program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
+2. Sign in with a personal Microsoft account (your @outlook.com or any personal MSA — not your work account)
+3. Complete the short sign-up form and choose your region
+4. Select **Instant Sandbox** when prompted — this provisions a pre-configured tenant in minutes
+5. Note down your new tenant admin account (e.g. `admin@yourdomain.onmicrosoft.com`) — this is the work account you'll use for everything that follows
 
-This is your foundation. Everything else builds on top of this.
+> 🔑 **You now have two accounts — keep them straight.** Your personal Microsoft account (the one you used to sign up) and your new sandbox work account are separate identities. From this point forward, use **only your sandbox work account** (`admin@yourdomain.onmicrosoft.com`) for every Power Platform step in this guide. Signing in with your personal account by accident is the most common source of confusion — things exist in one tenant and not the other, and the error messages don't tell you why.
 
----
+> 💡 **Use Visual Studio Dev Essentials for a guaranteed auto-renewing sandbox.** The standard developer sandbox renews every 90 days based on activity — if you go quiet, it can expire. If you have (or sign up for) a free Visual Studio Dev Essentials subscription, your M365 sandbox auto-renews for the lifetime of that subscription. No activity tracking, no anxiety. It's free and worth the extra two minutes.
 
-## Step 2: Power Apps & Power Automate — Activate the Developer Plan
-
-Your M365 Dev tenant gives you access to Power Apps and Power Automate, but for serious development you'll want a **Power Apps Developer Plan** — it's free and unlocks Dataverse capacity, premium connectors, and a dedicated developer environment.
-
-Head to [powerapps.microsoft.com/en-us/developerplan](https://powerapps.microsoft.com/en-us/developerplan) and sign up using your M365 Dev tenant credentials.
-
-**What the Developer Plan adds:**
-- A dedicated Power Platform environment (separate from the default — use this for your builds)
-- Dataverse database provisioned just for you
-- Access to premium connectors (SQL, HTTP, and more)
-- Power Automate with premium triggers and actions included
-
-**My honest advice:** Set up a second environment for experiments and keep your main dev environment clean. Environment sprawl is a real problem, and cleaning it up later is painful.
+> ⚠️ **Don't let it sit idle.** If you're on the standard sandbox, Microsoft tracks active development usage to decide whether to renew. Build things. Open the tenant. Run flows. Even connecting to Power Platform counts.
 
 ---
 
-## Step 3: Copilot Studio — Your AI Agent Sandbox
+## Step 2: Provision Power Platform — It's Already Included
 
-This is where things get exciting. Copilot Studio is the platform for building AI-powered agents — think chatbots, autonomous agents, multi-agent orchestration systems — and Microsoft has made it accessible to try without spending a dirham.
+Here's what most people don't realise: if you have any Microsoft 365 account — including your new developer sandbox — Power Platform is already available to you at no extra cost.
 
-Go to [copilotstudio.microsoft.com](https://copilotstudio.microsoft.com) and sign in with your developer tenant credentials. You'll be prompted to start a trial automatically on first sign-in.
+Go to [make.powerapps.com](https://make.powerapps.com) and sign in with your sandbox work account. You're in. Power Apps, Power Automate, and a default environment are provisioned automatically.
 
-**The trial includes:**
-- 25 sessions per month for testing (one session = one conversation, regardless of message count)
-- Full authoring canvas — topics, entities, variables, generative AI nodes
+Here's the distinction worth understanding: the **default environment** is shared across all users in your tenant and has no Dataverse database. It's fine for exploring, but you can't build anything serious on it. The **Power Apps Developer Plan** gives you a separate, dedicated developer environment with Dataverse included — this is where all your actual work will live. It's free, it just needs to be activated explicitly.
+
+**How to activate it:**
+
+1. Go to [powerapps.microsoft.com/en-us/developerplan](https://powerapps.microsoft.com/en-us/developerplan)
+2. Sign in with your sandbox work account (e.g. `admin@yourdomain.onmicrosoft.com`) — the one you created in Step 1
+3. Click **Get Started Free** and follow the prompts
+4. Microsoft will provision a dedicated developer environment with Dataverse
+
+**What the Developer Plan gives you:**
+
+- A dedicated developer environment (separate from your default tenant environment — use this for all your builds)
+- 3 developer environments and 2 GB of Dataverse storage
+- Full Power Apps canvas and model-driven app builder
+- Power Automate with standard connectors and cloud flows
+- Dataverse tables, security roles, business rules — the full data platform
+
+> ⚠️ **Premium connectors are not included.** The Developer Plan covers standard connectors. If you need SQL Server, HTTP (custom APIs), or other premium connectors, you'll need a 90-day Power Apps Premium trial on top of this. Many people build something expecting premium connectivity and then hit a wall — know this upfront.
+
+> 💡 **You also get a 90-day Power Automate Premium trial when you first sign in — grab it.** This covers premium triggers, desktop flows (RPA), and AI Builder credits. Don't let it expire before you've explored what it unlocks.
+
+---
+
+## Step 3: Add Copilot Studio — Your AI Agent Sandbox
+
+Copilot Studio is the platform for building AI-powered agents — think knowledge bots, autonomous agents, multi-agent orchestration systems — and it sits natively inside the Power Platform ecosystem.
+
+**How to start the trial:**
+
+1. Go to [copilotstudio.microsoft.com](https://copilotstudio.microsoft.com)
+2. Sign in with your sandbox work account
+3. Select your **developer environment** (the one from Step 2 — not the default environment)
+4. Copilot Studio will prompt you to start a 30-day trial — accept it
+5. Create your first agent and start exploring
+
+**What the trial includes:**
+
+- Full access to the Copilot Studio authoring canvas for 30 days
 - **Generative Answers** — connect SharePoint, websites, or uploaded documents as knowledge sources
-- **Actions** — call Power Automate flows or HTTP endpoints from within a conversation
-- **Autonomous agent triggers** — activate on a schedule, Teams message, email, or Dataverse record change
-- Multi-agent support — child agents with an orchestrator routing between them
-- Publishing to Teams, web widget, SharePoint, and custom channels
+- **Actions** — call Power Automate flows or HTTP endpoints mid-conversation
+- **Autonomous triggers** — activate agents on Teams messages, emails, schedules, or Dataverse changes
+- **Multi-agent orchestration** — build child agents and have an orchestrator route between them
+- Publishing to Teams, SharePoint, and web widget channels
 
-I've built full proof-of-concepts on a trial, including agents that read SharePoint document libraries, call Azure AI Document Intelligence via Power Automate, and return structured compliance outputs. Absolutely doable.
+> ⚠️ **Watch for throttling.** Trial and developer environments cap at 10 requests per minute and 200 requests per hour. A single Teams conversation can trigger several backend calls. When you hit the limit, the agent goes quiet — it's not broken, it's throttled. Wait a few minutes and it resets. Know this before your first demo.
 
-### What Copilot Studio Actually Is (and Isn't)
+> 📌 **On licensing and what happens when the trial ends:** As of September 2025, Copilot Studio moved from the old "sessions" model to **Copilot Credits**. Older blog posts mentioning "25,000 messages" or "billed sessions" are referencing the legacy Power Virtual Agents model. The trial gives you 30 days to explore everything free before credits become relevant. When the trial expires, your agents go into a read-only state — you can still open and edit them in the authoring canvas, but they stop responding to users until the environment has active Copilot Credits assigned. Nothing is deleted; you just can't publish or run until credits are in place. For a full breakdown, see [Copilot Studio, Unlocked: Licenses, Credits & First Steps](/2026/05/09/copilot-studio-getting-started/).
 
-Copilot Studio is **not** just a chatbot builder. That's the floor, not the ceiling. It's a low-code agent orchestration platform that sits on top of the Microsoft 365 ecosystem. It connects natively to Teams, SharePoint, Dataverse, and your entire Power Platform environment.
-
-It's also **not a replacement for Azure AI Foundry**. For complex, high-volume, or deeply custom AI systems, you'll still want Foundry or custom orchestration. But for 80% of enterprise agent use cases? Copilot Studio gets the job done.
-
-For a detailed breakdown of licenses and credits, see my earlier post: [Copilot Studio, Unlocked: Licenses, Credits & First Steps](/2026/05/09/copilot-studio-getting-started/).
-
-### Three Things That Will Trip You Up Early
-
-**1. The "Generative AI" toggle isn't on by default everywhere.**
-
-When you create a new agent, you'll see an option for Generative AI mode vs. classic topic-based mode. For anything involving natural language understanding, knowledge sources, or dynamic responses — use Generative AI mode. Go to agent settings → AI capabilities → turn on "Generative answers."
-
-**2. Content moderation can block you in ways that feel random.**
-
-This has cost me hours. Built-in content safety filters are a good thing in production, but in development they can feel like fighting an invisible enemy. If you're working with legal or compliance documents, you may hit `ConversationBlockedByUser` errors or silent content blocks mid-conversation. The cause is usually the `openAIIndirectAttack` filter interpreting document text as an injection attempt. I cover this in detail in the [errors and solutions guide](/2026/03/16/copilot-studio-errors-guide/).
-
-**3. Publishing to Teams requires admin consent — plan for this early.**
-
-On your own developer tenant, you're the admin, so this is easy. On client tenants, start the conversation early. I've seen demos delayed because nobody thought to request Teams app approval until two days before go-live.
-
-### What to Build First
-
-Build a **SharePoint knowledge agent**. Create an agent, add a SharePoint site as a knowledge source, and ask it questions about the documents in that site. This single exercise teaches you how generative answers work, how the system handles citations, what happens when the answer isn't in the knowledge base, and how to tune response behaviour.
-
-Once that's working, add a Power Automate action — even something as simple as sending a Teams message when a user asks. That combination — knowledge retrieval + action execution — is the foundation of almost every enterprise agent I've built.
+**What to build first:** Start with a SharePoint knowledge agent. Create an agent, add a SharePoint site as a knowledge source, and ask it questions about documents in that site. This single exercise teaches you how generative answers work, how citations surface, and what happens when the AI can't find an answer. Once that works, add a Power Automate action — even just sending a Teams message when the user asks for something. Knowledge retrieval plus action execution is the foundation of nearly every enterprise agent I've built.
 
 ---
 
-## Step 4: Dataverse — Set It Up Right From Day One
+## Step 4: Set Up Dataverse Properly
 
-Dataverse is the backbone of the Power Platform ecosystem. It's not just a database — it's where your security model lives, where AI agents store conversation data, and where canvas and model-driven apps connect.
+Dataverse is not just a database — it's the security model, the data backbone, and the connective tissue between your apps, flows, and agents. Setting it up right from day one saves you a lot of pain later.
 
-When you activate the Power Apps Developer Plan, a 1 GB Dataverse database is automatically provisioned in your developer environment. Here's how to not waste it:
+Your Developer Plan provisioned it automatically. Now make it work for you.
 
-**Do this immediately:**
-1. Go to [admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com) and verify your environments
-2. Rename the developer environment something meaningful — "Dev - Divya" is cleaner than "Contoso (default)"
-3. Set the correct region — this matters for data residency and latency, and **it cannot be changed later**
-4. Enable Managed Environments if you want governance features (optional for personal dev, good practice for anything client-facing)
+**If you skipped straight here from Step 2, do this before Step 3. If you've already done Step 3 — do it now, it's not too late:**
 
-One thing I always tell people: don't use SharePoint as your Dataverse replacement just because it's familiar. SharePoint lists are great for document libraries and collaboration. They are not a substitute for a proper relational data store. Learn Dataverse early, and you'll thank yourself later.
+1. Go to [admin.powerplatform.microsoft.com](https://admin.powerplatform.microsoft.com)
+2. Sign in with your sandbox admin account
+3. Find your developer environment and click into it
+4. Rename it something meaningful — *Dev - [Your Name]* is cleaner than the default
+5. Confirm the region is correct — this affects data residency and **cannot be changed later**
+6. Verify the Dataverse database has been provisioned (you'll see storage stats in the environment details)
 
----
+> ⚠️ **Don't skip the region check — and know how to pick one.** The region determines where your data physically lives and cannot be changed after provisioning. For personal learning: pick the region closest to you. For client or production work: pick the region that matches the client's data residency requirements (typically where their M365 tenant is already provisioned). When in doubt for a dev sandbox, closest geography is fine — but don't let the default slip by unexamined. Takes 30 seconds. Can't be undone.
 
-## Step 5: Community & Where to Actually Learn
+**What Dataverse gives you that SharePoint doesn't:**
 
-The Power Platform community is genuinely one of the best in the Microsoft ecosystem — active, generous, and brutally practical.
+- Proper relational data with table relationships and referential integrity
+- Row-level and column-level security built in
+- Native connections to model-driven apps, Copilot Studio agents, and Power Automate (faster and more reliable than SharePoint connectors for structured data)
+- Solutions — the packaging system for moving your work between environments
 
-**Official resources:**
-- **Microsoft Learn** ([learn.microsoft.com](https://learn.microsoft.com)) — start with the PL-900: Power Platform Fundamentals learning path even if you're not planning to certify. It gives you the mental model.
-- **Copilot Studio documentation** — bookmark it separately at [learn.microsoft.com/en-us/microsoft-copilot-studio/](https://learn.microsoft.com/en-us/microsoft-copilot-studio/); it moves fast.
-
-**Community:**
-- **Power Platform Community forums** ([community.powerplatform.com](https://community.powerplatform.com)) — niche questions get answered within hours
-- **Global Power Platform Bootcamp** — free, community-run, happens globally every February; worth attending and eventually speaking at
-- **MVP blogs and GitHub repos** — search for what you're trying to build; someone has probably already hit the same wall
-
-**My recommendation:** Find your local user group. The conversations in a room of people who are actually building things are worth more than any certification path.
+My honest take: learn Dataverse early. I see too many developers reach for SharePoint lists because they're familiar, and end up rebuilding everything six months later when the data model breaks down. SharePoint is excellent for document libraries and collaboration. It is not a substitute for a structured data store.
 
 ---
 
-## The Setup Checklist
+## Step 5: Learn and Stay Connected
 
-In order:
+The Power Platform community is one of the most generous technical communities I've been part of. Here's where to plug in.
 
-- [ ] Sign up for the M365 Developer Program (personal Microsoft account)
-- [ ] Activate your developer sandbox tenant
-- [ ] Sign up for the Power Apps Developer Plan using your new tenant
-- [ ] Verify Dataverse is provisioned in your developer environment
-- [ ] Set up a second "experimental" environment in Power Platform Admin Center
-- [ ] Set the correct region on your environments (cannot be changed later)
-- [ ] Activate the Copilot Studio trial at copilotstudio.microsoft.com
-- [ ] Enroll in PL-900 on Microsoft Learn (even just to read through it)
+**What to build first in each product:**
+
+- **Power Apps** — Build a canvas app backed by a Dataverse table. Create a table called *Project Requests* with a few columns (title, status, requester), then build a simple form app that lets you add and view rows. This teaches you how screens, galleries, and forms connect to data — the pattern behind almost every canvas app.
+- **Power Automate** — Build an approval flow. Trigger it when a new row is added to your Dataverse table, send an approval email to yourself, and update the row status based on the response. Approval flows appear in nearly every enterprise process — understanding how they're structured pays dividends immediately.
+- **Copilot Studio** — Covered in Step 3 above: SharePoint knowledge agent with a Power Automate action.
+
+**Start learning:**
+
+- **Microsoft Learn** — Start with [PL-900: Microsoft Power Platform Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/power-platform-fundamentals/?wt.mc_id=MVP_366830). Even if you're not certifying, the learning path gives you the right mental model for how everything connects.
+- **Copilot Studio docs** — Bookmark [learn.microsoft.com/en-us/microsoft-copilot-studio/](https://learn.microsoft.com/en-us/microsoft-copilot-studio/?wt.mc_id=MVP_366830) separately. The product moves fast and the docs are kept current.
+- **Power Platform Community forums** ([community.powerplatform.com](https://community.powerplatform.com)) — Real questions, real answers, usually within hours. Search here before you raise a support ticket.
+
+**Stay connected:**
+
+- **Global Power Platform Bootcamp** — Free, community-run, happens every February globally. The quality of sessions is genuinely high and it's a good way to meet people building similar things.
+- **Microsoft Build and Power Platform Conference** — Follow these for product direction. The roadmap announcements here shape what you'll be building in six months.
+- **MVP blogs and GitHub repos** — The community publishes working solutions. If you're stuck on something, someone has probably hit the same wall and documented it.
+
+---
+
+## Your Quick-Start Checklist
+
+Follow these in order — each step builds on the last.
+
+- [ ] Sign up for the M365 Developer Program at developer.microsoft.com (personal Microsoft account)
+- [ ] Choose Instant Sandbox and note your new admin work account
+- [ ] *(Optional but recommended)* Link a Visual Studio Dev Essentials subscription for auto-renewal
+- [ ] Sign in to make.powerapps.com with your sandbox account to confirm Power Platform access
+- [ ] Activate the Power Apps Developer Plan using your sandbox work account
+- [ ] Go to Power Platform Admin Center — rename your dev environment and verify region
+- [ ] Grab the 90-day Power Automate Premium trial when prompted
+- [ ] Sign in to copilotstudio.microsoft.com and start the 30-day trial
+- [ ] Enrol in PL-900 on Microsoft Learn
 - [ ] Join the Power Platform Community forums
-- [ ] Find your nearest user group or bootcamp
+- [ ] Find and bookmark your nearest user group or bootcamp
 
 ---
 
-The biggest mistake I see new developers make is spending three weeks trying to figure out licensing before they've built anything. **Don't do that.** The developer programs exist precisely so you can build first, understand what you need, and then have an informed conversation about licensing.
+The biggest mistake I see new developers make is spending weeks on licensing questions before they've built anything. These programs exist precisely so you can build first, understand what you actually need, and then have an informed conversation about production licensing.
+
+You now have a full Microsoft 365 E5 tenant, a Dataverse-backed Power Platform environment, and a 30-day Copilot Studio sandbox — all free, all set up in an afternoon.
 
 Build something. Break it. Fix it. That's the job.
