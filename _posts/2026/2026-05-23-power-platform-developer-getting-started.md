@@ -10,7 +10,17 @@ cover: "/assets/posts/2026-05-23-power-platform-developer-getting-started/power-
 thumbnail: "/assets/images/thumbnails/power-platform-getting-started.jpeg"
 ---
 
-Every guide I found when I was starting out assumed you already had a tenant, a license, or an IT team behind you. This one doesn't. Below is the exact setup I wish someone had walked me through — free, step by step, no prerequisites.
+A few years ago I wanted to get started with Power Platform and had no idea where to begin.
+
+Not because the technology was hard. Because nobody could give me a clear answer on where to actually start. Every guide assumed you already had a tenant, a license, or an IT team. Every tutorial started at step three.
+
+I spent way too long going in circles before I figured out there was a free, fully functional developer environment I could have had running in an afternoon.
+
+I wrote the guide I wish someone had handed me. Whether you're a developer, an IT pro, or someone who just heard about Power Platform and wants to build something real — this is where you start.
+
+When someone asks me how to get started with Power Platform, the answer is never "go talk to IT about licensing." There's a free, fully functional developer environment you can have running in under an hour — and most people don't know it exists.
+
+This guide walks you through exactly that setup, step by step. Whether you're a developer, an IT pro, or someone who just discovered Power Platform and wants to build something real — this is where you start.
 
 ---
 
@@ -31,8 +41,6 @@ The **Microsoft 365 Developer Program** gives you a free E5 sandbox tenant with 
 > 🔑 **You now have two accounts — keep them straight.** Your personal Microsoft account (the one you used to sign up) and your new sandbox work account are separate identities. From this point forward, use **only your sandbox work account** (`admin@yourdomain.onmicrosoft.com`) for every Power Platform step in this guide. Signing in with your personal account by accident is the most common source of confusion — things exist in one tenant and not the other, and the error messages don't tell you why.
 
 > 💡 **Use Visual Studio Dev Essentials for a guaranteed auto-renewing sandbox.** The standard developer sandbox renews every 90 days based on activity — if you go quiet, it can expire. If you have (or sign up for) a free Visual Studio Dev Essentials subscription, your M365 sandbox auto-renews for the lifetime of that subscription. No activity tracking, no anxiety. It's free and worth the extra two minutes.
-
-> ⚠️ **Don't let it sit idle.** If you're on the standard sandbox, Microsoft tracks active development usage to decide whether to renew. Build things. Open the tenant. Run flows. Even connecting to Power Platform counts.
 
 ---
 
@@ -63,6 +71,7 @@ Here's the distinction worth understanding: the **default environment** is share
 
 > 💡 **You also get a 90-day Power Automate Premium trial when you first sign in — grab it.** This covers premium triggers, desktop flows (RPA), and AI Builder credits. Don't let it expire before you've explored what it unlocks.
 
+> ⚠️ **Don't let it sit idle.** If you're on the standard sandbox, Microsoft tracks active development usage to decide whether to renew. Build things. Open the tenant. Run flows. Even connecting to Power Platform counts.
 ---
 
 ## Step 3: Add Copilot Studio — Your AI Agent Sandbox
