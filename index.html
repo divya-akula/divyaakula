@@ -252,10 +252,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="subscribe-content">
       <h2>Stay in the loop</h2>
       <p>Get notified when I publish new articles on AI, Power Platform, and responsible innovation.</p>
-      <form class="subscribe-form" onsubmit="event.preventDefault(); this.querySelector('.subscribe-btn').textContent='Thanks!'; this.querySelector('input').disabled=true;">
-        <input type="email" class="subscribe-input" placeholder="your@email.com" required />
-        <button type="submit" class="btn btn-gold subscribe-btn">Subscribe</button>
-      </form>
+       <a href="https://aichronicleswithdiv.substack.com" 
+         target="_blank"
+         class="btn btn-gold subscribe-btn">
+        Subscribe — it's free
+      </a>
+      <span class="subscribe-note">No spam. Unsubscribe anytime.</span>
       <span class="subscribe-note">No spam. Unsubscribe anytime.</span>
     </div>
   </div>
