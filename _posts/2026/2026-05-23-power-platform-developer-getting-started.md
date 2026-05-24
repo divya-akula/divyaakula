@@ -72,6 +72,7 @@ Here's the distinction worth understanding: the **default environment** is share
 > 💡 **You also get a 90-day Power Automate Premium trial when you first sign in — grab it.** This covers premium triggers, desktop flows (RPA), and AI Builder credits. Don't let it expire before you've explored what it unlocks.
 
 > ⚠️ **Don't let it sit idle.** If you're on the standard sandbox, Microsoft tracks active development usage to decide whether to renew. Build things. Open the tenant. Run flows. Even connecting to Power Platform counts.
+
 ---
 
 ## Step 3: Add Copilot Studio — Your AI Agent Sandbox
