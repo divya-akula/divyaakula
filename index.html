@@ -252,16 +252,47 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="subscribe-content">
       <h2>Stay in the loop</h2>
       <p>Get notified when I publish new articles on AI, Power Platform, and responsible innovation.</p>
-      <iframe src="https://aichronicleswithdiv.substack.com/embed"
-        width="100%"
-        height="150"
-        style="border:none; background:transparent;"
-        frameborder="0"
-        scrolling="no">
-      </iframe>
-      <span class="subscribe-note">No spam. Unsubscribe anytime.</span>
+      <form class="subscribe-form" id="substack-form">
+        <input type="email" id="substack-email" class="subscribe-input" placeholder="your@email.com" required />
+        <button type="submit" class="btn btn-gold subscribe-btn" id="substack-btn">Subscribe</button>
+      </form>
+      <span class="subscribe-note" id="substack-msg">No spam. Unsubscribe anytime.</span>
     </div>
   </div>
 </section>
+
+<script>
+document.getElementById('substack-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('substack-email').value;
+  const btn = document.getElementById('substack-btn');
+  const msg = document.getElementById('substack-msg');
+
+  btn.textContent = 'Subscribing...';
+  btn.disabled = true;
+
+  try {
+    await fetch('https://aichronicleswithdiv.substack.com/api/v1/free', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
+
+    // no-cors means we can't read response, assume success
+    document.getElementById('substack-form').style.display = 'none';
+    msg.style.display = 'none';
+    const success = document.createElement('div');
+    success.innerHTML = '<div style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:12px;">✓</div><div style="font-size:clamp(1.2rem,3vw,1.8rem);font-weight:700;margin-bottom:8px;">You\'re subscribed!</div><div style="font-size:1rem;opacity:0.65;">Check your inbox to confirm.</div>';
+    success.style.cssText = 'text-align:center;padding:20px 0;';
+    document.querySelector('.subscribe-content').appendChild(success);
+
+  } catch(err) {
+    btn.textContent = 'Subscribe';
+    btn.disabled = false;
+    msg.textContent = 'Something went wrong. Try again.';
+  }
+});
+</script>
 
 </div>
