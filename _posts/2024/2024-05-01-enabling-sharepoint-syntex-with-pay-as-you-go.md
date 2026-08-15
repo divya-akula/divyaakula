@@ -5,7 +5,11 @@ byline: "Transition seamlessly"
 date:   2024-05-01 08:00:00
 author: Divya Akula
 categories: SharePointPremium
-tags:	MSSyntex Syntex Licensing SharePointPremium
+tags:
+  - Microsoft Syntex
+  - Syntex
+  - Licensing
+  - SharePoint Premium
 cover:  "/assets/posts/2024-05-01-syntex-pay-as-you-go/HumanBeingConfused.jpeg"
 thumbnail: "/assets/images/thumbnails/SyntexHumanConfused.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

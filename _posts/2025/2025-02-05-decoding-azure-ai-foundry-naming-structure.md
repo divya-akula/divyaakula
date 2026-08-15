@@ -5,7 +5,13 @@ byline: "Confusion to clarity"
 date:   2025-02-05 08:00:00
 author: Divya Akula
 categories: OpenAI
-tags:	Azure AIFoundry Foundry OpenAI GenAI LLMs
+tags:
+  - Azure
+  - Azure AI Foundry
+  - Foundry
+  - OpenAI
+  - GenAI
+  - LLMs
 cover:  "/assets/posts/2025-02-05-decoding-azure-ai-foundry-naming-structure/HeaderConfusedFoundrryNames.jpeg"
 thumbnail: "/assets/images/thumbnails/HeaderConfusedFoundrryNames.jpeg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

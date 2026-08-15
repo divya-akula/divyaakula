@@ -5,7 +5,7 @@ byline: "Responsible AI begins with responsible prompting — the human layer th
 date: 2025-12-11 09:00:00
 author: Divya Akula
 categories: ResponsibleAI
-tags: ResponsibleAI, PromptEngineering, EthicalAI, AITrust, Safety, Governance
+tags: Responsible AI, PromptEngineering, EthicalAI, AITrust, Safety, Governance
 cover: "/assets/posts/2025-12-11-responsible-prompting-guidebook/human-carving-ai.jpeg"
 thumbnail: "/assets/images/thumbnails/human-carving-ai.jpg"
 github: "https://github.com/divyaakula/responsible-prompting-guidebook"

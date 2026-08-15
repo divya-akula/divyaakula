@@ -5,7 +5,13 @@ byline: "Making the Right Choice"
 date: 2026-01-28 08:00:00
 author: Divya Akula
 categories: CopilotStudio
-tags: CopilotStudio, Agents, Topics, A2A, Azure Agent SDK, Power Platform,A2A
+tags:
+  - Copilot Studio
+  - Agents
+  - Topics
+  - A2A
+  - Azure Agent SDK
+  - Power Platform
 cover:  "/assets/posts/2026-01-28-topics-vs-agents/topics-vs-agents.jpeg"
 thumbnail: "/assets/images/thumbnails/topics-vs-agents.jpeg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

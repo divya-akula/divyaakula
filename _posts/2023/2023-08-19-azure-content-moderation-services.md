@@ -5,7 +5,10 @@ byline: "The shape of Lord of the Rings - The Fellowship of the Ring"
 date:   2023-08-19 08:00:00
 author: Divya Akula
 categories: OpenAI
-tags:	OpenAI Azure ContentSafety
+tags:
+  - OpenAI
+  - Azure
+  - Content Safety
 cover:  "/assets/posts/2019-12-01-Sentiment-Analysis/header.png"
 thumbnail: "/assets/images/thumbnails/sentiment_analysis.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

@@ -5,7 +5,11 @@ byline: "Beginning notes on CA journey"
 date:   2024-07-15 08:00:00
 author: Divya Akula
 categories: SharePointPremium
-tags:	SPPremium ContentAssembly Insights Documents 
+tags:
+  - SharePoint Premium
+  - Content Assembly
+  - Insights
+  - Documents
 cover:  "/assets/posts/2024-07-15-understanding-content-assembly/CAHeader.jpeg"
 thumbnail: "/assets/images/thumbnails/CAHeader.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

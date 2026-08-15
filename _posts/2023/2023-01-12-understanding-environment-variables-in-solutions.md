@@ -5,7 +5,10 @@ byline: "Defending solutions with variables"
 date:   2023-08-19 08:00:00
 author: Divya Akula
 categories: PowerPlatform
-tags:	Solutions PowerPlatform flows
+tags:
+  - Solutions
+  - Power Platform
+  - Flows
 cover:  "/assets/posts/2023-01-12-understanding-environment-variables-in-solutions/MovingSolutions.png"
 thumbnail: "/assets/images/thumbnails/MovingSolutions.png"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

@@ -5,7 +5,15 @@ byline: "Power Apps, Dataverse, and a free developer environment — everything 
 date: 2026-05-23 08:00:00
 author: Divya Akula
 categories: PowerPlatform
-tags: Power Platform, Copilot Studio, Power Apps, Power Automate, Dataverse, Getting Started, Microsoft 365, Developer
+tags:
+  - Power Platform
+  - Copilot Studio
+  - Power Apps
+  - Power Automate
+  - Dataverse
+  - Getting Started
+  - Microsoft 365
+  - Developer
 cover: "/assets/posts/2026-05-23-power-platform-developer-getting-started/power-platform-getting-started.jpeg"
 thumbnail: "/assets/images/thumbnails/power-platform-getting-started.jpeg"
 ---

@@ -6,7 +6,7 @@ byline: "Building trust in AI starts with human responsibility."
 date:   2025-09-19 08:00:00
 author: Divya Akula
 categories: ResponsibleAI
-tags: ResponsibleAI, HumanAI, KQL Queries, Azure Alerts, Best Practices
+tags: Responsible AI, HumanAI, KQL Queries, Azure Alerts, Best Practices
 cover:  "/assets/posts/2025-09-19-responsible-ai-getting-started/ResponsibleAIWithHuman.jpg"
 thumbnail: "/assets/images/thumbnails/ResponsibleAIWithHuman.jpg"
 github: "<https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis>"

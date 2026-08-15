@@ -5,7 +5,12 @@ byline: "Implemented by Syntex"
 date:   2024-08-08 08:00:00
 author: Divya Akula
 categories: SharePointPremium
-tags:	SPPremium Autofillcoulmns Insights Documents GPTColumns
+tags:
+  - SharePoint Premium
+  - Autofill Columns
+  - Insights
+  - Documents
+  - GPT Columns
 cover:  "/assets/posts/2024-08-08-creating-gpt-powered-autofill-columns/Autofillbanner.jpeg"
 thumbnail: "/assets/images/thumbnails/Designer.png"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

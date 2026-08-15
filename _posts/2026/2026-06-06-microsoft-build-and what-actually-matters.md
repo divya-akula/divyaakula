@@ -4,7 +4,7 @@ title: "Microsoft Build 2026: What Actually Matters"
 date: 2026-06-06
 author: Divya Akula
 categories: MSEvents
-tags: copilot-studio, microsoft-build, responsible-ai, azure-ai, agentic-ai, mai-models, microsoft-foundry
+tags: copilot-studio, microsoft-build, responsibleai, azure-ai, agentic-ai, mai-models, microsoft-foundry
 description: "100+ announcements. Two days. One very strong cup of filter coffee. Here's everything worth your attention from Build 2026 — including the things that shipped quietly the week before it even opened."
 cover: "/assets/posts/2026-06-06-microsoft-build-and-what-actually-matters/MSBuild2026.png"
 thumbnail: "/assets/images/thumbnails/MSBuild2026.jpeg"

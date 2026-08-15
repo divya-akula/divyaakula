@@ -5,7 +5,7 @@ byline: "Breaking the wroongs"
 date: 2026-03-08 08:00:00
 author: Divya Akula
 categories: ResponsibleAI
-tags: CopilotStudio, Agents, Topics, A2A, Azure Agent SDK, Power Platform,A2A, ResponsibleAI
+tags: CopilotStudio, Agents, Topics, A2A, Azure Agent SDK, Power Platform, A2A, Responsible AI
 cover:  "/assets/posts/2026-03-08-five-illusions-responsible-ai-agentic-systems/five-responsibleai.jpeg"
 thumbnail: "/assets/images/thumbnails/five-responsibleai.jpeg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

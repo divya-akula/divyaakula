@@ -5,7 +5,13 @@ byline: "Adaptive Cards, Content Moderation & Teams Integration"
 date: 2026-03-16 08:00:00
 author: Divya Akula
 categories: CopilotStudio
-tags: CopilotStudio, Adaptive Cards, Teams, Power Automate, Content Moderation, Responsible AI
+tags:
+  - Copilot Studio
+  - Adaptive Cards
+  - Teams
+  - Power Automate
+  - Content Moderation
+  - Responsible AI
 cover: "/assets/posts/2026-03-16-copilot-studio-errors-guide/copilot-studio-errors-guide.jpeg"
 thumbnail: "/assets/images/thumbnails/copilot-studio-errors-guide .jpeg"
 ---

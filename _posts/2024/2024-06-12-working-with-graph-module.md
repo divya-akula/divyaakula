@@ -5,7 +5,12 @@ byline: "A Guide to Using Microsoft Graph"
 date:   2024-06-12 08:00:00
 author: Divya Akula
 categories: MicrosoftGraph
-tags:	MSGraph PowerShell MSGraphOnMAC SudoMSGraph M365MSGraph
+tags:
+  - Microsoft Graph
+  - PowerShell
+  - MS Graph on Mac
+  - Sudo MS Graph
+  - M365 MS Graph
 cover:  "/assets/posts/2024-06-12-working-with-graph-module/fotor-ai.jpg"
 thumbnail: "/assets/images/thumbnails/fotor-ai.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

@@ -5,7 +5,13 @@ byline: "A clear-eyed guide to what licenses you actually need and how to build 
 date: 2026-05-09 08:00:00
 author: Divya Akula
 categories: CopilotStudio
-tags: CopilotStudio, Power Platform, Licensing, Low-code AI, Microsoft 365, Getting Started
+tags:
+  - Copilot Studio
+  - Power Platform
+  - Licensing
+  - Low-code AI
+  - Microsoft 365
+  - Getting Started
 cover: "/assets/posts/2026-05-09-copilot-studio-getting-started/copilot-studio-licensing.jpeg"
 thumbnail: "/assets/images/thumbnails/copilot-studio-licensing.jpeg"
 ---

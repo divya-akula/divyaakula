@@ -5,7 +5,11 @@ byline: "Content Assembly in Action"
 date:   2024-10-10 08:00:00
 author: Divya Akula
 categories: SharePointPremium
-tags:	SPPremium DIP Word Templates ContentAssembly
+tags:
+  - SharePoint Premium
+  - DIP
+  - Word Templates
+  - Content Assembly
 cover:  "/assets/posts/2024-10-10-content-assembly-usecase/BannerCAssembly.jpeg"
 thumbnail: "/assets/images/thumbnails/CAassemblyUsecase.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"

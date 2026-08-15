@@ -5,7 +5,9 @@ byline: "Really just basics"
 date:   2024-02-28 08:00:00
 author: Divya Akula
 categories: OpenAI
-tags:	OpenAI AI
+tags:
+  - OpenAI
+  - AI
 cover:  "/assets/posts/2024-02-28-understanding-basics-of-ai/AIHeader.jpeg"
 thumbnail: "/assets/images/thumbnails/AIHeader.jpg"
 github: "https://github.com/4dcu-be/ShapeOfStories-SentimentAnalysis"
