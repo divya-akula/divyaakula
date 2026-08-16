@@ -141,6 +141,33 @@ Three ways to supply them:
   </tbody>
 </table>
 
+### GitHub Copilot Harness: a different credit model
+
+If you're building agents that run in the **GitHub Copilot Harness** rather than the Standard Harness, the credit model is different. Instead of drawing from a Power Platform capacity pack, agents and workflows running in the GitHub Copilot Harness consume **Copilot Credits tied to a GitHub Copilot subscription**.
+
+<div class="post-callout post-callout--info">
+  <span class="post-callout__label">Key difference</span>
+  <p class="post-callout__text">In the GitHub Copilot Harness, even a single workflow <em>trigger</em> counts as a Copilot Credit usage event. Credits come from a GitHub Copilot Individual, Business, or Enterprise subscription — not from a Power Platform billing policy.</p>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Dimension</th><th>Standard Harness</th><th>GitHub Copilot Harness</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Credit source</td><td>Power Platform capacity pack / PAYG / CCCU</td><td>GitHub Copilot subscription credits</td></tr>
+    <tr><td>Billing setup</td><td>PPAC billing policy linked to Azure subscription</td><td>GitHub Copilot plan (Individual / Business / Enterprise)</td></tr>
+    <tr><td>Trigger costs</td><td>Triggers do not count separately</td><td>Every trigger consumes a Copilot Credit</td></tr>
+    <tr><td>Best suited for</td><td>Fixed, process-driven, rule-based workflows</td><td>Reasoning-heavy, open-ended, goal-oriented work</td></tr>
+    <tr><td>Orchestration</td><td>Copilot Studio topics, Power Automate flows</td><td>Agents, workflows, skills, MCP tools</td></tr>
+  </tbody>
+</table>
+
+<div class="post-callout post-callout--warning">
+  <span class="post-callout__label">Heads up</span>
+  <p class="post-callout__text">Copilot Credit and licensing rules evolve quickly. Validate current pricing and consumption details at the <a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot documentation</a> and <a href="https://learn.microsoft.com/microsoft-copilot-studio/billing-licensing?wt.mc_id=MVP_366830" target="_blank" rel="noopener noreferrer">Copilot Studio licensing docs</a> before making architecture or cost decisions.</p>
+</div>
+
 ## Setting up your environment
 
 Copilot Studio runs inside a Power Platform environment. You'll need at least a default environment to get started, but for any real project you should provision separate environments for development, test, and production.
@@ -266,4 +293,4 @@ The most common licensing pitfall is underestimating credit consumption once you
   </p>
 </div>
 
-*Last updated May 2026 · Licensing details subject to change*
+*Last updated August 2026 · Licensing details subject to change*
