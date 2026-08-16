@@ -70,10 +70,12 @@ Here's the distinction worth understanding: the **default environment** is share
 **What the Developer Plan gives you:**
 
 - A dedicated developer environment (separate from your default tenant environment — use this for all your builds)
-- 3 developer environments and 2 GB of Dataverse storage
+- Developer-friendly Dataverse-backed capacity for learning and prototyping
 - Full Power Apps canvas and model-driven app builder
 - Power Automate with standard connectors and cloud flows
 - Dataverse tables, security roles, business rules — the full data platform
+
+> 📌 **Capacity note:** Environment counts, storage entitlements, and trial benefits can change over time. Check the current Power Apps Developer Plan page and your tenant's capacity view in PPAC for the latest limits.
 
 > ⚠️ **Premium connectors are not included.** The Developer Plan covers standard connectors. If you need SQL Server, HTTP (custom APIs), or other premium connectors, you'll need a 90-day Power Apps Premium trial on top of this. Many people build something expecting premium connectivity and then hit a wall — know this upfront.
 
@@ -104,7 +106,18 @@ Copilot Studio is the platform for building AI-powered agents — think knowledg
 - **Multi-agent orchestration** — build child agents and have an orchestrator route between them
 - Publishing to Teams, SharePoint, and web widget channels
 
-> ⚠️ **Watch for throttling.** Trial and developer environments cap at 10 requests per minute and 200 requests per hour. A single Teams conversation can trigger several backend calls. When you hit the limit, the agent goes quiet — it's not broken, it's throttled. Wait a few minutes and it resets. Know this before your first demo.
+### Standard Harness vs GitHub Copilot Harness (quick orientation)
+
+As you start building in Copilot Studio, you'll hear both terms. Here's the practical distinction:
+
+- **Standard Harness** — best when your process is structured, rule-based, and predictable (for example approvals, onboarding, or policy workflows). You define clear steps, triggers, and expected outcomes.
+- **GitHub Copilot Harness** — best when your work is more reasoning-heavy and open-ended, where the agent may need to adapt dynamically and work toward a goal with less rigid flow design.
+
+You're not choosing a different "type" of agent — you're choosing the execution experience around the same Copilot Studio building blocks.
+
+If you're just getting started with Power Platform, begin with **Standard Harness** first, then expand into **GitHub Copilot Harness** for more complex scenarios. For a deeper breakdown, see [GitHub Copilot Harness vs. Standard Harness: The Difference I Initially Missed](/2026/08/12/GithubCopilot-Vs-CopilotStudio-Harness/).
+
+> ⚠️ **Watch for throttling and service protection limits.** Trial and developer environments are intentionally constrained, and limits can change. If your agent goes quiet during testing, check usage and service limits in the latest Microsoft documentation and in your environment telemetry before troubleshooting logic.
 
 > 📌 **On licensing and what happens when the trial ends:** As of September 2025, Copilot Studio moved from the old "sessions" model to **Copilot Credits**. Older blog posts mentioning "25,000 messages" or "billed sessions" are referencing the legacy Power Virtual Agents model. The trial gives you 30 days to explore everything free before credits become relevant. When the trial expires, your agents go into a read-only state — you can still open and edit them in the authoring canvas, but they stop responding to users until the environment has active Copilot Credits assigned. Nothing is deleted; you just can't publish or run until credits are in place. For a full breakdown, see [Copilot Studio, Unlocked: Licenses, Credits & First Steps](/2026/05/09/copilot-studio-getting-started/).
 
@@ -182,8 +195,10 @@ Follow these in order — each step builds on the last.
 
 ---
 
-The biggest mistake I see new developers make is spending weeks on licensing questions before they've built anything. These programs exist precisely so you can build first, understand what you actually need, and then have an informed conversation about production licensing.
+The biggest mistake I see new developers make is spending weeks on licensing questions before they've built anything. These programs exist so you can build first, understand what you actually need, and then have an informed conversation about production licensing.
 
 You now have a full Microsoft 365 E5 tenant, a Dataverse-backed Power Platform environment, and a 30-day Copilot Studio sandbox — all free, all set up in an afternoon.
 
 Build something. Break it. Fix it. That's the job.
+
+*Last updated August 2026 · Platform limits and licensing terms may change — always validate against current Microsoft documentation.*
