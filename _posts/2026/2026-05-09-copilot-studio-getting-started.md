@@ -22,7 +22,7 @@ Microsoft Copilot Studio is the low-code platform for building AI agents that do
 
 Copilot Studio sits at the intersection of conversational AI and business process automation. Built on the Power Platform, it lets you design agents using a visual canvas, natural language, or code — then deploy them to Teams, websites, Dynamics 365, or any custom channel via API.
 
-As of 2025, Copilot Studio supports two orchestration models:
+As of 2026, Copilot Studio supports two orchestration models:
 
 - **Classic orchestration** — deterministic topic-based flows
 - **Generative orchestration** — the LLM dynamically decides which topics and actions to invoke
@@ -132,9 +132,9 @@ Three ways to supply them:
   <tbody>
     <tr><td>Create agents</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
     <tr><td>Publish agents</td><td class="no">✗</td><td class="partial">Teams only</td><td class="yes">All channels</td></tr>
-    <tr><td>Generative AI / GPT</td><td class="yes">✓</td><td class="no">✗</td><td class="yes">✓</td></tr>
+    <tr><td>Generative AI / GPT</td><td class="yes">✓ <small>(test panel only)</small></td><td class="no">✗</td><td class="yes">✓</td></tr>
     <tr><td>Premium connectors</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td></tr>
-    <tr><td>Multi-agent orchestration</td><td class="yes">✓</td><td class="no">✗</td><td class="yes">✓</td></tr>
+    <tr><td>Multi-agent orchestration</td><td class="yes">✓ <small>(test panel only)</small></td><td class="no">✗</td><td class="yes">✓</td></tr>
     <tr><td>Power Automate flows</td><td class="yes">✓</td><td class="partial">Standard only</td><td class="yes">✓</td></tr>
     <tr><td>Custom channels / API</td><td class="no">✗</td><td class="no">✗</td><td class="yes">✓</td></tr>
     <tr><td>Dataverse included</td><td class="no">✗</td><td class="partial">D4T only</td><td class="yes">15 GB</td></tr>
@@ -157,7 +157,7 @@ If you're building agents that run in the **GitHub Copilot Harness** rather than
   <tbody>
     <tr><td>Credit source</td><td>Power Platform capacity pack / PAYG / CCCU</td><td>GitHub Copilot subscription credits</td></tr>
     <tr><td>Billing setup</td><td>PPAC billing policy linked to Azure subscription</td><td>GitHub Copilot plan (Individual / Business / Enterprise)</td></tr>
-    <tr><td>Trigger costs</td><td>Triggers do not count separately</td><td>Every trigger consumes a Copilot Credit</td></tr>
+    <tr><td>Trigger costs</td><td>Governed by Power Automate licensing (not Copilot Credits)</td><td>Every trigger consumes a Copilot Credit</td></tr>
     <tr><td>Best suited for</td><td>Fixed, process-driven, rule-based workflows</td><td>Reasoning-heavy, open-ended, goal-oriented work</td></tr>
     <tr><td>Orchestration</td><td>Copilot Studio topics, Power Automate flows</td><td>Agents, workflows, skills, MCP tools</td></tr>
   </tbody>
@@ -191,7 +191,7 @@ Copilot Studio runs inside a Power Platform environment. You'll need at least a 
     <div class="post-step__num">3</div>
     <div class="post-step__body">
       <h4>Assign licenses in M365 Admin Center</h4>
-      <p>For standalone: purchase the <strong>Copilot Studio</strong> tenant license first, then the <strong>Copilot Studio User License</strong> (free) per maker. Assign via <code>Users → Active users → Manage product licenses</code>. Or scope to an Entra security group for bulk assignment.</p>
+      <p>For standalone: purchase the <strong>Copilot Studio</strong> tenant license first, then assign the <strong>Copilot Studio User License</strong> (no additional charge per maker when the tenant license is active) per maker. Assign via <code>Users → Active users → Manage product licenses</code>. Or scope to an Entra security group for bulk assignment.</p>
     </div>
   </div>
   <div class="post-step">
