@@ -36,7 +36,7 @@ This guide walks you through exactly that setup, step by step. Whether you're a 
 
 Before anything else, you need a tenant — your own Microsoft 365 environment where you're the admin and you control everything.
 
-The **Microsoft 365 Developer Program** gives you a free E5 sandbox tenant with 25 user licenses, preloaded with sample data. E5 is the highest M365 tier — you get Teams, SharePoint, Exchange, and everything that comes with it, all included.
+The **Microsoft 365 Developer Program** typically gives you a free E5 sandbox tenant with sample users and preloaded data. E5 is the highest M365 tier — you get Teams, SharePoint, Exchange, and everything that comes with it, all included.
 
 **How to set it up:**
 
@@ -48,7 +48,7 @@ The **Microsoft 365 Developer Program** gives you a free E5 sandbox tenant with 
 
 > 🔑 **You now have two accounts — keep them straight.** Your personal Microsoft account (the one you used to sign up) and your new sandbox work account are separate identities. From this point forward, use **only your sandbox work account** (`admin@yourdomain.onmicrosoft.com`) for every Power Platform step in this guide. Signing in with your personal account by accident is the most common source of confusion — things exist in one tenant and not the other, and the error messages don't tell you why.
 
-> 💡 **Use Visual Studio Dev Essentials for a guaranteed auto-renewing sandbox.** The standard developer sandbox renews every 90 days based on activity — if you go quiet, it can expire. If you have (or sign up for) a free Visual Studio Dev Essentials subscription, your M365 sandbox auto-renews for the lifetime of that subscription. No activity tracking, no anxiety. It's free and worth the extra two minutes.
+> 💡 **Dev Essentials can help with renewals, but verify current program rules.** Sandbox renewal and eligibility policies can change. Before relying on automatic renewal behavior, confirm the latest guidance in the Microsoft 365 Developer Program documentation.
 
 ---
 
@@ -77,9 +77,9 @@ Here's the distinction worth understanding: the **default environment** is share
 
 > 📌 **Capacity note:** Environment counts, storage entitlements, and trial benefits can change over time. Check the current Power Apps Developer Plan page and your tenant's capacity view in PPAC for the latest limits.
 
-> ⚠️ **Premium connectors are not included.** The Developer Plan covers standard connectors. If you need SQL Server, HTTP (custom APIs), or other premium connectors, you'll need a 90-day Power Apps Premium trial on top of this. Many people build something expecting premium connectivity and then hit a wall — know this upfront.
+> ⚠️ **Premium connectors are not included.** The Developer Plan covers standard connectors. If you need SQL Server, HTTP (custom APIs), or other premium connectors, you may need an additional premium trial or paid license depending on your tenant's current entitlements.
 
-> 💡 **You also get a 90-day Power Automate Premium trial when you first sign in — grab it.** This covers premium triggers, desktop flows (RPA), and AI Builder credits. Don't let it expire before you've explored what it unlocks.
+> 💡 **A Power Automate Premium trial is often offered when you first sign in.** If available in your tenant, use it early to explore premium triggers, desktop flows (RPA), and AI Builder capabilities.
 
 > ⚠️ **Don't let it sit idle.** If you're on the standard sandbox, Microsoft tracks active development usage to decide whether to renew. Build things. Open the tenant. Run flows. Even connecting to Power Platform counts.
 
@@ -106,16 +106,11 @@ Copilot Studio is the platform for building AI-powered agents — think knowledg
 - **Multi-agent orchestration** — build child agents and have an orchestrator route between them
 - Publishing to Teams, SharePoint, and web widget channels
 
-### Standard Harness vs GitHub Copilot Harness (quick orientation)
+### Standard Harness and GitHub Copilot Harness (quick note)
 
-As you start building in Copilot Studio, you'll hear both terms. Here's the practical distinction:
+You don't need the full harness deep-dive in this setup guide: start with **Standard Harness** for structured, process-driven scenarios, and explore **GitHub Copilot Harness** for more open-ended, reasoning-heavy scenarios.
 
-- **Standard Harness** — best when your process is structured, rule-based, and predictable (for example approvals, onboarding, or policy workflows). You define clear steps, triggers, and expected outcomes.
-- **GitHub Copilot Harness** — best when your work is more reasoning-heavy and open-ended, where the agent may need to adapt dynamically and work toward a goal with less rigid flow design.
-
-You're not choosing a different "type" of agent — you're choosing the execution experience around the same Copilot Studio building blocks.
-
-If you're just getting started with Power Platform, begin with **Standard Harness** first, then expand into **GitHub Copilot Harness** for more complex scenarios. For a deeper breakdown, see [GitHub Copilot Harness vs. Standard Harness: The Difference I Initially Missed](/2026/08/12/GithubCopilot-Vs-CopilotStudio-Harness/).
+For the full orientation, read [GitHub Copilot Harness vs. Standard Harness: The Difference I Initially Missed](/2026/08/12/GithubCopilot-Vs-CopilotStudio-Harness/). For licensing and credits context, see [Copilot Studio, Unlocked: Licenses, Credits & First Steps](/2026/05/09/copilot-studio-getting-started/).
 
 > ⚠️ **Watch for throttling and service protection limits.** Trial and developer environments are intentionally constrained, and limits can change. If your agent goes quiet during testing, check usage and service limits in the latest Microsoft documentation and in your environment telemetry before troubleshooting logic.
 
@@ -183,12 +178,12 @@ Follow these in order — each step builds on the last.
 
 - [ ] Sign up for the M365 Developer Program at developer.microsoft.com (personal Microsoft account)
 - [ ] Choose Instant Sandbox and note your new admin work account
-- [ ] *(Optional but recommended)* Link a Visual Studio Dev Essentials subscription for auto-renewal
+- [ ] *(Optional)* Check whether Dev Essentials-linked renewal guidance currently applies to your sandbox
 - [ ] Sign in to make.powerapps.com with your sandbox account to confirm Power Platform access
 - [ ] Activate the Power Apps Developer Plan using your sandbox work account
 - [ ] Go to Power Platform Admin Center — rename your dev environment and verify region
-- [ ] Grab the 90-day Power Automate Premium trial when prompted
-- [ ] Sign in to copilotstudio.microsoft.com and start the 30-day trial
+- [ ] If prompted, activate any available Power Automate Premium trial in your tenant
+- [ ] Sign in to copilotstudio.microsoft.com and start the available Copilot Studio trial
 - [ ] Enrol in PL-900 on Microsoft Learn
 - [ ] Join the Power Platform Community forums
 - [ ] Find and bookmark your nearest user group or bootcamp
@@ -197,7 +192,7 @@ Follow these in order — each step builds on the last.
 
 The biggest mistake I see new developers make is spending weeks on licensing questions before they've built anything. These programs exist so you can build first, understand what you actually need, and then have an informed conversation about production licensing.
 
-You now have a full Microsoft 365 E5 tenant, a Dataverse-backed Power Platform environment, and a 30-day Copilot Studio sandbox — all free, all set up in an afternoon.
+You now have a full Microsoft 365 developer sandbox, a Dataverse-backed Power Platform environment, and a Copilot Studio trial environment — all set up in an afternoon.
 
 Build something. Break it. Fix it. That's the job.
 
