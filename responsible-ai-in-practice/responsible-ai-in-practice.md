@@ -2,7 +2,7 @@
 layout: page
 title: "Responsible AI in Practice: From Intake to Incident"
 permalink: /responsible-ai-in-practice/
-description: "A free, open-source 12-chapter practitioner's handbook on responsible AI governance — from intake to incident response. By Divya Akula."
+description: "A practical 12-chapter handbook on responsible AI governance — from intake to incident response. By Divya Akula."
 image: /assets/images/responsible-ai-book-cover.png
 ---
 
@@ -126,11 +126,11 @@ image: /assets/images/responsible-ai-book-cover.png
     <div class="book-meta">
       <span>📖 12 Chapters</span>
       <span>📝 20,000+ Words</span>
-      <span>🆓 Free & Open Source</span>
-      <span>📄 CC BY-NC-ND 4.0</span>
+      <span>💰 Available on Amazon</span>
+      <span>📘 Practical Governance Guide</span>
     </div>
     <p style="font-size: 0.95rem; color: #666;">By <strong>Divya Akula</strong> — Microsoft MVP | Azure AI & Responsible AI</p>
-    <a href="https://github.com/divya-akula/responsible-ai-in-practice" class="book-cta" target="_blank">⭐ View on GitHub</a>
+    <a href="https://www.amazon.com/dp/B0H36NM7M2" class="book-cta" target="_blank">🛒 Buy on Amazon</a>
   </div>
 </div>
 
@@ -145,8 +145,8 @@ image: /assets/images/responsible-ai-book-cover.png
     allowfullscreen>
   </iframe>
   <p style="font-size: 0.85rem; color: #888; margin-top: 0.5rem;">
-    If the viewer doesn't load, you can 
-    <a href="https://raw.githubusercontent.com/divya-akula/responsible-ai-in-practice/main/output/Responsible_AI_in_Practice_Divya_Akula_v1.pdf" target="_blank">download the PDF directly</a>.
+    If the viewer doesn't load, you can buy the ebook on 
+    <a href="https://www.amazon.com/dp/B0H36NM7M2" target="_blank">Amazon</a>.
   </p>
 </div>
 
@@ -163,5 +163,5 @@ From establishing an AI intake process and conducting risk assessments, through 
 ---
 
 <div class="license-note">
-  <strong>License:</strong> This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">Creative Commons BY-NC-ND 4.0</a>. You are free to share it with attribution for non-commercial purposes. Feedback and contributions are welcome via the <a href="https://github.com/divya-akula/responsible-ai-in-practice" target="_blank">GitHub repository</a>.
+  <strong>Now available:</strong> The ebook is available for purchase on <a href="https://www.amazon.com/dp/B0H36NM7M2" target="_blank">Amazon</a>. The GitHub repository remains a helpful reference and companion resource for readers and contributors.
 </div>

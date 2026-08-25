@@ -246,5 +246,5 @@ The good news is that once you see them clearly, you can build systems that are 
 
 ---
 
-*This post extends ideas from my free ebook, [Responsible AI in Practice: From Intake to Incident](https://github.com/divya-akula/responsible-ai-in-practice), available on GitHub under CC BY-NC-ND 4.0. If you're building enterprise agents and want to talk responsible AI architecture, find me on [LinkedIn](https://www.linkedin.com/in/divyaakula) or at [divyaakula.com](https://divyaakula.com).*
+*This post extends ideas from my ebook, [Responsible AI in Practice: From Intake to Incident](https://www.amazon.com/dp/B0H36NM7M2). If you're building enterprise agents and want to talk responsible AI architecture, find me on [LinkedIn](https://www.linkedin.com/in/divyaakula) or at [divyaakula.com](https://divyaakula.com).*
 
