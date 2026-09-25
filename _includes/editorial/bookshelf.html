@@ -1,0 +1,16 @@
+<div class="bookshelf-grid">
+  {% for book in site.data.books %}
+  <article class="bookshelf-item">
+    {% if book.cover %}<a class="book-cover-link" href="{{ book.links.first.url | escape }}" aria-label="Buy {{ book.title | escape }} on Amazon"><img class="book-cover-image" src="{{ book.cover | relative_url }}" alt="Cover of {{ book.title | escape }} by Divya Akula" width="240" height="360" loading="lazy" decoding="async"></a>{% endif %}
+    <span class="eyebrow">Published book</span>
+    <h3>{{ book.title | escape }}</h3>
+    <p class="book-subtitle">{{ book.subtitle | escape }}</p>
+    <p class="book-description">{{ book.description | escape }}</p>
+    <div class="book-purchase-links">
+      {% for link in book.links %}
+      <a class="{% if forloop.first %}button{% else %}text-link{% endif %}" href="{{ link.url | escape }}" aria-label="{{ link.label | escape }} — {{ book.title | escape }}">{{ link.label | escape }} <span aria-hidden="true">↗</span></a>
+      {% endfor %}
+    </div>
+  </article>
+  {% endfor %}
+</div>

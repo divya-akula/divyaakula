@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title | escape }}{% unless page.url == '/' %} · Divya Akula{% endunless %}</title>
+  {% assign description = page.description | default: page.subtitle | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 %}
+  <meta name="description" content="{{ description | escape }}">
+  <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="Divya Akula" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/icons/divya-akula-logo-gold.png' | relative_url }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:image" content="{{ page.cover | default: site.protocols.fb_image | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+  <meta name="twitter:description" content="{{ description | escape }}">
+  <meta name="twitter:image" content="{{ page.cover | default: site.protocols.twitter_image | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/assets/editorial/editorial.css' | relative_url }}">
+  <script>try{if(localStorage.getItem('editorial-theme')==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+  <script defer src="{{ '/assets/editorial/editorial.js' | relative_url }}"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="{{ '/' | relative_url }}">Divya Akula<span class="wordmark-dot">.</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" hidden>Menu</button>
+    <nav id="primary-nav" aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}#work">Work</a>
+      <a href="{{ '/posts/' | relative_url }}" {% if page.url == '/posts/' %}aria-current="page"{% endif %}>Ideas</a>
+      <a href="{{ '/speaking/' | relative_url }}" {% if page.url == '/speaking/' %}aria-current="page"{% endif %}>Speaking</a>
+      <a href="{{ '/ebook/' | relative_url }}">Books</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a class="button button-small" href="{{ '/contact/' | relative_url }}">Let’s talk</a>
+      <button class="theme-toggle" aria-label="Switch to dark theme" hidden>Dark</button>
+    </nav>
+  </header>
+  <main id="main">{{ content }}</main>
+  <footer class="site-footer">
+    <div class="wrap footer-invitation"><div><span class="eyebrow">A conversation starts here</span><h2>Have something in mind?</h2></div><a href="{{ '/contact/' | relative_url }}">Let’s talk <span aria-hidden="true">↗</span></a></div>
+    <div class="wrap footer-bottom"><span>© {{ site.time | date: '%Y' }} Divya Akula</span><nav aria-label="Footer"><a href="https://github.com/divya-akula">GitHub</a><a href="https://twitter.com/_divyaakula">Twitter</a><a href="{{ '/feed.xml' | relative_url }}">RSS</a><a href="{{ '/policy/' | relative_url }}">Privacy</a></nav><span>Built with Jekyll. Written with curiosity.</span></div>
+  </footer>
+  {% if jekyll.environment == 'production' %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-52L8QKJQMV"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-52L8QKJQMV');</script>
+  {% endif %}
+  {% if page.custom_js %}{% for script in page.custom_js %}<script src="{{ '/js/' | append: script | append: '.js' | relative_url }}"></script>{% endfor %}{% endif %}
+</body>
+</html>

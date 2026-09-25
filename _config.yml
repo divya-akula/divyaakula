@@ -17,6 +17,8 @@ exclude:
   - "pagefind.exe"
   - "pagefind.yaml"
   - "docs"
+  - "REDESIGN.md"
+  - "_config_preview.yml"
 
 # Build website in docs folder so I can use github to host it
 destination: "./docs"
@@ -28,7 +30,7 @@ title: Divya Akula
 subtitle: "Microsoft MVP | Azure AI & Responsible AI Architect"
 email: akula.divya@gmail.com
 name: Divya Akula
-description: "a blog about MSSyntex,PowerPlatform,CoPilot,OpenAI and more"
+description: "Practical writing on enterprise AI, Copilot Studio and responsible innovation by Divya Akula."
 
 # Base URL of site (i.e. /blog). It should always start with a slash,
 # and never end with a slash. Set it to a blank value if hosting at the
@@ -71,7 +73,6 @@ jekyll-archives:
   enabled:
     - categories
     - tags
-    - year
   layout: 'archive'
   permalinks:
     category: '/category/:name/'

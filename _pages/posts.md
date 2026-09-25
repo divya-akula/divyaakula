@@ -1,31 +1,13 @@
 ---
-layout: page
-title: "Posts"
+layout: editorial
+title: Ideas & writing
 permalink: /posts/
 main_nav: true
-cover:  "/assets/images/headers/gameboyzero.jpg"
-include_sticker: true
+description: Articles, practical guides, and field notes on enterprise AI, Copilot Studio, Power Platform and responsible innovation.
 ---
-<div data-pagefind-ignore>
-{% for category in site.categories %}
-  {% capture cat %}{{ category | first }}{% endcapture %}
-  <h2 id="{{cat}}">{{ cat }}</h2>
-  {% for desc in site.descriptions %}
-    {% if desc.cat == cat %}
-<p class="desc"><em>{{ desc.desc }}</em></p>
-    {% endif %}
-  {% endfor %}
-  <ul class="posts-list">
-  {% for post in site.categories[cat] %}
-    <li>
-      <strong>
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </strong>
-      <span class="post-date">- {{ post.date | date_to_long_string }}</span>
-    </li>
-  {% endfor %}
-  </ul>
-  {% if forloop.last == false %}<hr>{% endif %}
-{% endfor %}
-</div>
-![Box with things]({{ '/assets/box_medium.png'| prepend: site.baseurl }}){:.small}
+<section class="wrap section library">
+  <span class="eyebrow">The notebook</span><h1>Ideas built on<br><em>experience.</em></h1><p class="intro">What I’m building, learning, and thinking about.</p>
+  <div class="library-controls" hidden><label for="article-search">Find an article</label><input id="article-search" type="search" placeholder="Search titles, topics, or dates…" autocomplete="off"><div class="topic-filters" role="group" aria-label="Filter articles by topic"><button type="button" data-topic="" aria-pressed="true">All articles</button>{% assign categories = site.categories | sort %}{% for category in categories %}<button type="button" data-topic="{{ category[0] | escape }}" aria-pressed="false">{{ category[0] | replace: 'ResponsibleAI', 'Responsible AI' | replace: 'CopilotStudio', 'Copilot Studio' | replace: 'PowerPlatform', 'Power Platform' | replace: 'SharePointPremium', 'SharePoint Premium' | replace: 'MicrosoftGraph', 'Microsoft Graph' | replace: 'PnPPowerShell', 'PnP PowerShell' | replace: 'MSEvents', 'Microsoft events' | replace: 'cloud-monitoring', 'Cloud monitoring' }}</button>{% endfor %}</div><p id="result-count" class="article-meta" role="status" aria-live="polite"></p></div>
+  <div class="article-list">{% for post in site.posts %}{% include editorial/article-card.html post=post %}{% endfor %}</div><p id="no-results" hidden>No articles match this search. Try another phrase or choose All articles.</p>
+  <div class="archive-years"><span>Browse by year</span>{% assign years = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}{% for year in years %}<a href="{{ '/year/' | append: year.name | append: '/' | relative_url }}">{{ year.name }}</a>{% endfor %}</div>
+</section>

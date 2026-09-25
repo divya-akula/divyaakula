@@ -1,0 +1,21 @@
+{% assign card_image = include.post.thumbnail | default: include.post.cover | replace: '//', '/' %}
+{% if include.featured %}{% assign card_image = include.post.cover | default: card_image %}{% endif %}
+{% assign card_image_file = site.static_files | where: 'path', card_image | first %}
+{% unless card_image_file %}
+  {% assign requested_image = card_image | downcase %}
+  {% for asset in site.static_files %}
+    {% assign asset_path = asset.path | downcase %}
+    {% if asset_path == requested_image %}{% assign card_image_file = asset %}{% assign card_image = asset.path %}{% break %}{% endif %}
+  {% endfor %}
+{% endunless %}
+<article class="article-card{% if card_image_file and include.show_image != false %} has-image{% endif %}{% if include.featured %} featured{% endif %}" data-article data-topics="{{ include.post.categories | jsonify | escape }}">
+  {% if card_image_file and include.show_image != false %}<img class="article-card-image" src="{{ card_image | relative_url }}" alt="{{ include.post.cover_alt | default: '' | escape }}" loading="lazy" decoding="async" width="430" height="269">{% endif %}
+  <div class="article-card-content">
+  <p class="eyebrow">{{ include.post.categories | first | replace: 'ResponsibleAI', 'Responsible AI' | replace: 'CopilotStudio', 'Copilot Studio' | replace: 'PowerPlatform', 'Power Platform' | replace: 'SharePointPremium', 'SharePoint Premium' | replace: 'MicrosoftGraph', 'Microsoft Graph' | replace: 'PnPPowerShell', 'PnP PowerShell' | replace: 'MSEvents', 'Microsoft events' | replace: 'cloud-monitoring', 'Cloud monitoring' | replace: '-', ' ' }}</p>
+  <h3><a href="{{ include.post.url | relative_url }}">{{ include.post.title | escape }}</a></h3>
+  {% if include.featured %}<p class="article-excerpt">{{ include.post.description | default: include.post.subtitle | default: include.post.byline | default: include.post.excerpt | strip_html | normalize_whitespace | truncate: 175 }}</p>{% endif %}
+  {% assign words = include.post.content | strip_html | number_of_words %}{% assign minutes = words | divided_by: 230 | plus: 1 %}
+  <p class="article-meta"><time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%b %-d, %Y' }}</time><span>·</span><span>{{ include.post.reading_time | default: minutes }} min read</span></p>
+  <span class="read-label" aria-hidden="true">Read the article ↗</span>
+  </div>
+</article>

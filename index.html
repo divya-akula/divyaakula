@@ -1,298 +1,34 @@
 ---
-layout: default
-title: "Divya Akula - M365 , Powerplatform, ..."
-show_updated: true
+layout: editorial
+title: Divya Akula · Building AI that earns trust
+description: Practical writing on enterprise AI, Copilot Studio and responsible innovation. By Divya Akula, Microsoft MVP, technologist, author and speaker.
 sitemap: true
 ---
-<div class="home">
-
-<!-- ═══════════ HERO ═══════════ -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        {{ site.subtitle }}
-      </div>
-      <h1 class="hero-h1">Building AI that<br>earns <em>trust</em></h1>
-      <p class="hero-sub">Senior Technical Consultant at Sulava. Responsible AI Architect. Speaker at 25+ global events. Helping organizations adopt AI that's enterprise-ready and ethically grounded.</p>
-      <div class="hero-actions">
-        <a href="#articles" class="btn btn-gold">
-          Read latest insights
-          <i class="fa fa-arrow-right"></i>
-        </a>
-        <a href="https://www.amazon.com/dp/B0H36NM7M2" class="btn btn-outline" target="_blank">Buy the RAI Ebook</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="card-avatar">
-          {% if site.sticker %}
-            <img src="{{ site.sticker | prepend: site.baseurl }}" alt="{{ site.name }}" />
-          {% else %}
-            DA
-          {% endif %}
-        </div>
-        <div class="card-name">{{ site.name }}</div>
-        <div class="card-title">Senior Technical Consultant &middot; Sulava MEA</div>
-        <div class="card-stats">
-          <div class="card-stat">
-            <div class="card-stat-num">15+</div>
-            <div class="card-stat-label">Years</div>
-          </div>
-          <div class="card-stat">
-            <div class="card-stat-num">25+</div>
-            <div class="card-stat-label">Talks</div>
-          </div>
-          <div class="card-stat">
-            <div class="card-stat-num">MVP</div>
-            <div class="card-stat-label">Since '24</div>
-          </div>
-        </div>
-        <div class="card-tags">
-          <span class="card-tag gold">Responsible AI</span>
-          <span class="card-tag">Copilot Studio</span>
-          <span class="card-tag">Azure AI</span>
-          <span class="card-tag">M365</span>
-        </div>
-      </div>
+{% if paginator.page > 1 %}
+<section class="wrap section"><span class="eyebrow">From the archive</span><h1>More from my notebook.</h1><div class="article-list">{% for post in paginator.posts %}{% include editorial/article-card.html post=post %}{% endfor %}</div><nav class="pagination" aria-label="Article pages"><a href="{{ paginator.previous_page_path | relative_url }}">← Newer articles</a><span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>{% if paginator.next_page %}<a href="{{ paginator.next_page_path | relative_url }}">Older articles →</a>{% endif %}</nav></section>
+{% else %}
+<section class="hero wrap">
+  <div class="hero-copy"><p class="eyebrow">Technologist · Author · Speaker</p><h1>Building AI<br>that earns <em>trust.</em></h1><p class="hero-description">I build enterprise AI, share what I learn, and help teams put responsible innovation into practice.</p><div class="actions"><a class="button" href="#work">Explore my work</a><a class="text-link" href="{{ '/speaking/' | relative_url }}">Invite me to speak <span aria-hidden="true">↗</span></a></div></div>
+  <figure class="hero-portrait"><img src="{{ '/assets/editorial/speaking-portrait.jpg' | relative_url }}" width="7008" height="4672" alt="Divya Akula speaking on stage, holding a microphone and presentation remote" fetchpriority="high"><figcaption>Curiosity in the code. Responsibility in the outcome.</figcaption></figure>
+</section>
+<div class="proof wrap" aria-label="Experience"><span>Microsoft MVP</span><span>15+ years in technology</span><span>25+ talks</span><span>Author &amp; community contributor</span></div>
+<section class="wrap section" id="work"><div class="section-heading"><div><span class="eyebrow">What I work on</span><h2>Built with purpose.</h2></div><p>From a first experiment to the decisions<br>that make AI ready for the real world.</p></div>
+<a class="work-row" href="{{ '/posts/' | relative_url }}?topic=CopilotStudio"><span class="row-number">01</span><div><h3>Enterprise AI &amp; agents</h3><p>Copilot Studio, intelligent applications, and lessons from building.</p></div><span class="work-link">Explore the writing <span aria-hidden="true">↗</span></span></a>
+<a class="work-row" href="{{ '/posts/' | relative_url }}?topic=ResponsibleAI"><span class="row-number">02</span><div><h3>Responsible AI in practice</h3><p>Governance, evaluation, and the choices behind trustworthy systems.</p></div><span class="work-link">Explore the writing <span aria-hidden="true">↗</span></span></a></section>
+<section class="wrap section notebook" id="articles">
+  <div class="section-heading"><div><span class="eyebrow">Ideas, experiments &amp; observations</span><h2>From my notebook.</h2></div><a class="text-link" href="{{ '/posts/' | relative_url }}">View all articles <span aria-hidden="true">→</span></a></div>
+  {% assign homepage_posts = site.posts | slice: 0, 3 %}
+  {% assign responsible_posts = site.posts | where_exp: 'post', "post.categories contains 'ResponsibleAI'" | slice: 0, 1 %}
+  {% assign power_posts = site.posts | where_exp: 'post', "post.categories contains 'PowerPlatform'" | slice: 0, 1 %}
+  {% assign homepage_posts = homepage_posts | concat: responsible_posts | concat: power_posts | concat: site.posts | uniq | slice: 0, 5 %}
+  <div class="featured-grid">
+    {% for post in homepage_posts limit:1 %}{% include editorial/article-card.html post=post featured=true %}{% endfor %}
+    <div class="secondary-articles">
+      {% for post in homepage_posts offset:1 %}{% include editorial/article-card.html post=post featured=false show_image=false %}{% endfor %}
     </div>
   </div>
 </section>
-
-<!-- ═══════════ ABOUT ═══════════ -->
-<section class="about-section" id="about">
-  <div class="about-inner">
-    <div class="about-text">
-      <div class="eyebrow">About Me</div>
-      <h2>Hi, I'm Divya</h2>
-      <p>I'm an AI &amp; Microsoft Copilot Solutions Consultant, speaker, and author exploring the intersection of enterprise AI, low-code development, and responsible innovation. I work with Power Platform, Azure OpenAI, and Copilot technologies to help organizations build intelligent applications that solve real business problems.</p>
-      <p>Microsoft ecosystem specialist with 15+ years of experience and 25+ global speaking engagements. Currently focused on building the next generation of enterprise AI solutions grounded in responsible practices.</p>
-      <div class="about-links">
-        <a href="{{ site.baseurl }}/speaking" class="btn btn-outline">Speaking &amp; Events</a>
-        <a href="https://www.amazon.com/Responsible-AI-Practice-Intake-Incident/dp/B0H36NM7M2/" class="btn btn-outline" target="_blank">RAI Ebook on Amazon</a>
-      </div>
-    </div>
-    <div class="about-expertise">
-      <div class="about-card">
-        <span class="about-card-icon">🛡️</span>
-        <span>Responsible AI &amp; Governance</span>
-      </div>
-      <div class="about-card">
-        <span class="about-card-icon">🤖</span>
-        <span>Copilot Studio &amp; Agentic AI</span>
-      </div>
-      <div class="about-card">
-        <span class="about-card-icon">☁️</span>
-        <span>Azure AI &amp; Intelligent Services</span>
-      </div>
-      <div class="about-card">
-        <span class="about-card-icon">⚡</span>
-        <span>Microsoft 365 &amp; Power Platform</span>
-      </div>
-      <div class="about-card">
-        <span class="about-card-icon">📱</span>
-        <span>Omnichannel Conversational AI</span>
-      </div>
-      <div class="about-card">
-        <span class="about-card-icon">✈️</span>
-        <span>Compliance &amp; Regulated Industries</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ ARTICLES ═══════════ -->
-<section class="explore-section" id="articles">
-  <div class="explore-header">
-    <h2>Explore by topic</h2>
-    <p>Click a category to filter. Each color is a different world I work in.</p>
-  </div>
-
-  <!-- Category filter pills -->
-  <div class="topic-filters">
-    <button class="topic-pill topic-pill--active" data-filter="all">
-      All <span class="topic-pill__count">{{ site.posts | size }}</span>
-    </button>
-    {% for category in site.categories %}
-    {% capture cat %}{{ category | first }}{% endcapture %}
-    {% capture label %}{{ site.data.category_labels[cat] | default: cat }}{% endcapture %}
-    <button class="topic-pill" data-filter="{{ cat }}">
-      <span class="topic-dot topic-dot--{{ cat }}"></span>
-      {{ label }} <span class="topic-pill__count">{{ category[1].size }}</span>
-    </button>
-    {% endfor %}
-  </div>
-
-  <!-- Featured post -->
-  {% assign featured = site.posts | where: "featured", true | first %}
-  {% unless featured %}{% assign featured = site.posts | first %}{% endunless %}
-  {% if featured %}
-  <a href="{{ featured.url | prepend: site.baseurl }}" class="explore-featured" data-categories="{{ featured.categories | join: ' ' }}">
-    <div class="explore-featured__visual">
-      {% if featured.thumbnail %}
-      <img src="{{ featured.thumbnail | prepend: site.baseurl }}" alt="{{ featured.title | strip_html }}" loading="lazy" />
-      {% else %}
-      <div class="explore-featured__gradient"></div>
-      {% endif %}
-      <div class="explore-featured__icon">
-        <i class="fa fa-bookmark"></i>
-      </div>
-    </div>
-    <div class="explore-featured__body">
-      {% if featured.categories.size > 0 %}
-      {% assign fcat = featured.categories | first %}
-      <span class="explore-tag explore-tag--{{ fcat }}">{{ site.data.category_labels[fcat] | default: fcat }}</span>
-      {% endif %}
-      <h3>{{ featured.title }}</h3>
-      <p>{{ featured.content | strip_html | truncatewords: 30 }}</p>
-      <span class="explore-featured__cta">
-        Read article <i class="fa fa-arrow-right"></i>
-      </span>
-    </div>
-  </a>
-  {% endif %}
-
-  <!-- Post grid -->
-  <div class="explore-grid" data-pagefind-ignore>
-    {% for post in paginator.posts %}
-    {% if post.url != featured.url %}
-    {% assign words = post.content | number_of_words %}
-    <a href="{{ post.url | prepend: site.baseurl }}" class="explore-card" data-categories="{{ post.categories | join: ' ' }}">
-      <div class="explore-card__visual">
-        {% if post.thumbnail %}
-        <img src="{{ post.thumbnail | prepend: site.baseurl }}" alt="{{ post.title | strip_html }}" loading="lazy" />
-        {% else %}
-        <div class="explore-card__gradient"></div>
-        {% endif %}
-        <div class="explore-card__icon">
-          <i class="fa fa-file-text-o"></i>
-        </div>
-      </div>
-      <div class="explore-card__body">
-        {% if post.categories.size > 0 %}
-        {% assign pcat = post.categories | first %}
-        <span class="explore-tag explore-tag--{{ pcat }}">{{ site.data.category_labels[pcat] | default: pcat }}</span>
-        {% endif %}
-        <h3>{{ post.title }}</h3>
-        <div class="explore-card__meta">
-          <span>{% if words < 360 %}1 min{% else %}{{ words | divided_by:180 }} min{% endif %} read</span>
-          <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-        </div>
-      </div>
-    </a>
-    {% endif %}
-    {% endfor %}
-  </div>
-
-  <!-- Pagination -->
-  <nav class="pagination" role="navigation">
-    <p>
-      {% if paginator.previous_page %}
-        <a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-square fa-stack-2x"></i>
-            <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      {% else %}
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
-      </span>
-      {% endif %}
-      <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-      {% if paginator.next_page %}
-      <a class="newer-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-square fa-stack-2x"></i>
-          <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-        </span>
-      </a>
-      {% else %}
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-square fa-stack-2x"></i>
-        <i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
-      </span>
-      {% endif %}
-    </p>
-  </nav>
-</section>
-
-<!-- Topic filter script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var pills = document.querySelectorAll('.topic-pill');
-  var featured = document.querySelector('.explore-featured');
-  var cards = document.querySelectorAll('.explore-card');
-
-  pills.forEach(function(pill) {
-    pill.addEventListener('click', function() {
-      pills.forEach(function(p) { p.classList.remove('topic-pill--active'); });
-      pill.classList.add('topic-pill--active');
-      var filter = pill.getAttribute('data-filter');
-
-      if (featured) {
-        var fCats = (featured.getAttribute('data-categories') || '').split(' ');
-        featured.style.display = (filter === 'all' || fCats.indexOf(filter) !== -1) ? '' : 'none';
-      }
-
-      cards.forEach(function(card) {
-        var cats = (card.getAttribute('data-categories') || '').split(' ');
-        card.style.display = (filter === 'all' || cats.indexOf(filter) !== -1) ? '' : 'none';
-      });
-    });
-  });
-});
-</script>
-
-<!-- ═══════════ SUBSCRIBE ═══════════ -->
-<section class="subscribe-section" id="subscribe">
-  <div class="subscribe-inner">
-    <div class="subscribe-content">
-      <h2>Stay in the loop</h2>
-      <p>Get notified when I publish new articles on AI, Power Platform, and responsible innovation.</p>
-      <form class="subscribe-form" id="substack-form">
-        <input type="email" id="substack-email" class="subscribe-input" placeholder="your@email.com" required />
-        <button type="submit" class="btn btn-gold subscribe-btn" id="substack-btn">Subscribe</button>
-      </form>
-      <span class="subscribe-note" id="substack-msg">No spam. Unsubscribe anytime.</span>
-    </div>
-  </div>
-</section>
-
-<script>
-document.getElementById('substack-form').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const email = document.getElementById('substack-email').value;
-  const btn = document.getElementById('substack-btn');
-  const msg = document.getElementById('substack-msg');
-
-  btn.textContent = 'Subscribing...';
-  btn.disabled = true;
-
-  try {
-    await fetch('https://aichronicleswithdiv.substack.com/api/v1/free', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    });
-
-    // no-cors means we can't read response, assume success
-    document.getElementById('substack-form').style.display = 'none';
-    msg.style.display = 'none';
-    const success = document.createElement('div');
-    success.innerHTML = '<div style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:12px;">✓</div><div style="font-size:clamp(1.2rem,3vw,1.8rem);font-weight:700;margin-bottom:8px;">You\'re subscribed!</div><div style="font-size:1rem;opacity:0.65;">Check your inbox to confirm.</div>';
-    success.style.cssText = 'text-align:center;padding:20px 0;';
-    document.querySelector('.subscribe-content').appendChild(success);
-
-  } catch(err) {
-    btn.textContent = 'Subscribe';
-    btn.disabled = false;
-    msg.textContent = 'Something went wrong. Try again.';
-  }
-});
-</script>
-
-</div>
+<section class="speaking-feature" id="speaking"><div class="wrap speaking-grid"><figure><img src="{{ '/assets/editorial/speaking-dubai.jpeg' | relative_url }}" width="2048" height="1536" alt="Divya presenting with a microphone at Dubai Technology Entrepreneur Campus" loading="lazy"><figcaption>On stage at Dtec, Dubai.</figcaption></figure><div><span class="eyebrow">Beyond the screen</span><h2>Ideas worth<br> sharing.</h2><p>I speak about the things I build: enterprise agents, responsible AI, and making technology useful.</p>{% include editorial/recordings.html %}<a class="button" href="{{ '/speaking/' | relative_url }}">Speaking &amp; workshops <span aria-hidden="true">↗</span></a></div></div></section>
+<section class="wrap section books-feature" id="books"><div class="section-heading"><div><span class="eyebrow">The bookshelf</span><h2>Ideas in depth.</h2></div></div>{% include editorial/bookshelf.html %}</section>
+<section class="newsletter wrap"><div><span class="eyebrow">AI Chronicles with Div</span><h2>A little more curiosity in your inbox.</h2><p>Notes on AI, Power Platform, and responsible innovation.</p></div><a class="button button-outline" href="https://aichronicleswithdiv.substack.com/subscribe">Subscribe on Substack <span aria-hidden="true">↗</span></a></section>
+{% endif %}

@@ -20,9 +20,8 @@ module Jekyll
       path = 'featured.json'
 
       FileUtils.mkdir_p(File.dirname(path))
-      File.open(path, 'w') do |f|
-        f.write(output.to_json)
-      end
+      json = output.to_json
+      File.write(path, json) unless File.exist?(path) && File.read(path) == json
     end
 
   end

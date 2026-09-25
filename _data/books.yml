@@ -1,0 +1,18 @@
+- title: Responsible AI in Practice
+  cover: /assets/editorial/books/responsible-ai-in-practice.jpg
+  cover_source: https://www.amazon.com/dp/B0H36NM7M2
+  subtitle: From Intake to Incident
+  description: A practical guide to responsible AI governance, with organizational patterns and implementation guidance across twelve chapters.
+  links:
+    - label: Buy on Amazon
+      url: https://www.amazon.com/dp/B0H36NM7M2
+- title: Ultimate Microsoft Power Apps with OpenAI
+  cover: /assets/editorial/books/power-apps-openai.webp
+  cover_source: https://www.amazon.com/dp/8169646332
+  subtitle: Build intelligent enterprise applications
+  description: Bring Power Apps and OpenAI together with practical guidance on prompt engineering, automation, and responsible AI-powered applications.
+  links:
+    - label: Buy on Amazon India
+      url: https://www.amazon.in/dp/8169646332
+    - label: Amazon International
+      url: https://www.amazon.com/dp/8169646332
