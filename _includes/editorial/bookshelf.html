@@ -2,7 +2,7 @@
   {% for book in site.data.books %}
   <article class="bookshelf-item">
     {% if book.cover %}<a class="book-cover-link" href="{{ book.links.first.url | escape }}" aria-label="Buy {{ book.title | escape }} on Amazon"><img class="book-cover-image" src="{{ book.cover | relative_url }}" alt="Cover of {{ book.title | escape }} by Divya Akula" width="240" height="360" loading="lazy" decoding="async"></a>{% endif %}
-    {% unless include.compact %}<span class="eyebrow">Published book</span>{% endunless %}
+    <span class="eyebrow">Published book</span>
     <h3>{{ book.title | escape }}</h3>
     <p class="book-subtitle">{{ book.subtitle | escape }}</p>
     <p class="book-description">{{ book.description | escape }}</p>
