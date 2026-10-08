@@ -46,3 +46,29 @@
 
 /* Keep homepage artwork secondary to the writing. */
 .notebook .featured .article-card-image{max-height:240px;object-position:center top}
+
+/* Compact homepage bookshelf; full book listings retain their existing layout. */
+.books-feature{padding-block:20px 44px}
+.books-feature .section-heading{margin-bottom:24px}
+.books-feature .section-heading .eyebrow{margin-bottom:10px}
+.books-feature .bookshelf-grid{gap:28px}
+.books-feature .bookshelf-item{padding-top:18px}
+.books-feature .book-cover-link{height:232px;padding:12px;margin-bottom:18px}
+.books-feature .book-cover-image{max-height:208px}
+.books-feature .bookshelf-item h3{margin-bottom:12px}
+.books-feature .book-subtitle{line-height:1.5;margin-bottom:10px}
+.books-feature .book-description{margin-bottom:16px}
+.books-feature .book-purchase-links{gap:10px 18px;padding-top:4px}
+.books-feature .book-purchase-links .button{min-height:48px;padding:10px 18px;font-size:14px;gap:18px}
+.books-feature .book-purchase-links .text-link{padding-block:8px}
+@media(max-width:760px){
+  .books-feature{padding-block:12px 24px}
+  .books-feature .section-heading{margin-bottom:18px}
+  .books-feature .bookshelf-grid{gap:22px}
+  .books-feature .bookshelf-item{padding-top:12px}
+  .books-feature .book-cover-link{height:160px;margin-bottom:16px}
+  .books-feature .book-cover-image{max-height:136px}
+  .books-feature .book-subtitle{margin-bottom:8px}
+  .books-feature .book-description{margin-bottom:12px}
+  .books-feature .book-purchase-links{flex-direction:row;align-items:center;gap:10px 16px}
+}
